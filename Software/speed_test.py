@@ -12,6 +12,8 @@ import lcddriver #LCD I2C LIBRARY
 import time
 
 ##### SETUP ##### 
+display = lcddriver.lcd()
+
 # MOTOR
 motor_in3 = 23
 motor_in4 = 24

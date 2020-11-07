@@ -4,6 +4,8 @@ import lcddriver #LCD I2C LIBRARY
 import time
 
 ##### SETUP ##### 
+display = lcddriver.lcd()
+
 # MOTOR
 motor_in1 = 23
 motor_in2 = 24
@@ -308,7 +310,7 @@ try:
     while True:
         display.lcd_display_string("SET  : " + str(expected)+" RPM", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
-        
+
         time.sleep(6)
 
 except KeyboardInterrupt: 
