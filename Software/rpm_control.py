@@ -133,15 +133,19 @@ display.lcd_display_string("  SPIN  COATER  ", 1) #PRINT LINE 1
 display.lcd_display_string(" RPM CONTROLLER ", 2) #PRINT LINE 2
 time.sleep(2)
 
-display.lcd_display_string("       BY       ", 1) #PRINT LINE 2
+display.lcd_display_string("       BY       ", 1) #PRINT LINE 1
 display.lcd_display_string("  YETKIN AKYUZ  ", 2) #PRINT LINE 2
 time.sleep(2)
 
 display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
+display.lcd_display_string("",2) #CLEAN LINE 2
 for i in range (16):
     x = '#' * i
     display.lcd_display_string(x, 2) #PRINT LINE 2
-    time.sleep(0.4)
+    time.sleep(0.2)
+
+display.lcd_display_string("",1) #CLEAN LINE 1
+display.lcd_display_string("",2) #CLEAN LINE 2
 
 GPIO.add_event_detect(ir_sensor, GPIO.RISING, callback=get_rpm)
 
