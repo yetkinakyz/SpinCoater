@@ -8,7 +8,7 @@ SPIN COATER SPEED TEST SOFTWARE
 
 ##### LIBRARIES #####
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
-import RPi_I2C_driver #LCD I2C LIBRARY
+import lcddriver #LCD I2C LIBRARY
 import time
 
 ##### SETUP ##### 
@@ -89,7 +89,7 @@ print("Help:\t'help'")
 print("Exit:\t'exit'\n")
 
 # LCD MESSAGE
-RPi_I2C_driver.lcd().lcd_display_string("MOTOR SPEED TEST",1)  #PRINT LINE 1
+display.lcd_display_string("MOTOR SPEED TEST",1)  #PRINT LINE 1
 
 # EXECUTE get_rpm MODULE IF IR_SENSOR CAPTURES ANY CHANGE OF MOTOR SPEED
 GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback=get_rpm)
@@ -166,7 +166,7 @@ try:
 
         #EXIT COMMAND
         elif option == "exit": 
-            RPi_I2C_driver.lcd().lcd_display_string(" ",1)  #CLEAN LINE 1
+            display.lcd_display_string(" ",1)  #CLEAN LINE 1
             break   
 
         #IF OPTION IS NON OF THEM
@@ -175,5 +175,5 @@ try:
             print("[  i  ] Type help to see command list.")
          
 except KeyboardInterrupt: 
- 	RPi_I2C_driver.lcd().lcd_display_string(" ",1) #CLEAN LINE 1
+ 	display.lcd_display_string(" ",1) #CLEAN LINE 1
  	GPIO.cleanup()
