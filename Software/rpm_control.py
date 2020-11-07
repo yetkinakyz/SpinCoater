@@ -68,12 +68,12 @@ def speed_control(c, r, p):
     if r == 0 or r == p:
         print("NEUTRAL")
 
-    elif (n > 25):
+    elif (n > 15):
         speed = speed + 0.1
         motor.ChangeDutyCycle(speed)
         print("LOW")
 
-    elif (n < -25):
+    elif (n < -15):
         speed = speed - 0.1
         motor.ChangeDutyCycle(speed)
         print("HIGH")
@@ -93,19 +93,19 @@ def get_rpm(c):
         sample = 3
 
     elif rpm > 250 and rpm < 400:
-        sample = 6
+        sample = 3
 
     elif rpm > 400 and rpm < 560:
-        sample = 30
+        sample = 3
 
     elif rpm > 560 and rpm < 1000:
-        sample = 60
+        sample = 3
 
     elif rpm > 1000 and rpm < 3500:
-        sample = 60
+        sample = 3
 
     elif rpm > 3500:
-        sample = 60
+        sample = 3
     
     if count == 0: 
             set_start()        
