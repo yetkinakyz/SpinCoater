@@ -305,7 +305,7 @@ elif inpt == -1:
 
 try:
     while True:
-        RPi_I2C_driver.lcd().lcd_display_string("SET  : " + str(expected)+" RPM", 1)
+        RPi_I2C_driver.lcd().lcd_display_string("SET  : " + str(expected)+" RPM", 1) #PRINT LINE 1
         time.sleep(3)
         RPi_I2C_driver.lcd().lcd_display_string("SPEED: " + str(rpm)+" RPM", 1) #PRINT LINE 2
         time.sleep(3)
