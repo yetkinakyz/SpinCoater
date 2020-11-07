@@ -93,19 +93,19 @@ def get_rpm(c):
         sample = 3
 
     elif rpm > 250 and rpm < 400:
-        sample = 3
+        sample = 12
 
     elif rpm > 400 and rpm < 560:
-        sample = 3
+        sample = 24
 
     elif rpm > 560 and rpm < 1000:
-        sample = 3
+        sample = 30
 
     elif rpm > 1000 and rpm < 3500:
-        sample = 3
+        sample = 60
 
     elif rpm > 3500:
-        sample = 3
+        sample = 120
     
     if count == 0: 
             set_start()        
