@@ -149,12 +149,20 @@ display.lcd_display_string("            ",2) #CLEAN LINE 2
 
 GPIO.add_event_detect(ir_sensor, GPIO.RISING, callback=get_rpm)
 
-display.lcd_display_string("SET  : 0 RPM",1) #PRINT LINE 1
-display.lcd_display_string("SPEED: 0 RPM",2) #PRINT LINE 2
+display.lcd_display_string("SET  : 0 RPM    ",1) #PRINT LINE 1
+display.lcd_display_string("SPEED: 0 RPM    ",2) #PRINT LINE 2
 
 inpt = float(input("Set RPM: "))
+
 expected = inpt
 expected = int(expected)
+
+display.lcd_clear()
+display.lcd_display_string("  SPEED  VALUE  ",1) #PRINT LINE 1
+display.lcd_display_string(" SET: " + str(expected) + " RPM ",2) #PRINT LINE 2
+time.sleep(2)
+
+display.lcd_clear()
 
 if inpt == 180:
     speed = 3
