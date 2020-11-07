@@ -66,7 +66,7 @@ def speed_control(c, r, p):
     print(str(r) + "\n")
 
     if r == 0 or r == p:
-        print("N")
+        print("NEUTRAL")
 
     elif (n > 25):
         speed = speed + 0.1
@@ -79,7 +79,7 @@ def speed_control(c, r, p):
         print("HIGH")
 
     else:
-        print("N")
+        print("NEUTRAL")
 
 # GET RPM
 def get_rpm(c):
@@ -337,7 +337,7 @@ try:
         display.lcd_display_string("SET  : " + str(expected)+" RPM", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
 
-        time.sleep(6)
+        time.sleep(3)
 
 except KeyboardInterrupt: 
     display.lcd_clear()
