@@ -1,6 +1,6 @@
 ##### LIBRARIES #####
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
-import RPi_I2C_driver #LCD I2C LIBRARY
+import lcddriver #LCD I2C LIBRARY
 import time
 
 ##### SETUP ##### 
@@ -305,13 +305,11 @@ elif inpt == -1:
 
 try:
     while True:
-        RPi_I2C_driver.lcd().lcd_display_string("SET  : " + str(expected)+" RPM", 1) #PRINT LINE 1
+        display.lcd_display_string("SET  : " + str(expected)+" RPM", 1) #PRINT LINE 1
         time.sleep(3)
-        RPi_I2C_driver.lcd().lcd_display_string("SPEED: " + str(rpm)+" RPM", 1) #PRINT LINE 2
+        display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 1) #PRINT LINE 2
         time.sleep(3)
 
 except KeyboardInterrupt: 
-    RPi_I2C_driver.lcd().lcd_display_string(" ", 1) #CLEAN LINE 1
-    RPi_I2C_driver.lcd().lcd_display_string(" ", 2) #CLEAN LINE 2
-
+    display.lcd_clear()
     GPIO.cleanup()
