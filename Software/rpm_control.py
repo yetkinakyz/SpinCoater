@@ -370,25 +370,21 @@ try:
         else:
             print("ACCELERATED!")
             
-            t_end = time.time() + t
-            a = 0
-            while time.time() < t_end:
-                if time.time() >= t_end:
-                    break
-                a = a + 1
+            t_end = t
 
+            while t_end > 0:
+                
                 display.lcd_clear()
-                display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
+                display.lcd_display_string("TIME : " + str(t_end)+" SEC", 1) #PRINT LINE 1
                 display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
 
                 time.sleep(1)
-            
+                t_end = t_end - 1
+
             display.lcd_clear()
             display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
-            print("\n")
-            print(a)
 
-            break
+        break
 
 except KeyboardInterrupt: 
     GPIO.cleanup()
