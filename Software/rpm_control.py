@@ -59,7 +59,8 @@ def set_end():
 #MOTOR SPEED CONTROL
 def speed_control(c, r, p):   
     global speed
-    
+    global check
+
     n = c - r
 
     print(str(speed)+"\n")
@@ -133,18 +134,18 @@ print("Welcome!\n")
 
 display.lcd_display_string("  SPIN  COATER  ", 1) #PRINT LINE 1
 display.lcd_display_string(" RPM CONTROLLER ", 2) #PRINT LINE 2
-time.sleep(2)
+time.sleep(1)
 
 display.lcd_display_string("       BY       ", 1) #PRINT LINE 1
 display.lcd_display_string("  YETKIN AKYUZ  ", 2) #PRINT LINE 2
-time.sleep(2)
+time.sleep(1)
 
 display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
 display.lcd_display_string("                ",2) #CLEAN LINE 2
 for i in range (16):
     x = '#' * i
     display.lcd_display_string(x, 2) #PRINT LINE 2
-    time.sleep(0.2)
+    time.sleep(0.1)
 
 display.lcd_display_string("            ",1) #CLEAN LINE 1
 display.lcd_display_string("            ",2) #CLEAN LINE 2
@@ -163,11 +164,11 @@ display.lcd_clear()
 display.lcd_display_string("  SPEED  VALUE  ",1) #PRINT LINE 1
 display.lcd_display_string(" SET: " + str(expected) + " RPM ",2) #PRINT LINE 2
 
-time.sleep(2)
+time.sleep(1)
 
 display.lcd_clear()
-display.lcd_display_string("SET:    " + "0 RPM",1) #PRINT LINE 1
-display.lcd_display_string("        0 SEC",2) #PRINT LINE 2
+display.lcd_display_string("SET:    " + str(expected) + " RPM",1) #PRINT LINE 1
+display.lcd_display_string("        " + str(expected_t) + " SEC",2) #PRINT LINE 2
 
 t = int(input("Set Time (sec): "))
 
@@ -175,7 +176,7 @@ display.lcd_clear()
 display.lcd_display_string("   TIME  VALUE  ",1) #PRINT LINE 1
 display.lcd_display_string(" SET: " + str(expected) + " SEC ",2) #PRINT LINE 2
 
-time.sleep(2)
+time.sleep(1)
 
 t_end = time.time() + t
 
@@ -349,13 +350,14 @@ elif inpt == -1:
 
 try:
     while time.time() < t_end:
+        display.lcd_clear()
 
         display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
         display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
 
         time.sleep(1)
 
-        for i in range (3):    
+        for i in range (6):    
             display.lcd_clear()
 
             display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
