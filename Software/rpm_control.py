@@ -56,6 +56,32 @@ def set_end():
         global end
         end = time.time()
 
+#MOTOR SPEED CONTROL
+def speed_control(c, r, p):   
+    global speed
+    
+    n = c - r
+
+    print(str(speed)+"\n")
+    print(str(c))
+    print(str(r) + "\n")
+
+    if r == 0 or r == p:
+        print("NEUTRAL")
+
+    elif (n > 15):
+        speed = speed + 0.1
+        motor.ChangeDutyCycle(speed)
+        print("LOW")
+
+    elif (n < -15):
+        speed = speed - 0.1
+        motor.ChangeDutyCycle(speed)
+        print("HIGH")
+
+    else:
+        print("NEUTRAL")
+
 # GET RPM
 def get_rpm(c):
     global count
