@@ -357,28 +357,31 @@ display.lcd_clear()
 display.lcd_display_string(" MOTOR STARTING ",1) #PRINT LINE 1
 
 try:
-    if check == False:
-        print("SPEEDING")
-        time.sleep(1)
-    else:    
-        while time.time() < t_end:
-            display.lcd_clear()
-
-            display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
-            display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
-
+    while True:
+        if check == False:
+            print("SPEEDING...")
             time.sleep(1)
-
-            for i in range (9):    
+        else:    
+            while time.time() < t_end:
                 display.lcd_clear()
 
-                display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
-                display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
+                display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
+                display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
 
                 time.sleep(1)
-        
-        display.lcd_clear()
-        display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
+
+                for i in range (9):    
+                    display.lcd_clear()
+
+                    display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
+                    display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
+
+                    time.sleep(1)
+            
+            display.lcd_clear()
+            display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
+
+            break
 
 except KeyboardInterrupt: 
     GPIO.cleanup()
