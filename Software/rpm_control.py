@@ -195,22 +195,22 @@ elif inpt > 560 and inpt < 1000:
     inpt = -1
 
 elif inpt == 1000:
-    speed = 7
+    speed = 5
     motor.ChangeDutyCycle(speed)
     inpt = -1
 
 elif inpt > 1000 and inpt < 1500:
-    speed = 7
+    speed = 6
     motor.ChangeDutyCycle(speed)
     inpt = -1
 
 elif inpt == 1500:
-    speed = 9
+    speed = 7 #KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL
     motor.ChangeDutyCycle(speed)
     inpt = -1
 
 elif inpt > 1500 and inpt < 2000:
-    speed = 9
+    speed = 7
     motor.ChangeDutyCycle(speed)
     inpt = -1
 
