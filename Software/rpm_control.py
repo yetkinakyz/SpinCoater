@@ -46,6 +46,8 @@ expected = -1
 expected_t = 0
 inpt = -1
 
+check = False
+
 #SET START TIME
 def set_start():
  	global start
@@ -73,16 +75,19 @@ def speed_control(c, r, p):
     elif (n > 15):
         speed = speed + 0.1
         motor.ChangeDutyCycle(speed)
+
         print("LOW")
 
     elif (n < -15):
         speed = speed - 0.1
         motor.ChangeDutyCycle(speed)
+
         print("HIGH")
 
     else:
+        check = True
         print("NEUTRAL")
-
+        
 # GET RPM
 def get_rpm(c):
     global count
@@ -348,25 +353,32 @@ elif inpt == 7200:
 elif inpt == -1:
     print("NOTHING")
 
+display.lcd_clear()
+display.lcd_display_string(" MOTOR STARTING ",1) #PRINT LINE 1
+
 try:
-    while time.time() < t_end:
-        display.lcd_clear()
-
-        display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
-        display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
-
+    if check == False:
+        print("SPEEDING")
         time.sleep(1)
-
-        for i in range (6):    
+    else:    
+        while time.time() < t_end:
             display.lcd_clear()
 
-            display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
-            display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
+            display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
+            display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
 
             time.sleep(1)
-    
-    display.lcd_clear()
-    display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
+
+            for i in range (9):    
+                display.lcd_clear()
+
+                display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
+                display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
+
+                time.sleep(1)
+        
+        display.lcd_clear()
+        display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
 
 except KeyboardInterrupt: 
     GPIO.cleanup()
