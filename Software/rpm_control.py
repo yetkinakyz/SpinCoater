@@ -43,7 +43,8 @@ end = 0
 rpm = 0
 
 expected = -1
-inpt = -1
+expected_t = 0
+r = -1
 
 #SET START TIME
 def set_start():
@@ -328,9 +329,9 @@ GPIO.add_event_detect(ir_sensor, GPIO.RISING, callback=get_rpm)
 display.lcd_display_string("SET  : 0 RPM    ",1) #PRINT LINE 1
 display.lcd_display_string("SPEED: 0 RPM    ",2) #PRINT LINE 2
 
-inpt = float(input("Set RPM: "))
+r = float(input("Set RPM: "))
 
-expected = inpt
+expected = r
 expected = int(expected)
 
 display.lcd_clear()
@@ -352,15 +353,15 @@ display.lcd_display_string(" SET: " + str(expected) + " SEC ",2) #PRINT LINE 2
 
 time.sleep(2)
 
-motor_start(inpt)
+motor_start(r)
 
 try:
     while t > 0:
         display.lcd_display_string("SET:    " + str(expected_t) + " SEC",1) #PRINT LINE 1
-        display.lcd_display_string("        " + str(rpm) +" RPM",2) #PRINT LINE 2
+        display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
 
-        t = t - 2
-        time.sleep(2)
+        t = t - 1
+        time.sleep(1)
 
         for i in range (3):    
             display.lcd_clear()
