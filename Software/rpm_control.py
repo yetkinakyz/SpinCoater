@@ -157,6 +157,7 @@ display.lcd_display_string("            ",2) #CLEAN LINE 2
 
 GPIO.add_event_detect(ir_sensor, GPIO.RISING, callback=get_rpm)
 
+display.lcd_clear()
 display.lcd_display_string("SET:    " + str(0) + " SEC",1) #PRINT LINE 1
 display.lcd_display_string("        " + str(0) +" RPM",2) #PRINT LINE 2
 
