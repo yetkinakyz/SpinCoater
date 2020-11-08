@@ -377,6 +377,7 @@ try:
                     display.lcd_clear()
 
                     display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
+                    print(int(t_end-time.time()))
                     display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
 
                     time.sleep(1)
