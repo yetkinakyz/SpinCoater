@@ -367,7 +367,9 @@ try:
         if check == False:
             print("ACCELERATING...")
             time.sleep(1)
+            
         else:
+
             print("ACCELERATED!")
             
             t_end = t
