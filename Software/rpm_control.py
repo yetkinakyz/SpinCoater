@@ -55,6 +55,181 @@ def set_end():
         global end
         end = time.time()
 
+#MOTOR START
+def motor_start(inpt):
+
+    if inpt == 180:
+        speed = 3
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 180 and inpt < 400:
+        speed = 3
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 400:
+        speed = 4.5
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 400 and inpt < 560:
+        speed = 4.5
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 560:
+        speed = 5
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 560 and inpt < 1000:
+        speed = 5
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 1000:
+        speed = 5
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 1000 and inpt < 1500:
+        speed = 6
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 1500:
+        speed = 7 #KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 1500 and inpt < 2000:
+        speed = 7
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 2000:
+        speed = 11.5
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 2000 and inpt < 2500:
+        speed = 11.5
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 2500:
+        speed = 14
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 2500 and inpt < 3000:
+        speed = 14
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 3000:
+        speed = 16.65
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 3000 and inpt < 3500:
+        speed = 16.65
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 3500:
+        speed = 20
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 3500 and inpt < 4000:
+        speed = 20
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 4000:
+        speed = 23.62
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 4000 and inpt < 4500:
+        speed = 23.62
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 4500:
+        speed = 28
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 4500 and inpt < 5000:
+        speed =28
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 5000:
+        speed = 33
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 5000 and inpt < 5500:
+        speed = 33
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 5500:
+        speed = 38.6
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 5500 and inpt < 6000:
+        speed = 38.6
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 6000:
+        speed = 44.9
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 6000 and inpt < 6500:
+        speed = 44.9
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 6500:
+        speed = 55
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 6500 and inpt < 7000:
+        speed = 55
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 7000:
+        speed = 65
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt > 7000 and inpt < 7200:
+        speed = 65
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 7200:
+        speed = 70
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == 0:
+        speed = 0
+        motor.ChangeDutyCycle(speed)
+        inpt = -1
+
+    elif inpt == -1:
+        print("NOTHING")
 #MOTOR SPEED CONTROL
 def speed_control(c, r, p):   
     global speed
@@ -127,6 +302,7 @@ def get_rpm(c):
 
             speed_control(expected, rpm, rpm_pre)
 
+
 print("Welcome!\n")
 
 display.lcd_display_string("  SPIN  COATER  ", 1) #PRINT LINE 1
@@ -160,185 +336,48 @@ expected = int(expected)
 display.lcd_clear()
 display.lcd_display_string("  SPEED  VALUE  ",1) #PRINT LINE 1
 display.lcd_display_string(" SET: " + str(expected) + " RPM ",2) #PRINT LINE 2
+
 time.sleep(2)
 
 display.lcd_clear()
+display.lcd_display_string("SET:    " + "0 RPM",1) #PRINT LINE 1
+display.lcd_display_string("        0 SEC",2) #PRINT LINE 2
 
-if inpt == 180:
-    speed = 3
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
+t = int(input("Set Time (sec): "))
+expected_t = t
 
-elif inpt > 180 and inpt < 400:
-    speed = 3
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
+display.lcd_clear()
+display.lcd_display_string("   TIME  VALUE  ",1) #PRINT LINE 1
+display.lcd_display_string(" SET: " + str(expected) + " SEC ",2) #PRINT LINE 2
 
-elif inpt == 400:
-    speed = 4.5
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
+time.sleep(2)
 
-elif inpt > 400 and inpt < 560:
-    speed = 4.5
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 560:
-    speed = 5
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 560 and inpt < 1000:
-    speed = 5
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 1000:
-    speed = 5
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 1000 and inpt < 1500:
-    speed = 6
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 1500:
-    speed = 7 #KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL KONTROL
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 1500 and inpt < 2000:
-    speed = 7
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 2000:
-    speed = 11.5
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 2000 and inpt < 2500:
-    speed = 11.5
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 2500:
-    speed = 14
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 2500 and inpt < 3000:
-    speed = 14
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 3000:
-    speed = 16.65
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 3000 and inpt < 3500:
-    speed = 16.65
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 3500:
-    speed = 20
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 3500 and inpt < 4000:
-    speed = 20
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 4000:
-    speed = 23.62
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 4000 and inpt < 4500:
-    speed = 23.62
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 4500:
-    speed = 28
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 4500 and inpt < 5000:
-    speed =28
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 5000:
-    speed = 33
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 5000 and inpt < 5500:
-    speed = 33
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 5500:
-    speed = 38.6
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 5500 and inpt < 6000:
-    speed = 38.6
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 6000:
-    speed = 44.9
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 6000 and inpt < 6500:
-    speed = 44.9
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 6500:
-    speed = 55
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 6500 and inpt < 7000:
-    speed = 55
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 7000:
-    speed = 65
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt > 7000 and inpt < 7200:
-    speed = 65
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == 7200:
-    speed = 70
-    motor.ChangeDutyCycle(speed)
-    inpt = -1
-
-elif inpt == -1:
-    print("NOTHING")
+motor_start(inpt)
 
 try:
-    while True:
-        display.lcd_display_string("SET  : " + str(expected)+" RPM", 1) #PRINT LINE 1
-        display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
+    while t > 0:
+        for i in range (3):           
+            display.lcd_clear()
 
-        time.sleep(3)
+            display.lcd_display_string("TIME : " + str(t)+" SEC", 1) #PRINT LINE 1
+            display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
+
+            t = t - 1
+            time.sleep(1)
+        
+        for i in range (3):
+            display.lcd_clear()
+
+            display.lcd_display_string("SET:    " + str(expected_t) + " SEC",1) #PRINT LINE 1
+            display.lcd_display_string("        " + str(rpm) +" RPM",2) #PRINT LINE 2
+
+            t = t - 1
+            time.sleep(1)
+    
+    motor_start(0)
+
+    display.lcd_clear()
+    display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
 
 except KeyboardInterrupt: 
-    display.lcd_clear()
     GPIO.cleanup()
