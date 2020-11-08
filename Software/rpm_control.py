@@ -1,5 +1,4 @@
 ##### LIBRARIES #####
-from time import time_ns
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
 import lcddriver #LCD I2C LIBRARY
 import time
@@ -374,7 +373,7 @@ try:
                 for i in range (9):
                     if time.time() >= t_end:
                         break
-                        
+
                     display.lcd_clear()
 
                     display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
