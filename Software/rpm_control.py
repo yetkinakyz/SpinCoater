@@ -183,6 +183,13 @@ display.lcd_display_string(" SET: " + str(expected) + " SEC ",2) #PRINT LINE 2
 
 time.sleep(1)
 
+display.lcd_clear()
+
+display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
+display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
+
+time.sleep(2)
+
 if inpt == 180:
     speed = 3
     motor.ChangeDutyCycle(speed)
@@ -363,12 +370,6 @@ try:
             t_end = time.time() + t
 
             while time.time() < t_end:
-                display.lcd_clear()
-
-                display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
-                display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
-
-                time.sleep(1)
 
                 for i in range (9):
                     if time.time() >= t_end:
