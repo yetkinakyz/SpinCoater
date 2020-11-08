@@ -340,7 +340,6 @@ display.lcd_display_string("SET:    " + "0 RPM",1) #PRINT LINE 1
 display.lcd_display_string("        0 SEC",2) #PRINT LINE 2
 
 t = int(input("Set Time (sec): "))
-expected_t = t
 
 display.lcd_clear()
 display.lcd_display_string("   TIME  VALUE  ",1) #PRINT LINE 1
@@ -348,23 +347,24 @@ display.lcd_display_string(" SET: " + str(expected) + " SEC ",2) #PRINT LINE 2
 
 time.sleep(2)
 
+t_end = time.time() + t
+
 motor_start(r)
 
 try:
-    while t > 0:
-        display.lcd_display_string("SET:    " + str(expected_t) + " SEC",1) #PRINT LINE 1
+    while time.time() < t_end:
+
+        display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
         display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
 
-        t = t - 1
         time.sleep(1)
 
         for i in range (3):    
             display.lcd_clear()
 
-            display.lcd_display_string("TIME : " + str(t)+" SEC", 1) #PRINT LINE 1
+            display.lcd_display_string("TIME : " + str(t_end - time.time())+" SEC", 1) #PRINT LINE 1
             display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
 
-            t = t - 1
             time.sleep(1)
     
     display.lcd_clear()
