@@ -43,7 +43,7 @@ end = 0
 rpm = 0
 
 expected = -1
-expected_t = 0
+t = 0
 inpt = -1
 
 check = False
@@ -173,14 +173,14 @@ display.lcd_display_string(" SET: " + str(expected) + " RPM ",2) #PRINT LINE 2
 time.sleep(1)
 
 display.lcd_clear()
-display.lcd_display_string("SET:    " + str(expected) + " RPM",1) #PRINT LINE 1
-display.lcd_display_string("        " + str(expected_t) + " SEC",2) #PRINT LINE 2
+display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
+display.lcd_display_string("        " + str(expected) + " RPM",2) #PRINT LINE 2
 
 t = int(input("Set Time (sec): "))
 
 display.lcd_clear()
 display.lcd_display_string("   TIME  VALUE  ",1) #PRINT LINE 1
-display.lcd_display_string(" SET: " + str(expected) + " SEC ",2) #PRINT LINE 2
+display.lcd_display_string(" SET: " + str(t) + " SEC ",2) #PRINT LINE 2
 
 time.sleep(1)
 
@@ -368,6 +368,7 @@ try:
             print("ACCELERATING...")
             time.sleep(1)
         else:
+            print("ACCELERATED!")
             t_end = time.time() + t
 
             while time.time() < t_end:
