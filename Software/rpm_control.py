@@ -224,11 +224,6 @@ def motor_start(inpt):
         motor.ChangeDutyCycle(speed)
         inpt = -1
 
-    elif inpt == 0:
-        speed = 0
-        motor.ChangeDutyCycle(speed)
-        inpt = -1
-
     elif inpt == -1:
         print("NOTHING")
 #MOTOR SPEED CONTROL
