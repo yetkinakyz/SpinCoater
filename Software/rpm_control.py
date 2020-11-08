@@ -184,7 +184,6 @@ display.lcd_display_string(" SET: " + str(expected) + " SEC ",2) #PRINT LINE 2
 time.sleep(1)
 
 display.lcd_clear()
-
 display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
 display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
 
@@ -359,29 +358,27 @@ elif inpt == -1:
     print("NOTHING")
 
 display.lcd_clear()
-display.lcd_display_string(" MOTOR STARTING ",1) #PRINT LINE 1
+display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
+display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
 
 try:
     while True:
         if check == False:
-            print("SPEEDING...")
+            print("ACCELERATING...")
             time.sleep(1)
         else:
             t_end = time.time() + t
 
             while time.time() < t_end:
 
-                for i in range (9):
-                    if time.time() >= t_end:
-                        break
+                if time.time() >= t_end:
+                    break
 
-                    display.lcd_clear()
+                display.lcd_clear()
+                display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
+                display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
 
-                    display.lcd_display_string("TIME : " + str(int(t_end - time.time()))+" SEC", 1) #PRINT LINE 1
-                    print(int(t_end-time.time()))
-                    display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
-
-                    time.sleep(1)
+                time.sleep(1)
             
             display.lcd_clear()
             display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
