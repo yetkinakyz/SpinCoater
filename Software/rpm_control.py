@@ -183,8 +183,6 @@ display.lcd_display_string(" SET: " + str(expected) + " SEC ",2) #PRINT LINE 2
 
 time.sleep(1)
 
-t_end = time.time() + t
-
 if inpt == 180:
     speed = 3
     motor.ChangeDutyCycle(speed)
@@ -361,7 +359,9 @@ try:
         if check == False:
             print("SPEEDING...")
             time.sleep(1)
-        else:    
+        else:
+            t_end = time.time() + t
+                
             while time.time() < t_end:
                 display.lcd_clear()
 
