@@ -44,3 +44,10 @@ GPIO.add_event_detect(6,GPIO.RISING,callback=button3)
 GPIO.add_event_detect(13,GPIO.RISING,callback=button4)
 GPIO.add_event_detect(19,GPIO.RISING,callback=button5)
 GPIO.add_event_detect(26,GPIO.RISING,callback=button6)
+
+try:
+    while True:
+        a = 0
+
+except KeyboardInterrupt: 
+    GPIO.cleanup()
