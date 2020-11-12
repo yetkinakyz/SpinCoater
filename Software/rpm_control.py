@@ -65,8 +65,6 @@ def speed_control(c, r, p):
 
     n = c - r
 
-    time.sleep(0.1)
-
     print(str(speed)+"\n")
     print(str(c))
     print(str(r) + "\n")
