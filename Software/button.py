@@ -25,9 +25,6 @@ def button6(channel):
     print("6\n")
 
 
-
-
-
 GPIO.setwarnings(False) # Ignore warning for now
 
 GPIO.setmode(GPIO.BCM) # Use physical pin numbering
@@ -45,9 +42,4 @@ GPIO.add_event_detect(13,GPIO.RISING,callback=button4)
 GPIO.add_event_detect(19,GPIO.RISING,callback=button5)
 GPIO.add_event_detect(26,GPIO.RISING,callback=button6)
 
-try:
-    while True:
-        a = 0
-
-except KeyboardInterrupt: 
-    GPIO.cleanup()
+input()
