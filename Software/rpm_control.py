@@ -73,13 +73,13 @@ def speed_control(c, r, p):
         print("---")
 
     elif (n > 25):
-        speed = speed + 0.5
+        speed = speed + 0.1
         motor.ChangeDutyCycle(speed)
 
         print("LOW")
 
     elif (n < -25):
-        speed = speed - 0.5
+        speed = speed - 0.1
         motor.ChangeDutyCycle(speed)
 
         print("HIGH")
