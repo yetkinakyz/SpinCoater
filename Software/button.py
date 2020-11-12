@@ -44,6 +44,3 @@ GPIO.add_event_detect(6,GPIO.RISING,callback=button3)
 GPIO.add_event_detect(13,GPIO.RISING,callback=button4)
 GPIO.add_event_detect(19,GPIO.RISING,callback=button5)
 GPIO.add_event_detect(26,GPIO.RISING,callback=button6)
-
-message = input("Press enter to quit\n\n") # Run until someone presses enter
-GPIO.cleanup() # Clean up
