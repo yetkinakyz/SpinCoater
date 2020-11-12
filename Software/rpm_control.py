@@ -341,17 +341,17 @@ elif inpt > 6500 and inpt < 7000:
     inpt = -1
 
 elif inpt == 7000:
-    speed = 65
+    speed = 40
     motor.ChangeDutyCycle(speed)
     inpt = -1
 
 elif inpt > 7000 and inpt < 7200:
-    speed = 65
+    speed = 42
     motor.ChangeDutyCycle(speed)
     inpt = -1
 
 elif inpt == 7200:
-    speed = 70
+    speed = 42.3
     motor.ChangeDutyCycle(speed)
     inpt = -1
 
