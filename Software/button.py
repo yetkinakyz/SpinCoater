@@ -4,8 +4,21 @@ def button_callback(channel):
     print("Button was pushed!")
 
 GPIO.setwarnings(False) # Ignore warning for now
+
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
-GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # Set pin 10 to be an input pin and set initial value to be pulled low (off)
-GPIO.add_event_detect(26,GPIO.RISING,callback=button_callback) # Setup event on pin 10 rising edge
+GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(29, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(31, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(33, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(35, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(37, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+GPIO.add_event_detect(27,GPIO.RISING,callback=button_callback)
+GPIO.add_event_detect(29,GPIO.RISING,callback=button_callback)
+GPIO.add_event_detect(31,GPIO.RISING,callback=button_callback)
+GPIO.add_event_detect(33,GPIO.RISING,callback=button_callback)
+GPIO.add_event_detect(35,GPIO.RISING,callback=button_callback)
+GPIO.add_event_detect(37,GPIO.RISING,callback=button_callback)
+
 message = input("Press enter to quit\n\n") # Run until someone presses enter
 GPIO.cleanup() # Clean up
