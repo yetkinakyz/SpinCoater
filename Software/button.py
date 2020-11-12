@@ -1,7 +1,10 @@
+import time
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 
 def button_callback(channel):
     print("Button was pushed!")
+
+    time.sleep(0.1)
 
 GPIO.setwarnings(False) # Ignore warning for now
 
