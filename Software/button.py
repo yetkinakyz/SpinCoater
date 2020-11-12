@@ -1,10 +1,32 @@
 import time
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 
-def button_callback(channel):
-    print("Button was pushed!")
-
+def button1(channel):
+    print("1")
     time.sleep(0.1)
+
+def button2(channel):
+    print("2")
+    time.sleep(0.1)
+
+def button3(channel):
+    print("3")
+    time.sleep(0.1)
+
+def button4(channel):
+    print("4")
+    time.sleep(0.1)
+
+def button5(channel):
+    print("5")
+    time.sleep(0.1)
+
+def button6(channel):
+    print("6")
+    time.sleep(0.1)
+
+
+
 
 GPIO.setwarnings(False) # Ignore warning for now
 
@@ -16,12 +38,12 @@ GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-GPIO.add_event_detect(0,GPIO.RISING,callback=button_callback)
-GPIO.add_event_detect(5,GPIO.RISING,callback=button_callback)
-GPIO.add_event_detect(6,GPIO.RISING,callback=button_callback)
-GPIO.add_event_detect(13,GPIO.RISING,callback=button_callback)
-GPIO.add_event_detect(19,GPIO.RISING,callback=button_callback)
-GPIO.add_event_detect(26,GPIO.RISING,callback=button_callback)
+GPIO.add_event_detect(0,GPIO.RISING,callback=button1)
+GPIO.add_event_detect(5,GPIO.RISING,callback=button2)
+GPIO.add_event_detect(6,GPIO.RISING,callback=button3)
+GPIO.add_event_detect(13,GPIO.RISING,callback=button4)
+GPIO.add_event_detect(19,GPIO.RISING,callback=button5)
+GPIO.add_event_detect(26,GPIO.RISING,callback=button6)
 
 message = input("Press enter to quit\n\n") # Run until someone presses enter
 GPIO.cleanup() # Clean up
