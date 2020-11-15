@@ -28,12 +28,12 @@ def button6(channel):
 GPIO.setwarnings(False) # Ignore warning for now
 
 GPIO.setmode(GPIO.BCM) # Use physical pin numbering
-GPIO.setup(0, GPIO.IN)
-GPIO.setup(5, GPIO.IN)
-GPIO.setup(6, GPIO.IN)
-GPIO.setup(13, GPIO.IN)
-GPIO.setup(19, GPIO.IN)
-GPIO.setup(26, GPIO.IN)
+GPIO.setup(0, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 GPIO.add_event_detect(0,GPIO.FALLING,callback=button1, bouncetime=1000)
 GPIO.add_event_detect(5,GPIO.FALLING,callback=button2, bouncetime=1000)
