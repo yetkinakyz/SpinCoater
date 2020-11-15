@@ -42,4 +42,22 @@ GPIO.add_event_detect(13,GPIO.RISING,callback=button4, bouncetime=1000)
 GPIO.add_event_detect(19,GPIO.RISING,callback=button5, bouncetime=1000)
 GPIO.add_event_detect(26,GPIO.RISING,callback=button6, bouncetime=1000)
 
-input()
+while True:
+
+    if GPIO.input(0):
+        button1()
+
+    if GPIO.input(5):
+       button2()
+
+    if GPIO.input(6):
+        button3()
+
+    if GPIO.input(13):
+        button4()
+
+    if GPIO.input(19):
+        button5()
+
+    if GPIO.input(26):
+        button6()
