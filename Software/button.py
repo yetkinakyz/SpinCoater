@@ -32,14 +32,14 @@ def button6(channel):
 
 GPIO.setwarnings(False)
 
-button1 = 37
-button2 = 35
-button3 = 33
-button4 = 31
-button5 = 29
-button6 = 27
+button1 = 26
+button2 = 19
+button3 = 13
+button4 = 6
+button5 = 5
+button6 = 0
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(button1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
