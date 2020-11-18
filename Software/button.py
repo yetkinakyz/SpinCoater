@@ -63,28 +63,32 @@ while True:
     buttonState5 = GPIO.input(button5)
     buttonState6 = GPIO.input(button6)
 
-    if (buttonState1 == 1):
-        button1()
+    if (buttonState1):
+
+        print("1\n")
         time.sleep(0.1)
 
-    elif (buttonState2 == 1):
-        button2()
+    elif (buttonState2):
+
+        print("2\n")
         time.sleep(0.1)
 
-    elif (buttonState3 == 1):
-        button3()
+    elif (buttonState3):
+
+        print("3\n")
         time.sleep(0.1)
 
-    elif (buttonState4 == 1):
-        button4()
+    elif (buttonState4):
+
+        print("4\n")
         time.sleep(0.1)
 
-    elif (buttonState5 == 1):
-        button5()
+    elif (buttonState5):
+        print("5\n")
         time.sleep(0.1)
 
-    elif (buttonState6 == 1):
-        button6()
+    elif (buttonState6):
+        print("6\n")
         time.sleep(0.1)
 
     else:
