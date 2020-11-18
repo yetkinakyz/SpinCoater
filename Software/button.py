@@ -32,12 +32,12 @@ def button6():
 
 GPIO.setwarnings(False)
 
-button1 = 26
-button2 = 19
-button3 = 13
-button4 = 6
-button5 = 5
-button6 = 0
+button1 = 0
+button2 = 5
+button3 = 6
+button4 = 13
+button5 = 19
+button6 = 26
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(button1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -56,8 +56,6 @@ GPIO.add_event_detect(19,GPIO.RISING,callback=button5, bouncetime=500)
 GPIO.add_event_detect(26,GPIO.RISING,callback=button6, bouncetime=500)
 '''
 while True:
-    i = False
-
     buttonState1 = GPIO.input(button1)
     buttonState2 = GPIO.input(button2)
     buttonState3 = GPIO.input(button3)
@@ -67,55 +65,33 @@ while True:
 
     if (buttonState1):
 
-        while (not i):
-            print("1\n")
-            time.sleep(0.2)
-
-            i = True
+        print("1\n")
+        time.sleep(0.5)
 
     elif (buttonState2):
 
-        while (not i):
-            print("2\n")
-            time.sleep(0.2)
-
-            i = True
+        print("2\n")
+        time.sleep(0.5)
 
     elif (buttonState3):
 
-        while (not i):
-            print("3\n")
-            time.sleep(0.2)
-
-            i = True
+        print("3\n")
+        time.sleep(0.5)
 
     elif (buttonState4):
 
-        while (not i):
-            print("4\n")
-            time.sleep(0.2)
-
-            i = True
+        print("4\n")
+        time.sleep(0.5)
 
     elif (buttonState5):
-
-        while (not i):
-            print("5\n")
-            time.sleep(0.2)
-
-            i = True
+        print("5\n")
+        time.sleep(0.5)
 
     elif (not buttonState6):
-
-        while (not i):
-            print("6\n")
-            time.sleep(0.2)
-
-            i = True
+        print("6\n")
+        time.sleep(0.5)
 
     else:
         continue
-
-    time.sleep(0.1)
 
 input()
