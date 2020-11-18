@@ -66,30 +66,30 @@ while True:
     if (buttonState1):
 
         print("1\n")
-        time.sleep(0.1)
+        time.sleep(0.2)
 
     elif (buttonState2):
 
         print("2\n")
-        time.sleep(0.1)
+        time.sleep(0.2)
 
     elif (buttonState3):
 
         print("3\n")
-        time.sleep(0.1)
+        time.sleep(0.2)
 
     elif (buttonState4):
 
         print("4\n")
-        time.sleep(0.1)
+        time.sleep(0.2)
 
     elif (buttonState5):
         print("5\n")
-        time.sleep(0.1)
+        time.sleep(0.2)
 
     elif (not buttonState6):
         print("6\n")
-        time.sleep(0.1)
+        time.sleep(0.2)
 
     else:
         continue
