@@ -40,12 +40,12 @@ button5 = 5
 button6 = 0
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(button1, GPIO.IN)
-GPIO.setup(button2, GPIO.IN)
-GPIO.setup(button3, GPIO.IN)
-GPIO.setup(button4, GPIO.IN)
-GPIO.setup(button5, GPIO.IN)
-GPIO.setup(button6, GPIO.IN)
+GPIO.setup(button1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(button2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(button3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(button4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(button5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(button6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 '''
 GPIO.add_event_detect(0,GPIO.RISING,callback=button1, bouncetime=500)
@@ -63,31 +63,31 @@ while True:
     buttonState5 = GPIO.input(button5)
     buttonState6 = GPIO.input(button6)
 
-    if (buttonState1):
+    if (buttonState1 == 1):
         button1()
         time.sleep(0.1)
 
-    elif (buttonState2):
+    elif (buttonState2 == 1):
         button2()
         time.sleep(0.1)
 
-    elif (buttonState3):
+    elif (buttonState3 == 1):
         button3()
         time.sleep(0.1)
 
-    elif (buttonState4):
+    elif (buttonState4 == 1):
         button4()
         time.sleep(0.1)
 
-    elif (buttonState5):
+    elif (buttonState5 == 1):
         button5()
         time.sleep(0.1)
 
-    elif (buttonState6):
+    elif (buttonState6 == 1):
         button6()
         time.sleep(0.1)
 
     else:
         continue
 
-    input()
+input()
