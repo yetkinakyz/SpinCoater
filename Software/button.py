@@ -56,6 +56,8 @@ GPIO.add_event_detect(19,GPIO.RISING,callback=button5, bouncetime=500)
 GPIO.add_event_detect(26,GPIO.RISING,callback=button6, bouncetime=500)
 '''
 while True:
+    i = False
+
     buttonState1 = GPIO.input(button1)
     buttonState2 = GPIO.input(button2)
     buttonState3 = GPIO.input(button3)
@@ -65,33 +67,55 @@ while True:
 
     if (buttonState1):
 
-        print("1\n")
-        time.sleep(0.2)
+        while (not i):
+            print("1\n")
+            time.sleep(0.2)
+
+            i = True
 
     elif (buttonState2):
 
-        print("2\n")
-        time.sleep(0.2)
+        while (not i):
+            print("2\n")
+            time.sleep(0.2)
+
+            i = True
 
     elif (buttonState3):
 
-        print("3\n")
-        time.sleep(0.2)
+        while (not i):
+            print("3\n")
+            time.sleep(0.2)
+
+            i = True
 
     elif (buttonState4):
 
-        print("4\n")
-        time.sleep(0.2)
+        while (not i):
+            print("4\n")
+            time.sleep(0.2)
+
+            i = True
 
     elif (buttonState5):
-        print("5\n")
-        time.sleep(0.2)
+
+        while (not i):
+            print("5\n")
+            time.sleep(0.2)
+
+            i = True
 
     elif (not buttonState6):
-        print("6\n")
-        time.sleep(0.2)
+
+        while (not i):
+            print("6\n")
+            time.sleep(0.2)
+
+            i = True
 
     else:
         continue
+
+    time.sleep(0.1)
 
 input()
