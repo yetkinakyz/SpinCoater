@@ -40,12 +40,12 @@ button5 = 5
 button6 = 0
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(button1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(button2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(button3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(button4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(button5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(button6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(button1, GPIO.IN)
+GPIO.setup(button2, GPIO.IN)
+GPIO.setup(button3, GPIO.IN)
+GPIO.setup(button4, GPIO.IN)
+GPIO.setup(button5, GPIO.IN)
+GPIO.setup(button6, GPIO.IN)
 
 '''
 GPIO.add_event_detect(0,GPIO.RISING,callback=button1, bouncetime=500)
