@@ -87,7 +87,7 @@ while True:
         print("5\n")
         time.sleep(0.1)
 
-    elif (buttonState6):
+    elif (not buttonState6):
         print("6\n")
         time.sleep(0.1)
 
