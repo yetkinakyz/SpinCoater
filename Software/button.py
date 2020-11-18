@@ -1,32 +1,32 @@
 import time
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 
-def button1(channel):
+def button1():
     print("1\n")
     time.sleep(0.1)
 
 
-def button2(channel):
+def button2():
     print("2\n")
     time.sleep(0.1)
 
 
-def button3(channel):
+def button3():
     print("3\n")
     time.sleep(0.1)
 
 
-def button4(channel):
+def button4():
     print("4\n")
     time.sleep(0.1)
 
 
-def button5(channel):
+def button5():
     print("5\n")
     time.sleep(0.1)
 
 
-def button6(channel):
+def button6():
     print("6\n")
     time.sleep(0.1)
 
