@@ -3,26 +3,32 @@ import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 
 def button1(channel):
     print("1\n")
+    time.sleep(0.1)
 
 
 def button2(channel):
     print("2\n")
+    time.sleep(0.1)
 
 
 def button3(channel):
     print("3\n")
+    time.sleep(0.1)
 
 
 def button4(channel):
     print("4\n")
+    time.sleep(0.1)
 
 
 def button5(channel):
     print("5\n")
+    time.sleep(0.1)
 
 
 def button6(channel):
     print("6\n")
+    time.sleep(0.1)
 
 
 GPIO.setwarnings(False) # Ignore warning for now
