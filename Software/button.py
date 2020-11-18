@@ -90,4 +90,4 @@ while True:
     else:
         continue
 
-input()
+    input()
