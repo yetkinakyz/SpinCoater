@@ -63,7 +63,7 @@ while True:
     buttonState5 = GPIO.input(button5)
     buttonState6 = GPIO.input(button6)
 
-    if (buttonState1):
+    if (not buttonState1):
 
         print("1\n")
         time.sleep(0.5)
@@ -87,7 +87,7 @@ while True:
         print("5\n")
         time.sleep(0.5)
 
-    elif (not buttonState6):
+    elif (buttonState6):
         print("6\n")
         time.sleep(0.5)
 
