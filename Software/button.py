@@ -32,12 +32,12 @@ def button6(channel):
 
 GPIO.setwarnings(False)
 
-button1 = 38
-button2 = 36
-button3 = 34
-button4 = 32
-button5 = 30
-button6 = 28
+button1 = 37
+button2 = 35
+button3 = 33
+button4 = 31
+button5 = 29
+button6 = 27
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(button1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -86,7 +86,7 @@ while True:
     elif (buttonState6):
         button6()
         time.sleep(0.1)
-        
+
     else:
         continue
 
