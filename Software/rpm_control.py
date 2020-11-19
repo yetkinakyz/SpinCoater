@@ -67,8 +67,8 @@ sampleSpeedList = [ 2.8, 3.3, 3.8, 4.2, 4.7, 6,
 cycleRpmList= []
 cycleList = []
 
-expected = 0
-t = 0
+expectedRPM = 0
+expectedTime = 0
 
 check = False
 firstTime = True
@@ -98,87 +98,9 @@ def setSample(rpm):
     
     return sample
 
-#MOTOR SPEED CONTROL
-def speed_control(c, r, p):   
-    global speed
-    global check
-
-    n = c - r
-
-    print("\nspeed: " + str(speed))
-    print("expected: " + str(c))
-    print("rpm: " + str(r) + "\n")
-
-    if r == 0 or r == p:
-        print("---")
-
-    elif (n > 50):
-        speed = speed + 0.1
-        motor.ChangeDutyCycle(speed)
-
-        print("LOW")
-
-    elif (n < -50):
-        speed = speed - 0.1
-        motor.ChangeDutyCycle(speed)
-
-        print("HIGH")
-
-    else:
-        check = True
-        print("NEUTRAL")
-
-#SET START TIME
-def set_start():
-    global start
-    start = time.time()
-
-#SET END TIME
-def set_end(): 
-        global end
-        end = time.time()
-
-# GET RPM
-def get_rpm(channel):
-
-    global count
-    global sample
-    global expected
-
-    global rpm
-
-    global firstTime
-
-    if firstTime:
-        time.sleep(5)
-        firstTime = False
-
-    else:
-        
-        if count == 0: 
-                set_start()        
-                count = count + 1
-        
-        elif count == setSample(rpm):
-                set_end()
-
-                rpm_pre = rpm
-
-                delta = end - start
-                delta = delta / 60
-
-                rpm = int((sample/delta)/2)
-
-                count = 0
-
-                speed_control(expected, rpm, rpm_pre)
-        
-        else:
-            count = count + 1
-
-GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm)
-
 class program:
+    global expectedRPM
+    global expectedTime
 
     #STOP
     def stop(self):
@@ -190,10 +112,10 @@ class program:
 
         display.lcd_clear()
 
-        expected = int(k)
+        expectedRPM = int(k)
         t = int(l)
 
-        print(expected)
+        print(expectedRPM)
         print(t)
 
         display.lcd_clear()
@@ -202,7 +124,7 @@ class program:
 
         for i in sampleRpmList:
 
-            if expected >= i - 100 and expected <= i + 100:
+            if expectedRPM >= i - 100 and expectedRPM <= i + 100:
                 
                 print("\ngetRPM=" + str(i))
                 print("\ngetSpeed=" + str(sampleSpeedList[sampleRpmList.index(i)])+"\n")
@@ -271,14 +193,14 @@ class program:
 
         display.lcd_clear()
 
-        expected = inpt
-        expected = int(expected)
+        expectedRPM = inpt
+        expectedRPM = int(expectedRPM)
 
         print("\nNext Stage\n")
 
         for i in sampleRpmList:
 
-            if expected >= i - 100 and expected <= i + 100:
+            if expectedRPM >= i - 100 and expectedRPM <= i + 100:
                 
                 print("\ngetRPM=" + str(i))
                 print("\ngetSpeed=" + str(sampleSpeedList[sampleRpmList.index(i)])+"\n")
@@ -333,3 +255,83 @@ class program:
                             t_end = t_end - 1
 
         return True
+
+#MOTOR SPEED CONTROL
+def speed_control(c, r, p):   
+    global speed
+    global check
+
+    n = c - r
+
+    print("\nspeed: " + str(speed))
+    print("expected: " + str(c))
+    print("rpm: " + str(r) + "\n")
+
+    if r == 0 or r == p:
+        print("---")
+
+    elif (n > 50):
+        speed = speed + 0.1
+        motor.ChangeDutyCycle(speed)
+
+        print("LOW")
+
+    elif (n < -50):
+        speed = speed - 0.1
+        motor.ChangeDutyCycle(speed)
+
+        print("HIGH")
+
+    else:
+        check = True
+        print("NEUTRAL")
+
+#SET START TIME
+def set_start():
+    global start
+    start = time.time()
+
+#SET END TIME
+def set_end(): 
+        global end
+        end = time.time()
+
+# GET RPM
+def get_rpm(channel):
+
+    global count
+    global sample
+    global expectedRPM
+
+    global rpm
+
+    global firstTime
+
+    if firstTime:
+        time.sleep(5)
+        firstTime = False
+
+    else:
+        
+        if count == 0: 
+                set_start()        
+                count = count + 1
+        
+        elif count == setSample(rpm):
+                set_end()
+
+                rpm_pre = rpm
+
+                delta = end - start
+                delta = delta / 60
+
+                rpm = int((sample/delta)/2)
+
+                count = 0
+
+                speed_control(expectedRPM, rpm, rpm_pre)
+        
+        else:
+            count = count + 1
+
+GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm)
