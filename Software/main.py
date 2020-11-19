@@ -106,19 +106,19 @@ while True:
 
                 display.lcd_display_string("SPIN COATER     ", 1) #PRINT LINE 1
                 display.lcd_display_string("         PROJECT", 2) #PRINT LINE 1
-                time.sleep(2)
+                time.sleep(3)
 
                 display.lcd_display_string("By: Yetkin AKYUZ", 1) #PRINT LINE 1
                 display.lcd_display_string("            2020", 2) #PRINT LINE 1
-                time.sleep(2)
+                time.sleep(3)
 
                 display.lcd_display_string("Version: 1.0    ", 1) #PRINT LINE 1
                 display.lcd_display_string("Date: 18.11.2020", 2) #PRINT LINE 1
-                time.sleep(2)
+                time.sleep(3)
 
                 display.lcd_display_string("Website:        ", 1) #PRINT LINE 1
                 display.lcd_display_string("yetkinakyuz.com ", 2) #PRINT LINE 1
-                time.sleep(2)
+                time.sleep(3)
 
         else:
             continue
