@@ -139,7 +139,7 @@ def set_end():
         end = time.time()
 
 # GET RPM
-def get_rpm(channel):
+def get_rpm(c):
 
     global count
     global sample
