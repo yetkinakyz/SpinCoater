@@ -65,9 +65,9 @@ def speed_control(c, r, p):
 
     n = c - r
 
-    print(str(speed)+"\n")
-    print(str(c))
-    print(str(r) + "\n")
+    print("\nspeed: " + str(speed))
+    print("expected: " + str(c))
+    print("rpm: " + str(r) + "\n")
 
     if r == 0 or r == p:
         print("---")
@@ -151,12 +151,11 @@ for i in range (16):
     display.lcd_display_string(x, 2) #PRINT LINE 2
     time.sleep(0.1)
 
-display.lcd_display_string("            ",1) #CLEAN LINE 1
-display.lcd_display_string("            ",2) #CLEAN LINE 2
-
-GPIO.add_event_detect(ir_sensor, GPIO.RISING, callback=get_rpm)
+#display.lcd_display_string("            ",1) #CLEAN LINE 1
+#display.lcd_display_string("            ",2) #CLEAN LINE 2
 
 display.lcd_clear()
+
 display.lcd_display_string("SET:    " + str(0) + " SEC",1) #PRINT LINE 1
 display.lcd_display_string("        " + str(0) +" RPM",2) #PRINT LINE 2
 
@@ -193,10 +192,10 @@ display.lcd_clear()
 display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
 display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
 
-firstSpeed = (expected * 42.3) / 7200
-print("first speed is: " + str(firstSpeed))
+speed = (expected * 42.3) / 7200
+print("first speed is " + str(speed))
 
-motor.ChangeDutyCycle(firstSpeed)
+motor.ChangeDutyCycle(speed)
 
 try:
     while True:
