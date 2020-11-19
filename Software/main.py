@@ -65,9 +65,9 @@ display.lcd_display_string("BY YETKIN AKYUZ ", 1) #PRINT LINE 1
 display.lcd_display_string("yetkinakyuz.com ", 2) #PRINT LINE 2
 
 time.sleep(2)
+display.lcd_clear()
 
 display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
-display.lcd_clear()
 
 for i in range(17):
     loading = '*'*i
@@ -78,7 +78,7 @@ time.sleep(1)
 
 display.lcd_display_string("    WELCOME!    ", 1) #PRINT LINE 1
 
-time.sleep(1)
+time.sleep(2)
 display.lcd_clear()
 
 while True:
