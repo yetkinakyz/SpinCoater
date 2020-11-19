@@ -10,6 +10,8 @@ import time
 ## DISPLAY
 display = lcddriver.lcd()
 
+rpm_control = rpm_control.program()
+
 ## GPIO
 GPIO.setwarnings(False) #DISABLE WARNINGS
 GPIO.setmode(GPIO.BCM) #GPIO PIN NUMBERS (GPIO.BOARD for physical pin numbers.)

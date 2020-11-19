@@ -74,224 +74,226 @@ inpt = -1
 check = False
 firstTime = True
 
-#SET START TIME
-def set_start():
- 	global start
- 	start = time.time()
-
-#SET END TIME
-def set_end(): 
-        global end
-        end = time.time()
-
-#MOTOR SPEED CONTROL
-def speed_control(c, r, p):   
-    global speed
-    global check
-
-    n = c - r
-
-    print("\nspeed: " + str(speed))
-    print("expected: " + str(c))
-    print("rpm: " + str(r) + "\n")
-
-    if r == 0 or r == p:
-        print("---")
-
-    elif (n > 50):
-        speed = speed + 0.1
-        motor.ChangeDutyCycle(speed)
-
-        print("LOW")
-
-    elif (n < -50):
-        speed = speed - 0.1
-        motor.ChangeDutyCycle(speed)
-
-        print("HIGH")
-
-    else:
-        check = True
-        print("NEUTRAL")
-
-# SET SAMPLE
-def setSample(rpm):
-    global sample
-
-    if rpm < 250:
-        sample = 3
-
-    elif rpm > 250 and rpm < 400:
-        sample = 12
-
-    elif rpm > 400 and rpm < 560:
-        sample = 24
-
-    elif rpm > 560 and rpm < 1000:
-        sample = 30
-
-    elif rpm > 1000 and rpm < 3500:
-        sample = 60
-
-    elif rpm > 3500:
-        sample = 120
-    
-    return sample
-  
-# GET RPM
-def get_rpm(channel):
-    global count
-    global sample
-
-    global expected
-    global rpm
-
-    global firstTime
-
-    if firstTime:
-        time.sleep(5)
-        firstTime = False
-
-    else:
+class program:
         
-        if count == 0: 
-                set_start()        
-                count = count + 1
-        
-        elif count == setSample(rpm):
-                set_end()
+    #SET START TIME
+    def set_start():
+        global start
+        start = time.time()
 
-                rpm_pre = rpm
+    #SET END TIME
+    def set_end(): 
+            global end
+            end = time.time()
 
-                delta = end - start
-                delta = delta / 60
+    #MOTOR SPEED CONTROL
+    def speed_control(c, r, p):   
+        global speed
+        global check
 
-                rpm = int((sample/delta)/2)
+        n = c - r
 
-                count = 0
+        print("\nspeed: " + str(speed))
+        print("expected: " + str(c))
+        print("rpm: " + str(r) + "\n")
 
-                speed_control(expected, rpm, rpm_pre)
-        
+        if r == 0 or r == p:
+            print("---")
+
+        elif (n > 50):
+            speed = speed + 0.1
+            motor.ChangeDutyCycle(speed)
+
+            print("LOW")
+
+        elif (n < -50):
+            speed = speed - 0.1
+            motor.ChangeDutyCycle(speed)
+
+            print("HIGH")
+
         else:
-            count = count + 1
+            check = True
+            print("NEUTRAL")
 
-def start():
-    global speed
+    # SET SAMPLE
+    def setSample(rpm):
+        global sample
+
+        if rpm < 250:
+            sample = 3
+
+        elif rpm > 250 and rpm < 400:
+            sample = 12
+
+        elif rpm > 400 and rpm < 560:
+            sample = 24
+
+        elif rpm > 560 and rpm < 1000:
+            sample = 30
+
+        elif rpm > 1000 and rpm < 3500:
+            sample = 60
+
+        elif rpm > 3500:
+            sample = 120
+        
+        return sample
     
-    GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback=get_rpm)
+    # GET RPM
+    def get_rpm(channel):
+        global count
+        global sample
 
-    print("Welcome!\n")
+        global expected
+        global rpm
 
-    display.lcd_display_string("  SPIN  COATER  ", 1) #PRINT LINE 1
-    display.lcd_display_string(" RPM CONTROLLER ", 2) #PRINT LINE 2
-    time.sleep(1)
+        global firstTime
 
-    display.lcd_display_string("       BY       ", 1) #PRINT LINE 1
-    display.lcd_display_string("  YETKIN AKYUZ  ", 2) #PRINT LINE 2
-    time.sleep(1)
+        if firstTime:
+            time.sleep(5)
+            firstTime = False
 
-    display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
-    display.lcd_display_string("                ",2) #CLEAN LINE 2
-    for i in range (16):
-        x = '#' * i
-        display.lcd_display_string(x, 2) #PRINT LINE 2
-        time.sleep(0.1)
-
-    display.lcd_clear()
-
-    display.lcd_display_string("SET:    " + str(0) + " SEC",1) #PRINT LINE 1
-    display.lcd_display_string("        " + str(0) +" RPM",2) #PRINT LINE 2
-
-    inpt = float(input("Set RPM: "))
-
-    expected = inpt
-    expected = int(expected)
-
-    display.lcd_clear()
-    display.lcd_display_string("  SPEED  VALUE  ",1) #PRINT LINE 1
-    display.lcd_display_string(" SET: " + str(expected) + " RPM ",2) #PRINT LINE 2
-
-    time.sleep(1)
-
-    display.lcd_clear()
-    display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
-    display.lcd_display_string("        " + str(expected) + " RPM",2) #PRINT LINE 2
-
-    t = int(input("Set Time (sec): "))
-
-    display.lcd_clear()
-    display.lcd_display_string("   TIME  VALUE  ",1) #PRINT LINE 1
-    display.lcd_display_string(" SET: " + str(t) + " SEC ",2) #PRINT LINE 2
-
-    time.sleep(1)
-
-    display.lcd_clear()
-    display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
-    display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
-
-    time.sleep(2)
-
-    display.lcd_clear()
-    display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
-    display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
-
-    for i in sampleRpmList:
-
-        if expected >= i - 100 and expected <= i + 100:
+        else:
             
-            print("\ngetRPM=" + str(i))
-            print("\ngetSpeed=" + str(sampleSpeedList[sampleRpmList.index(i)])+"\n")
+            if count == 0: 
+                    set_start()        
+                    count = count + 1
+            
+            elif count == setSample(rpm):
+                    set_end()
 
-            speed = sampleSpeedList[sampleRpmList.index(i)]
+                    rpm_pre = rpm
 
-        else:
-            continue
+                    delta = end - start
+                    delta = delta / 60
 
-    motor.ChangeDutyCycle(speed)
+                    rpm = int((sample/delta)/2)
 
+                    count = 0
 
-    while True:
-        if check == False:
-            if firstTime:
-                print("SLEEPING...")
-                time.sleep(1)
+                    speed_control(expected, rpm, rpm_pre)
+            
+            else:
+                count = count + 1
+
+    def start():
+        global speed
+
+        GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback=get_rpm)
+
+        print("Welcome!\n")
+
+        display.lcd_display_string("  SPIN  COATER  ", 1) #PRINT LINE 1
+        display.lcd_display_string(" RPM CONTROLLER ", 2) #PRINT LINE 2
+        time.sleep(1)
+
+        display.lcd_display_string("       BY       ", 1) #PRINT LINE 1
+        display.lcd_display_string("  YETKIN AKYUZ  ", 2) #PRINT LINE 2
+        time.sleep(1)
+
+        display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
+        display.lcd_display_string("                ",2) #CLEAN LINE 2
+        for i in range (16):
+            x = '#' * i
+            display.lcd_display_string(x, 2) #PRINT LINE 2
+            time.sleep(0.1)
+
+        display.lcd_clear()
+
+        display.lcd_display_string("SET:    " + str(0) + " SEC",1) #PRINT LINE 1
+        display.lcd_display_string("        " + str(0) +" RPM",2) #PRINT LINE 2
+
+        inpt = float(input("Set RPM: "))
+
+        expected = inpt
+        expected = int(expected)
+
+        display.lcd_clear()
+        display.lcd_display_string("  SPEED  VALUE  ",1) #PRINT LINE 1
+        display.lcd_display_string(" SET: " + str(expected) + " RPM ",2) #PRINT LINE 2
+
+        time.sleep(1)
+
+        display.lcd_clear()
+        display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
+        display.lcd_display_string("        " + str(expected) + " RPM",2) #PRINT LINE 2
+
+        t = int(input("Set Time (sec): "))
+
+        display.lcd_clear()
+        display.lcd_display_string("   TIME  VALUE  ",1) #PRINT LINE 1
+        display.lcd_display_string(" SET: " + str(t) + " SEC ",2) #PRINT LINE 2
+
+        time.sleep(1)
+
+        display.lcd_clear()
+        display.lcd_display_string("SET:    " + str(t) + " SEC",1) #PRINT LINE 1
+        display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
+
+        time.sleep(2)
+
+        display.lcd_clear()
+        display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
+        display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
+
+        for i in sampleRpmList:
+
+            if expected >= i - 100 and expected <= i + 100:
+                
+                print("\ngetRPM=" + str(i))
+                print("\ngetSpeed=" + str(sampleSpeedList[sampleRpmList.index(i)])+"\n")
+
+                speed = sampleSpeedList[sampleRpmList.index(i)]
 
             else:
-                print("ACCELERATING...")
-                time.sleep(1)
-            
-        else:
-            print("ACCELERATED!")
-            
-            t_end = t
+                continue
 
-            time.sleep(1)
+        motor.ChangeDutyCycle(speed)
 
-            display.lcd_clear()
 
-            display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-            display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
-
-            while t_end > 0:
-                for j in range(2):
-                    display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-                    display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
-                    display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
-                    display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
-
+        while True:
+            if check == False:
+                if firstTime:
+                    print("SLEEPING...")
                     time.sleep(1)
-                    t_end = t_end - 1
 
-                    for i in range(2):
+                else:
+                    print("ACCELERATING...")
+                    time.sleep(1)
+                
+            else:
+                print("ACCELERATED!")
+                
+                t_end = t
+
+                time.sleep(1)
+
+                display.lcd_clear()
+
+                display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+
+                while t_end > 0:
+                    for j in range(2):
                         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                        display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
                         display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+                        display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
 
                         time.sleep(1)
                         t_end = t_end - 1
-            
-            time.sleep(1)
 
-            display.lcd_clear()
-            display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
+                        for i in range(2):
+                            display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                            display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
 
-            break
+                            time.sleep(1)
+                            t_end = t_end - 1
+                
+                time.sleep(1)
+
+                display.lcd_clear()
+                display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
+
+                break
