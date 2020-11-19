@@ -56,13 +56,13 @@ while True:
         menuPosition = menuPosition - 1
 
         print("Up Button - " + str(menuPosition))
-        time.sleep(0.005)
+        time.sleep(0.05)
 
     elif GPIO.input(button2) and menuPosition < len(mainMenu) - 1:
         menuPosition = menuPosition + 1
 
         print("Down Button - " + str(menuPosition))
-        time.sleep(0.005)
+        time.sleep(0.05)
 
     elif GPIO.input(button6):
         if menuPosition == 1:
