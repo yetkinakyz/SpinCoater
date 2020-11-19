@@ -1,3 +1,11 @@
+'''
+SPIN COATER PROJECT MAIN SOFTWARE
+                        by Yetkin AKYUZ
+
+    Website: https://yetkinakyuz.com
+    Email:   contact@yetkinakyuz.com
+'''
+
 ##### LIBRARIES #####
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
 import lcddriver #LCD I2C LIBRARY
@@ -64,6 +72,30 @@ while True:
         print("Down Button - " + str(menuPosition))
         time.sleep(0.05)
 
+    elif GPIO.input(button4):
+        if menuPosition == 0:
+            display.lcd_clear()
+            display.lcd_display_string("Set instructions", 1) #PRINT LINE 1
+            display.lcd_display_string("and run         ", 2) #PRINT LINE 2
+            time.sleep(2)
+        
+        elif menuPosition == 1:
+            display.lcd_clear()
+            display.lcd_display_string("Run a 2-stg test", 1) #PRINT LINE 1
+            display.lcd_display_string("Stg 1: 1000/15  ", 2) #PRINT LINE 2
+            time.sleep(2)
+            display.lcd_display_string("Stg 2: 5000/30  ", 2) #PRINT LINE 2
+            time.sleep(2)
+
+        elif menuPosition == 2:
+            display.lcd_clear()
+            display.lcd_display_string("Get information ", 1) #PRINT LINE 1
+            display.lcd_display_string("about project   ", 2) #PRINT LINE 2
+            time.sleep(2)
+
+        else:
+            None
+
     elif GPIO.input(button6):
         if menuPosition == 1:
             while True:
@@ -96,7 +128,7 @@ while True:
                 time.sleep(2)
 
                 break
-        
+                
         elif menuPosition == 2:
 
                 display.lcd_clear()

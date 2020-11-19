@@ -1,3 +1,11 @@
+'''
+SPIN COATER PROJECT RPM CONTROL SOFTWARE
+                        by Yetkin AKYUZ
+
+    Website: https://yetkinakyuz.com
+    Email:   contact@yetkinakyuz.com
+'''
+
 ##### LIBRARIES #####
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
 import lcddriver #LCD I2C LIBRARY
