@@ -47,10 +47,6 @@ rpm = 0
 start = 0
 end = 0
 
-# OTHERS
-expectedRPM = 0
-expectedTime = 0
-
 sampleRpmList = [ 100, 200, 300, 400, 500, 800,
             1000, 1200, 1500, 1800,
             2000, 2200, 2500, 2800,
@@ -99,14 +95,15 @@ def setSample(rpm):
     return sample
 
 #MOTOR SPEED CONTROL
-def speed_control(c, r, p):   
+def speed_control(r, p):   
     global speed
     global check
+    global expectedRPM
 
     n = expectedRPM - r
 
     print("\nspeed: " + str(speed))
-    print("expected: " + str(c))
+    print("expected: " + str(expectedRPM))
     print("rpm: " + str(r) + "\n")
 
     if r == 0 or r == p:
@@ -143,10 +140,7 @@ def get_rpm(channel):
 
     global count
     global sample
-    global expectedRPM
-
     global rpm
-
     global firstTime
 
     if firstTime:
@@ -171,20 +165,20 @@ def get_rpm(channel):
 
                 count = 0
 
-                speed_control(expectedRPM, rpm, rpm_pre)
+                speed_control(rpm, rpm_pre)
         
         else:
             count = count + 1
 
 #START
-def start(k, l):
+def start(spd, tm):
     global speed
     global stop
 
     display.lcd_clear()
 
-    expectedRPM = int(k)
-    expectedTime = int(l)
+    expectedRPM = spd
+    expectedTime = tm
 
     print(expectedRPM)
     print(expectedTime)
@@ -195,6 +189,7 @@ def start(k, l):
 
     for i in sampleRpmList:
 
+        print(expectedRPM)
         if expectedRPM >= i - 100 and expectedRPM <= i + 100:
             
             print("\ngetRPM=" + str(i))
