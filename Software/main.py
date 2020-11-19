@@ -40,4 +40,6 @@ buttonState6 = GPIO.input(button6)
 
 while True:
     if buttonState2:
+        print("pressed!")
+        time.sleep(0.5)
         rpm_control.start()
