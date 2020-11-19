@@ -98,15 +98,18 @@ while True:
                 break
         
         elif menuPosition == 2:
-            while not GPIO.input(button5):
+            while True:
+                if GPIO.input(button5):
+                    break
+
                 display.lcd_clear()
 
-                display.lcd_display_string("SPIN COATER     ", 1) #PRINT LINE 1
-                display.lcd_display_string("         PROJECT", 2) #PRINT LINE 1
+                display.lcd_display_string("Spin Coater     ", 1) #PRINT LINE 1
+                display.lcd_display_string("         Project", 2) #PRINT LINE 1
                 time.sleep(2)
 
-                display.lcd_display_string("MADE BY", 1) #PRINT LINE 1
-                display.lcd_display_string("    YETKIN AKYUZ", 2) #PRINT LINE 1
+                display.lcd_display_string("By: Yetkin AKYUZ", 1) #PRINT LINE 1
+                display.lcd_display_string("      2020      ", 2) #PRINT LINE 1
                 time.sleep(2)
 
                 display.lcd_display_string("Version: 1.0", 1) #PRINT LINE 1
