@@ -175,7 +175,7 @@ def get_rpm(channel, expected):
         else:
             count = count + 1
 
-GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm(expected))
+GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm())
 
 class program:
     #STOP
