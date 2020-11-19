@@ -271,6 +271,11 @@ try:
                 time.sleep(1)
                 t_end = t_end - 1
 
+                display.lcd_display_string("TIME : " + str(t_end)+" SEC", 1) #PRINT LINE 1
+
+                time.sleep(1)
+                t_end = t_end - 1
+
             display.lcd_clear()
             display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
 
