@@ -87,8 +87,8 @@ def setExpectedTime(n):
 def getExpectedTime():
     return expectedTime
 
-#first stage
-def first_stage():
+# FIRST STAGE
+def FirstStage():
     global speed
     global stop
 
@@ -156,6 +156,64 @@ def first_stage():
 
                         time.sleep(1)
                         t_end = t_end - 1
+
+# NEXT STAGE
+def NextStage():
+    global speed
+    global stop
+
+    display.lcd_clear()
+
+    print(getExpectedRPM())
+    print(getExpectedTime())
+
+    display.lcd_clear()
+    display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
+    display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
+
+    for i in sampleRpmList:
+
+        if getExpectedRPM() >= i - 100 and getExpectedRPM() <= i + 100:
+            
+            print("\ngetRPM=" + str(i))
+            print("\ngetSpeed=" + str(sampleSpeedList[sampleRpmList.index(i)])+"\n")
+
+            speed = sampleSpeedList[sampleRpmList.index(i)]
+            
+            print("\nSpeed=" + str(speed) + "\n")
+
+        else:
+            continue
+
+    motor.ChangeDutyCycle(speed)
+
+    while True:
+            
+        t_end = getExpectedTime()
+
+        time.sleep(1)
+
+        display.lcd_clear()
+
+        display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+        display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+
+        while t_end > 0:
+            for j in range(2):
+                display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+                display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+                display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
+
+                time.sleep(1)
+                t_end = t_end - 1
+
+                for i in range(2):
+                    display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                    display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+
+                    time.sleep(1)
+                    t_end = t_end - 1
 
 # SET SAMPLE
 def SetSample(rpm):
