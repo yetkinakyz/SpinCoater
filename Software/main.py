@@ -47,6 +47,11 @@ menuAscii = [   " " + chr(124) + chr(62),
 
 menuPosition = 0 
 
+def canceled():
+    if GPIO.input(button6):
+        print("cancelled")
+        return True
+
 while True:
 
     display.lcd_display_string("MENU            ", 1) #PRINT LINE 1
@@ -66,7 +71,7 @@ while True:
 
     elif GPIO.input(button6):
         if menuPosition == 1:
-            while GPIO.input(button6):
+            while not canceled():
                 
                 display.lcd_clear()
                 display.lcd_display_string(" TEST  SOFTWARE ", 1) #PRINT LINE 1
