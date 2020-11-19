@@ -139,7 +139,7 @@ def set_end():
         end = time.time()
 
 # GET RPM
-def get_rpm(c):
+def get_rpm(channel):
 
     global count
     global sample
@@ -176,9 +176,9 @@ def get_rpm(c):
         else:
             count = count + 1
 
-GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm(ir_sensor))
-
 class program:
+    GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm())
+    
     #STOP
     def stop(self):
         stop = True       
