@@ -246,52 +246,49 @@ for i in sampleRpmList:
 
 motor.ChangeDutyCycle(speed)
 
-try:
-    while True:
-        if check == False:
-            if firstTime:
-                print("SLEEPING...")
-                time.sleep(1)
 
-            else:
-                print("ACCELERATING...")
-                time.sleep(1)
-            
-        else:
-            print("ACCELERATED!")
-            
-            t_end = t
-
+while True:
+    if check == False:
+        if firstTime:
+            print("SLEEPING...")
             time.sleep(1)
 
-            display.lcd_clear()
+        else:
+            print("ACCELERATING...")
+            time.sleep(1)
+        
+    else:
+        print("ACCELERATED!")
+        
+        t_end = t
 
-            display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-            display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+        time.sleep(1)
 
-            while t_end > 0:
-                for j in range(2):
+        display.lcd_clear()
+
+        display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+        display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+
+        while t_end > 0:
+            for j in range(2):
+                display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+                display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+                display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
+
+                time.sleep(1)
+                t_end = t_end - 1
+
+                for i in range(2):
                     display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-                    display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
                     display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
-                    display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
 
                     time.sleep(1)
                     t_end = t_end - 1
+        
+        time.sleep(1)
 
-                    for i in range(2):
-                        display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-                        display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+        display.lcd_clear()
+        display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
 
-                        time.sleep(1)
-                        t_end = t_end - 1
-            
-            time.sleep(1)
-
-            display.lcd_clear()
-            display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
-
-            break
-
-except KeyboardInterrupt: 
-    GPIO.cleanup()
+        break
