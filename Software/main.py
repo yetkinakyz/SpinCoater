@@ -67,16 +67,6 @@ display.lcd_display_string("yetkinakyuz.com ", 2) #PRINT LINE 2
 time.sleep(2)
 
 display.lcd_clear()
-display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
-
-for i in range(17):
-    loading = '*'*i
-    display.lcd_display_string(loading, 2) #PRINT LINE 2
-    time.sleep(0.125)
-
-time.sleep(1)
-
-display.lcd_clear()
 display.lcd_display_string("    WELCOME!    ", 1) #PRINT LINE 1
 
 time.sleep(2)
