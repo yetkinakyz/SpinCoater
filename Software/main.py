@@ -48,7 +48,7 @@ menuAscii = [   " " + chr(124) + chr(62),
 menuPosition = 0 
 
 def canceled():
-    if GPIO.input(button6):
+    if GPIO.input(button5):
         print("cancelled")
         return True
 
