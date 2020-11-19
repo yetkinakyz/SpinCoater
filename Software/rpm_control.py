@@ -74,7 +74,11 @@ inpt = -1
 check = False
 firstTime = True
 
+
+
 class program:
+    GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = self.get_rpm)
+
     #STOP
     def stop(self):
         return True
@@ -184,8 +188,6 @@ class program:
     def start(self, inpt, t):
         global speed
 
-        GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = self.get_rpm)
-
         display.lcd_clear()
 
         expected = inpt
@@ -260,8 +262,6 @@ class program:
 
     def next(self, inpt, t):
         global speed
-
-        GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = self.get_rpm)
 
         display.lcd_clear()
 
