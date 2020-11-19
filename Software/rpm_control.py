@@ -201,6 +201,8 @@ class program:
                 print("\ngetSpeed=" + str(sampleSpeedList[sampleRpmList.index(i)])+"\n")
 
                 speed = sampleSpeedList[sampleRpmList.index(i)]
+                
+                print("\nSpeed=" + str(speed) + "\n")
 
             else:
                 continue
@@ -274,6 +276,8 @@ class program:
                 print("\ngetSpeed=" + str(sampleSpeedList[sampleRpmList.index(i)])+"\n")
 
                 speed = sampleSpeedList[sampleRpmList.index(i)]
+
+                print("\nSpeed=" + str(speed) + "\n")
 
             else:
                 continue
