@@ -91,6 +91,7 @@ def getExpectedTime():
 def FirstStage():
     global speed
     global stop
+    global check
 
     display.lcd_clear()
 
@@ -156,7 +157,8 @@ def FirstStage():
 
                         time.sleep(1)
                         t_end = t_end - 1
-                        
+
+        check = False
         break
 
 # NEXT STAGE
@@ -216,6 +218,8 @@ def NextStage():
 
                     time.sleep(1)
                     t_end = t_end - 1
+                    
+        check = False
         break
 
 # SET SAMPLE
