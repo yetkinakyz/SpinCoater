@@ -136,23 +136,30 @@ def FirstStage():
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
 
-        while t_end > 0:
+        while True > 0:
             for j in range(2):
-                display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-                display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
-                display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
-                display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
-
-                time.sleep(1)
-                t_end = t_end - 1
-
-                for i in range(2):
+                if t_end >= 0:
                     display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                    display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
                     display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+                    display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
 
                     time.sleep(1)
                     t_end = t_end - 1
 
+                    for i in range(2):
+                        if t_end >= 0:
+                            display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                            display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+
+                            time.sleep(1)
+                            t_end = t_end - 1
+                        else:
+                            break
+                else:
+                    break
+            break
+        
         check = False
         firstStage = False
 
@@ -161,7 +168,7 @@ def FirstStage():
 # NEXT STAGE
 def NextStage():
     global speed
-    global stop
+
     global check
     global done
 
@@ -197,26 +204,33 @@ def NextStage():
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
 
-        while t_end > 0:
+        while True:
             for j in range(2):
-                display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-                display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
-                display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
-                display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
-
-                time.sleep(1)
-                t_end = t_end - 1
-
-                for i in range(2):
+                if t_end >= 0:
                     display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                    display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
                     display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+                    display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
 
                     time.sleep(1)
                     t_end = t_end - 1
 
-        motor.ChangeDutyCycle(0)
+                    for i in range(2):
+                        if t_end >= 0:
+                            display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                            display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+
+                            time.sleep(1)
+                            t_end = t_end - 1
+                        else:
+                            break
+                else:
+                    break
+            break
+
         done = True
         check = False
+
         break
 
 # SET SAMPLE
