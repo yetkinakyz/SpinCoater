@@ -70,7 +70,7 @@ while True:
                 
                 display.lcd_clear()
                 display.lcd_display_string("  FIRST  STAGE  ", 1) #PRINT LINE 1
-                display.lcd_display_string("1000 RPM  30 SEC", 1) #PRINT LINE 1
+                display.lcd_display_string("1000 RPM  30 SEC", 2) #PRINT LINE 2
                 time.sleep(1)
 
                 Spinner.setExpectedRPM(1000)
@@ -79,7 +79,7 @@ while True:
 
                 display.lcd_clear()
                 display.lcd_display_string("   NEXT STAGE   ", 1) #PRINT LINE 1
-                display.lcd_display_string("5000 RPM 120 SEC", 1) #PRINT LINE 1
+                display.lcd_display_string("5000 RPM 120 SEC", 2) #PRINT LINE 2
                 time.sleep(1)
 
                 Spinner.setExpectedRPM(5000)
@@ -89,7 +89,7 @@ while True:
                 display.lcd_clear()
                 display.lcd_display_string("       DONE      ", 1) #PRINT LINE 1
                 time.sleep(1)
-                
+
                 break
 
         else:
