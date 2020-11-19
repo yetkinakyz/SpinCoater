@@ -1,7 +1,7 @@
 ##### LIBRARIES #####
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
 import lcddriver #LCD I2C LIBRARY
-import rpm_control as RPM
+import rpm_control as Spinner
 
 import time
 
@@ -9,8 +9,6 @@ import time
 
 ## DISPLAY
 display = lcddriver.lcd()
-
-spinner = RPM.program()
 
 ## GPIO
 GPIO.setwarnings(False) #DISABLE WARNINGS
@@ -75,7 +73,7 @@ while True:
                 rpm1 = 1000
                 rpm2 = 5000
 
-                spinner.start(rpm1, t1)
+                Spinner.start(rpm1, t1)
                 #spinner.next(rpm2, t2)
 
                 display.lcd_clear()
