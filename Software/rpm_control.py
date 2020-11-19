@@ -67,6 +67,9 @@ sampleSpeedList = [ 2.8, 3.3, 3.8, 4.2, 4.7, 6,
 cycleRpmList= []
 cycleList = []
 
+expected = 0
+t = 0
+
 check = False
 firstTime = True
 stop = False
@@ -136,12 +139,11 @@ def set_end():
         end = time.time()
 
 # GET RPM
-def get_rpm(channel):
+def get_rpm(channel, expected):
 
     global count
     global sample
 
-    global expected
     global rpm
 
     global firstTime
@@ -173,7 +175,7 @@ def get_rpm(channel):
         else:
             count = count + 1
 
-GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm)
+GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm(expected))
 
 class program:
     #STOP
@@ -181,13 +183,13 @@ class program:
         stop = True       
         return stop
 
-    def start(self, inpt, t):
+    def start(self, k, l):
         global speed
 
         display.lcd_clear()
 
-        expected = inpt
-        expected = int(expected)
+        expected = int(k)
+        t = int(l)
 
         display.lcd_clear()
         display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
