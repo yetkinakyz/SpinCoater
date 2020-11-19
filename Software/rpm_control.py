@@ -115,28 +115,29 @@ def speed_control(c, r, p):
         print("NEUTRAL")
 
 # SET SAMPLE
-def setSample(r):
+def setSample(rpm):
     global sample
-    
-    if r < 250:
+
+    if rpm < 250:
         sample = 3
 
-    elif r > 250 and r < 400:
+    elif rpm > 250 and rpm < 400:
         sample = 12
 
-    elif r > 400 and r < 560:
+    elif rpm > 400 and rpm < 560:
         sample = 24
 
-    elif r > 560 and r < 1000:
+    elif rpm > 560 and rpm < 1000:
         sample = 30
 
-    elif r > 1000 and r < 3500:
+    elif rpm > 1000 and rpm < 3500:
         sample = 60
 
-    elif r > 3500:
+    elif rpm > 3500:
         sample = 120
-
-        
+    
+    return sample
+  
 # GET RPM
 def get_rpm(channel):
     global count
@@ -152,14 +153,12 @@ def get_rpm(channel):
         firstTime = False
 
     else:
-
-        setSample(rpm)
         
         if count == 0: 
                 set_start()        
                 count = count + 1
         
-        elif count == sample:
+        elif count == setSample(rpm):
                 set_end()
 
                 rpm_pre = rpm
@@ -250,11 +249,15 @@ motor.ChangeDutyCycle(speed)
 try:
     while True:
         if check == False:
-            print("ACCELERATING...")
-            time.sleep(1)
+            if firstTime:
+                print("SLEEPING...")
+                time.sleep(1)
+
+            else:
+                print("ACCELERATING...")
+                time.sleep(1)
             
         else:
-
             print("ACCELERATED!")
             
             t_end = t
