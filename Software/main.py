@@ -31,14 +31,14 @@ GPIO.setup(button4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-buttonState1 = GPIO.input(button1)
-buttonState2 = GPIO.input(button2)
-buttonState3 = GPIO.input(button3)
-buttonState4 = GPIO.input(button4)
-buttonState5 = GPIO.input(button5)
-buttonState6 = GPIO.input(button6)
-
 while True:
+    buttonState1 = GPIO.input(button1)
+    buttonState2 = GPIO.input(button2)
+    buttonState3 = GPIO.input(button3)
+    buttonState4 = GPIO.input(button4)
+    buttonState5 = GPIO.input(button5)
+    buttonState6 = GPIO.input(button6)
+
     if buttonState2:
         print("pressed!")
         time.sleep(0.5)
