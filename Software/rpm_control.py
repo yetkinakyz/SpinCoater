@@ -70,6 +70,7 @@ check = False
 firstTime = True
 stop = False
 firstStage = True
+done = False
 
 expectedRPM = 0
 expectedTime = 0
@@ -154,6 +155,7 @@ def NextStage():
     global speed
     global stop
     global check
+    global done
 
     display.lcd_clear()
 
@@ -205,6 +207,7 @@ def NextStage():
                     t_end = t_end - 1
 
         motor.ChangeDutyCycle(0)
+        done = True
         check = False
         break
 
@@ -236,31 +239,36 @@ def SetSample(rpm):
 def SpeedControl(s, r, p):   
     global speed
     global check
+    global done
 
-    n = s - r
-
-    print("\nspeed: " + str(speed))
-    print("expected: " + str(s))
-    print("rpm: " + str(r) + "\n")
-
-    if r == 0 or r == p:
-        print("---")
-
-    elif (n > 50):
-        speed = speed + 0.1
+    if done:
+        speed = 0
         motor.ChangeDutyCycle(speed)
-
-        print("LOW")
-
-    elif (n < -50):
-        speed = speed - 0.1
-        motor.ChangeDutyCycle(speed)
-
-        print("HIGH")
-
     else:
-        check = True
-        print("NEUTRAL")
+        n = s - r
+
+        print("\nspeed: " + str(speed))
+        print("expected: " + str(s))
+        print("rpm: " + str(r) + "\n")
+
+        if r == 0 or r == p:
+            print("---")
+
+        elif (n > 50):
+            speed = speed + 0.1
+            motor.ChangeDutyCycle(speed)
+
+            print("LOW")
+
+        elif (n < -50):
+            speed = speed - 0.1
+            motor.ChangeDutyCycle(speed)
+
+            print("HIGH")
+
+        else:
+            check = True
+            print("NEUTRAL")
 
 #SET START TIME
 def set_start():
