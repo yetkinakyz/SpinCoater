@@ -41,7 +41,7 @@ buttons = [ None,
 
 ## MENU
 menuPosition = 0
-mainMenu = ["  SET PROGRAM ", "       TEST ", "        INFO "]
+mainMenu = ["  SET PROGRAM ", "        TEST ", "         INFO "]
 menuAscii = [chr(124) + chr(62), chr(60) + chr(124) + chr(62), chr(60) + chr(124)] 
 
 while True:
