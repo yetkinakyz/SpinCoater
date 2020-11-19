@@ -56,11 +56,11 @@ while True:
 
     while True:
         
-        if (not buttonState1) and (menuPosition >= 0):
+        if not GPIO.input(button1) and menuPosition >= 0:
             menuPosition = menuPosition - 1
             print(menuPosition)
 
-        elif (buttonState2) and (menuPosition >= 0):
+        elif GPIO.input(button2) and menuPosition >= 0:
             menuPosition = menuPosition + 1
             print(menuPosition)
 
