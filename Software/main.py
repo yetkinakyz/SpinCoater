@@ -55,20 +55,22 @@ while True:
     display.lcd_clear()
 
     while True:
-        display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
-        display.lcd_display_string(mainMenu[menuPosition+1], 2) #PRINT LINE 2
-
-        if not GPIO.input(button1) and menuPosition > 0:
-            menuPosition = menuPosition - 1
-            print(menuPosition)
-            time.sleep(0.2)
-
-        elif GPIO.input(button2) and menuPosition < len(mainMenu):
-            menuPosition = menuPosition + 1
-            print(menuPosition)
-            time.sleep(0.2)
-
-        else:
+        if menuPosition < 0 or menuPosition >= len(mainMenu):
             continue
 
-        time.sleep(0.01)
+        else:
+
+            if not GPIO.input(button1) and menuPosition > 0:
+                menuPosition = menuPosition - 1
+                print(menuPosition)
+                time.sleep(0.2)
+
+            elif GPIO.input(button2) and menuPosition < len(mainMenu):
+                menuPosition = menuPosition + 1
+                print(menuPosition)
+                time.sleep(0.2)
+
+            else:
+                continue
+
+            time.sleep(0.01)
