@@ -24,6 +24,10 @@ button4 = 13
 button5 = 19
 button6 = 26
 
+## MENU
+menuPosition = 0
+mainMenu = ["SET PROGRAM", "INFO"]
+
 GPIO.setup(button1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -39,7 +43,29 @@ while True:
     buttonState5 = GPIO.input(button5)
     buttonState6 = GPIO.input(button6)
 
-    if buttonState2:
-        print("pressed!")
-        time.sleep(0.5)
-        rpm_control.start()
+    display.lcd_display_string("SPIN COATER", 1) #PRINT LINE 1
+    display.lcd_display_string(" BY YETKIN AKYUZ", 2) #PRINT LINE 2
+    time.sleep(2)
+
+    display.lcd_clear()
+
+    display.lcd_display_string("     WELCOME!    ", 1) #PRINT LINE 1
+    time.sleep(2)
+
+    display.lcd_clear()
+
+    while True:
+        
+        if not buttonState1 and menuPosition >= 0:
+            menuPosition = menuPosition - 1
+            print(menuPosition)
+
+        elif buttonState2 and menuPosition >= 0:
+            menuPosition = menuPosition + 1
+            print(menuPosition)
+
+        else:
+            continue
+
+        display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
+        display.lcd_display_string(mainMenu[menuPosition+1], 2) #PRINT LINE 2
