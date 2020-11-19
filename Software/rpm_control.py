@@ -100,10 +100,6 @@ def FirstStage():
     print(getExpectedRPM())
     print(getExpectedTime())
 
-    display.lcd_clear()
-    display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
-    display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
-
     for i in sampleRpmList:
 
         if getExpectedRPM() >= i - 100 and getExpectedRPM() <= i + 100:
@@ -163,10 +159,6 @@ def NextStage():
 
     print(getExpectedRPM())
     print(getExpectedTime())
-
-    display.lcd_clear()
-    display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
-    display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
 
     for i in sampleRpmList:
 
