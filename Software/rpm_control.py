@@ -113,9 +113,30 @@ def speed_control(c, r, p):
     else:
         check = True
         print("NEUTRAL")
+
+# SET SAMPLE
+def setSample(r):
+    if r < 250:
+            sample = 3
+
+    elif r > 250 and r < 400:
+        sample = 12
+
+    elif r > 400 and r < 560:
+        sample = 24
+
+    elif r > 560 and r < 1000:
+        sample = 30
+
+    elif r > 1000 and r < 3500:
+        sample = 60
+
+    elif r > 3500:
+        sample = 120
+
         
 # GET RPM
-def get_rpm(c):
+def get_rpm(channel):
     global count
     global sample
 
@@ -125,46 +146,33 @@ def get_rpm(c):
     global firstTime
 
     if firstTime:
-                time.sleep(3)
-                not firstTime
+        time.sleep(3)
+        firstTime = False
 
-    if rpm < 250:
-        sample = 3
-
-    elif rpm > 250 and rpm < 400:
-        sample = 12
-
-    elif rpm > 400 and rpm < 560:
-        sample = 24
-
-    elif rpm > 560 and rpm < 1000:
-        sample = 30
-
-    elif rpm > 1000 and rpm < 3500:
-        sample = 60
-
-    elif rpm > 3500:
-        sample = 120
-    
-    if count == 0: 
-            set_start()        
-            count = count + 1
     else:
-        count = count + 1
-            
-    if count == sample:
-            set_end()
 
-            rpm_pre = rpm
+        setSample(rpm)
+        
+        if count == 0: 
+                set_start()        
+                count = count + 1
+        
+        elif count == sample:
+                set_end()
 
-            delta = end - start
-            delta = delta / 60
+                rpm_pre = rpm
 
-            rpm = int((sample/delta)/2)
+                delta = end - start
+                delta = delta / 60
 
-            count = 0
+                rpm = int((sample/delta)/2)
 
-            speed_control(expected, rpm, rpm_pre)
+                count = 0
+
+                speed_control(expected, rpm, rpm_pre)
+        
+        else:
+            count = count + 1
 
 GPIO.add_event_detect(ir_sensor, GPIO.RISING, callback=get_rpm)
 
