@@ -70,6 +70,9 @@ check = False
 firstTime = True
 stop = False
 
+expectedRPM = 3
+expectedTime = 3
+
 # SET SAMPLE
 def setSample(rpm):
     global sample
@@ -189,7 +192,6 @@ def start(spd, tm):
 
     for i in sampleRpmList:
 
-        print(expectedRPM)
         if expectedRPM >= i - 100 and expectedRPM <= i + 100:
             
             print("\ngetRPM=" + str(i))
@@ -203,7 +205,6 @@ def start(spd, tm):
             continue
 
     motor.ChangeDutyCycle(speed)
-
 
     while True:
 
