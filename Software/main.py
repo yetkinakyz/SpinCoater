@@ -98,9 +98,6 @@ while True:
                 break
         
         elif menuPosition == 2:
-            while True:
-                if GPIO.input(button5):
-                    break
 
                 display.lcd_clear()
 
