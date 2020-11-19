@@ -1,7 +1,7 @@
 ##### LIBRARIES #####
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
 import lcddriver #LCD I2C LIBRARY
-import rpm_control
+import rpm_control as RPM
 
 import time
 
@@ -10,7 +10,7 @@ import time
 ## DISPLAY
 display = lcddriver.lcd()
 
-rpm_control = rpm_control.program()
+spinner = RPM.program()
 
 ## GPIO
 GPIO.setwarnings(False) #DISABLE WARNINGS
@@ -24,10 +24,6 @@ button4 = 13
 button5 = 19
 button6 = 26
 
-## MENU
-menuPosition = 0
-mainMenu = ["     SET PROGRAM", "            TEST", "            INFO"]
-
 GPIO.setup(button1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -35,13 +31,19 @@ GPIO.setup(button4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
+buttons = [ None,
+            not GPIO.input(button1), 
+            GPIO.input(button2), 
+            GPIO.input(button3), 
+            GPIO.input(button4), 
+            GPIO.input(button5), 
+            GPIO.input(button6)]
+
+## MENU
+menuPosition = 0
+mainMenu = ["¯¯¯SET PROGRAM »", "¯¯¯¯     TEST «»", "¯¯¯¯      INFO «"]
+
 while True:
-    buttonState1 = GPIO.input(button1)
-    buttonState2 = GPIO.input(button2)
-    buttonState3 = GPIO.input(button3)
-    buttonState4 = GPIO.input(button4)
-    buttonState5 = GPIO.input(button5)
-    buttonState6 = GPIO.input(button6)
 
     #display.lcd_display_string("SPIN COATER", 1) #PRINT LINE 1
     #display.lcd_display_string(" BY YETKIN AKYUZ", 2) #PRINT LINE 2
@@ -63,13 +65,13 @@ while True:
             menuPosition = menuPosition - 1
 
             print("Up Button - " + str(menuPosition))
-            time.sleep(0.2)
+            time.sleep(0.1)
 
         elif GPIO.input(button2) and menuPosition < len(mainMenu) - 1:
             menuPosition = menuPosition + 1
 
             print("Down Button - " + str(menuPosition))
-            time.sleep(0.2)
+            time.sleep(0.1)
 
         else:
             continue
