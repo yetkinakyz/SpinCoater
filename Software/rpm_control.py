@@ -214,6 +214,7 @@ class program:
             if self.stop():
                 speed = 0
                 motor.ChangeDutyCycle(speed)
+                print(speed)
             
                 break
 
