@@ -66,15 +66,8 @@ while True:
 
     elif GPIO.input(button6):
         if menuPosition == 1:
-            while True:
+            while not GPIO.input(button6):
                 
-                if GPIO.input(button5):
-
-                    display.lcd_clear()
-                    display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
-                    time.sleep(2)
-                    break
-
                 display.lcd_clear()
                 display.lcd_display_string(" TEST  SOFTWARE ", 1) #PRINT LINE 1
                 display.lcd_display_string("TOTAL:  2 STAGES", 2) #PRINT LINE 2
