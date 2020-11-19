@@ -212,6 +212,7 @@ def NextStage():
                     time.sleep(1)
                     t_end = t_end - 1
 
+        motor.ChangeDutyCycle(0)
         check = False
         break
 
