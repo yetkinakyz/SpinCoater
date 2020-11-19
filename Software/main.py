@@ -37,20 +37,20 @@ buttons = [ not GPIO.input(button1),
             GPIO.input(button6)]
 
 ## MAIN MENU
-mainMenu = ["    SET PROG ",
-            "        TEST ",
-            "        INFO "]
+mainMenu = ["SET PROGRAM     ",
+            "TEST            ",
+            "INFO            "]
 
-menuAscii = [   " " + chr(124) + chr(62),
-                chr(60) + chr(124) + chr(62),
-                chr(60) + chr(124) + " "]
+menuAscii = [   "             " + " " + chr(124) + chr(62),
+                "             " + chr(60) + chr(124) + chr(62),
+                "             " + chr(60) + chr(124) + " "]
 
 menuPosition = 0 
 
 while True:
 
-    display.lcd_display_string("MENU            ", 1) #PRINT LINE 1
-    display.lcd_display_string(mainMenu[menuPosition] + menuAscii[menuPosition], 2) #PRINT LINE 2
+    display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
+    display.lcd_display_string(menuAscii[menuPosition], 2) #PRINT LINE 2
     
     if not GPIO.input(button1) and menuPosition > 0:
         menuPosition = menuPosition - 1
