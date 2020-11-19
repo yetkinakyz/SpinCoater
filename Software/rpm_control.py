@@ -69,6 +69,7 @@ cycleList = []
 check = False
 firstTime = True
 stop = False
+firstStage = True
 
 expectedRPM = 0
 expectedTime = 0
@@ -92,6 +93,7 @@ def FirstStage():
     global speed
     global stop
     global check
+    global firstStage
 
     display.lcd_clear()
 
@@ -119,52 +121,43 @@ def FirstStage():
     motor.ChangeDutyCycle(speed)
 
     while True:
+       
+        t_end = getExpectedTime()
 
-        if check == False:
-            if firstTime:
-                print("SLEEPING...")
+        time.sleep(1)
+
+        display.lcd_clear()
+
+        display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+        display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+
+        while t_end > 0:
+            for j in range(2):
+                display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
+                display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+                display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
+                display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
+
                 time.sleep(1)
+                t_end = t_end - 1
 
-            else:
-                print("ACCELERATING...")
-                time.sleep(1)
-            
-        else:
-            print("ACCELERATED!")
-            
-            t_end = getExpectedTime()
-
-            time.sleep(1)
-
-            display.lcd_clear()
-
-            display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-            display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
-
-            while t_end > 0:
-                for j in range(2):
+                for i in range(2):
                     display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-                    display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
                     display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
-                    display.lcd_display_string("SPEED: " + str(rpm), 2) #PRINT LINE 2
 
                     time.sleep(1)
                     t_end = t_end - 1
 
-                    for i in range(2):
-                        display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
-                        display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
-
-                        time.sleep(1)
-                        t_end = t_end - 1
-
         check = False
+        firstStage = False
+
         break
 
 # NEXT STAGE
 def NextStage():
     global speed
     global stop
+    global check
 
     display.lcd_clear()
 
@@ -218,7 +211,7 @@ def NextStage():
 
                     time.sleep(1)
                     t_end = t_end - 1
-                    
+
         check = False
         break
 
@@ -288,38 +281,30 @@ def set_end():
 
 # GET RPM
 def get_rpm(channel):
-
     global count
     global sample
     global rpm
-    global firstTime
-
-    if firstTime:
-        time.sleep(5)
-        firstTime = False
-
-    else:
         
-        if count == 0: 
-                set_start()        
-                count = count + 1
-        
-        elif count == SetSample(rpm):
-                set_end()
-
-                rpm_pre = rpm
-
-                delta = end - start
-                delta = delta / 60
-
-                rpm = int((sample/delta)/2)
-
-                count = 0
-
-                SpeedControl(getExpectedRPM(), rpm, rpm_pre)
-        
-        else:
+    if count == 0: 
+            set_start()        
             count = count + 1
+    
+    elif count == SetSample(rpm):
+            set_end()
+
+            rpm_pre = rpm
+
+            delta = end - start
+            delta = delta / 60
+
+            rpm = int((sample/delta)/2)
+
+            count = 0
+
+            SpeedControl(getExpectedRPM(), rpm, rpm_pre)
+    
+    else:
+        count = count + 1
 
 GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm)
 
