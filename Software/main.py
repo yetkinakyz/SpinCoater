@@ -56,16 +56,21 @@ while True:
 
     while True:
         
-        if not buttonState1 and menuPosition >= 0:
+        if (not buttonState1) and (menuPosition >= 0):
             menuPosition = menuPosition - 1
             print(menuPosition)
 
-        elif buttonState2 and menuPosition >= 0:
+        elif (buttonState2) and (menuPosition >= 0):
             menuPosition = menuPosition + 1
             print(menuPosition)
 
         else:
             continue
 
+        print(mainMenu[menuPosition])
+        print(mainMenu[menuPosition+1])
+
         display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
         display.lcd_display_string(mainMenu[menuPosition+1], 2) #PRINT LINE 2
+
+        time.sleep(0.1)
