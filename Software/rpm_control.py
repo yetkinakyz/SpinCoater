@@ -75,113 +75,115 @@ check = False
 firstTime = True
 stop = False
 
+# SET SAMPLE
+def setSample(rpm):
+    global sample
+
+    if rpm < 250:
+        sample = 3
+
+    elif rpm > 250 and rpm < 400:
+        sample = 12
+
+    elif rpm > 400 and rpm < 560:
+        sample = 24
+
+    elif rpm > 560 and rpm < 1000:
+        sample = 30
+
+    elif rpm > 1000 and rpm < 3500:
+        sample = 60
+
+    elif rpm > 3500:
+        sample = 120
+    
+    return sample
+
+#MOTOR SPEED CONTROL
+def speed_control(c, r, p):   
+    global speed
+    global check
+
+    n = c - r
+
+    print("\nspeed: " + str(speed))
+    print("expected: " + str(c))
+    print("rpm: " + str(r) + "\n")
+
+    if r == 0 or r == p:
+        print("---")
+
+    elif (n > 50):
+        speed = speed + 0.1
+        motor.ChangeDutyCycle(speed)
+
+        print("LOW")
+
+    elif (n < -50):
+        speed = speed - 0.1
+        motor.ChangeDutyCycle(speed)
+
+        print("HIGH")
+
+    else:
+        check = True
+        print("NEUTRAL")
+
+#SET START TIME
+def set_start():
+    global start
+    start = time.time()
+
+#SET END TIME
+def set_end(): 
+        global end
+        end = time.time()
+
+# GET RPM
+def get_rpm(channel):
+
+    global count
+    global sample
+
+    global expected
+    global rpm
+
+    global firstTime
+
+    if firstTime:
+        time.sleep(5)
+        firstTime = False
+
+    else:
+        
+        if count == 0: 
+                set_start()        
+                count = count + 1
+        
+        elif count == setSample(rpm):
+                set_end()
+
+                rpm_pre = rpm
+
+                delta = end - start
+                delta = delta / 60
+
+                rpm = int((sample/delta)/2)
+
+                count = 0
+
+                speed_control(expected, rpm, rpm_pre)
+        
+        else:
+            count = count + 1
+
+GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm)
+
 class program:
     #STOP
     def stop(self):
         stop = True       
         return stop
-        
-    #SET START TIME
-    def set_start(self):
-        global start
-        start = time.time()
-
-    #SET END TIME
-    def set_end(self): 
-            global end
-            end = time.time()
-
-    #MOTOR SPEED CONTROL
-    def speed_control(self, c, r, p):   
-        global speed
-        global check
-
-        n = c - r
-
-        print("\nspeed: " + str(speed))
-        print("expected: " + str(c))
-        print("rpm: " + str(r) + "\n")
-
-        if r == 0 or r == p:
-            print("---")
-
-        elif (n > 50):
-            speed = speed + 0.1
-            motor.ChangeDutyCycle(speed)
-
-            print("LOW")
-
-        elif (n < -50):
-            speed = speed - 0.1
-            motor.ChangeDutyCycle(speed)
-
-            print("HIGH")
-
-        else:
-            check = True
-            print("NEUTRAL")
-
-    # SET SAMPLE
-    def setSample(self, rpm):
-        global sample
-
-        if rpm < 250:
-            sample = 3
-
-        elif rpm > 250 and rpm < 400:
-            sample = 12
-
-        elif rpm > 400 and rpm < 560:
-            sample = 24
-
-        elif rpm > 560 and rpm < 1000:
-            sample = 30
-
-        elif rpm > 1000 and rpm < 3500:
-            sample = 60
-
-        elif rpm > 3500:
-            sample = 120
-        
-        return sample
-    
-    # GET RPM
-    def get_rpm(self, channel):
-
-        global count
-        global sample
-
-        global expected
-        global rpm
-
-        global firstTime
-
-        if firstTime:
-            time.sleep(5)
-            firstTime = False
-
-        else:
-            
-            if count == 0: 
-                    self.set_start()        
-                    count = count + 1
-            
-            elif count == self.setSample(rpm):
-                    self.set_end()
-
-                    rpm_pre = rpm
-
-                    delta = end - start
-                    delta = delta / 60
-
-                    rpm = int((sample/delta)/2)
-
-                    count = 0
-
-                    self.speed_control(expected, rpm, rpm_pre)
-            
-            else:
-                count = count + 1
 
     def start(self, inpt, t):
         global speed
@@ -328,5 +330,3 @@ class program:
                             t_end = t_end - 1
 
         return True
-
-GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = program.get_rpm)
