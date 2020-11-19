@@ -212,6 +212,9 @@ class program:
 
         while True:
             if self.stop():
+                speed = 0
+                motor.ChangeDutyCycle(speed)
+            
                 break
 
             else:
@@ -252,13 +255,6 @@ class program:
 
                                 time.sleep(1)
                                 t_end = t_end - 1
-                    
-                    time.sleep(1)
-
-                    display.lcd_clear()
-                    display.lcd_display_string("      DONE      ",1) #PRINT LINE 1
-
-                    break
 
                 return True
 
@@ -291,6 +287,9 @@ class program:
 
         while True:
             if self.stop():
+                speed = 0
+                motor.ChangeDutyCycle(speed)
+
                 break
 
             else:
@@ -324,7 +323,5 @@ class program:
 
                             time.sleep(1)
                             t_end = t_end - 1
-
-                break
 
         return True
