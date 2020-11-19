@@ -38,4 +38,6 @@ buttonState4 = GPIO.input(button4)
 buttonState5 = GPIO.input(button5)
 buttonState6 = GPIO.input(button6)
 
-rpm_control.start()
+while True:
+    if not buttonState1:
+        rpm_control.start()
