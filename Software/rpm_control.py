@@ -156,6 +156,8 @@ def FirstStage():
 
                         time.sleep(1)
                         t_end = t_end - 1
+                        
+        break
 
 # NEXT STAGE
 def NextStage():
@@ -214,6 +216,7 @@ def NextStage():
 
                     time.sleep(1)
                     t_end = t_end - 1
+        break
 
 # SET SAMPLE
 def SetSample(rpm):
