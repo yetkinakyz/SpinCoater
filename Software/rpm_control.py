@@ -77,17 +77,17 @@ firstTime = True
 class program:
         
     #SET START TIME
-    def set_start():
+    def set_start(self):
         global start
         start = time.time()
 
     #SET END TIME
-    def set_end(): 
+    def set_end(self): 
             global end
             end = time.time()
 
     #MOTOR SPEED CONTROL
-    def speed_control(c, r, p):   
+    def speed_control(self, c, r, p):   
         global speed
         global check
 
@@ -117,7 +117,7 @@ class program:
             print("NEUTRAL")
 
     # SET SAMPLE
-    def setSample(rpm):
+    def setSample(self, rpm):
         global sample
 
         if rpm < 250:
@@ -141,7 +141,8 @@ class program:
         return sample
     
     # GET RPM
-    def get_rpm(channel):
+    def get_rpm(self, channel):
+
         global count
         global sample
 
@@ -157,11 +158,11 @@ class program:
         else:
             
             if count == 0: 
-                    set_start()        
+                    self.set_start()        
                     count = count + 1
             
-            elif count == setSample(rpm):
-                    set_end()
+            elif count == self.setSample(rpm):
+                    self.set_end()
 
                     rpm_pre = rpm
 
@@ -172,15 +173,15 @@ class program:
 
                     count = 0
 
-                    speed_control(expected, rpm, rpm_pre)
+                    self.speed_control(expected, rpm, rpm_pre)
             
             else:
                 count = count + 1
 
-    def start():
+    def start(self):
         global speed
 
-        GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback=get_rpm)
+        GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback=self.get_rpm)
 
         print("Welcome!\n")
 
