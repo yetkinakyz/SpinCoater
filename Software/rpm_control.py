@@ -4,50 +4,50 @@ import lcddriver #LCD I2C LIBRARY
 import time
 
 ##### SETUP ##### 
+
+## DISPLAY
 display = lcddriver.lcd()
 
+## GPIO
+GPIO.setwarnings(False) #DISABLE WARNINGS
+GPIO.setmode(GPIO.BCM) #GPIO PIN NUMBERS (GPIO.BOARD for physical pin numbers.)
+
 # MOTOR
-motor_in1 = 23
-motor_in2 = 24
+motor_in1 = 23 #MOTOR IN 1
+motor_in2 = 24 #MOTOR IN 2
 
-motor_en = 25
+motor_en = 25 #MOTOR SPEED CONTROL PIN
 
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
-
+# GPIO outputs
 GPIO.setup(motor_in1,GPIO.OUT)
 GPIO.setup(motor_in2,GPIO.OUT)
-
 GPIO.setup(motor_en,GPIO.OUT)
 
+# Motor turns clockwise
 GPIO.output(motor_in1,GPIO.HIGH)
 GPIO.output(motor_in2,GPIO.LOW)
 
 motor=GPIO.PWM(motor_en,50)
-motor.start(0)
 
+motor.start(0) #MOTOR START SPEED
 speed = 0
 
 # IR SENSOR 
-ir_sensor = 22
+ir_sensor = 22 #GPIO PIN
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(ir_sensor,GPIO.IN)
 
+# get_rpm(channel) variables
 sample = 3
 count = 0
+rpm = 0
 
+# set_start() and set_end() variables
 start = 0
 end = 0
 
-rpm = 0
-
-expected = -1
-t = 0
-inpt = -1
-
-check = False
-
+# OTHERS
 sampleRpmList = [ 100, 200, 300, 400, 500, 800,
             1000, 1200, 1500, 1800,
             2000, 2200, 2500, 2800,
@@ -55,16 +55,24 @@ sampleRpmList = [ 100, 200, 300, 400, 500, 800,
             4000, 4200, 4500, 4800,
             5000, 5200, 5500, 5800,
             6000, 6200, 6500, 6800,
-            7000, 7200]
+            7000, 7200]         
+sampleSpeedList = [ 2.8, 3.3, 3.8, 4.2, 4.7, 6,
+                    6.7, 7.5, 8.5, 10,
+                    10.5, 11.5, 13, 14.5,
+                    15.5, 16.8, 18.5, 20,
+                    21.5, 23, 25, 27.5,
+                    30, 32, 35.5, 38,
+                    40.5, 44.0, 48.0, 53.0,
+                    55.5, 60.5]
+cycleRpmList= []
+cycleList = []
 
-sampleSpeedList = [   2.8, 3.3, 3.8, 4.2, 4.7, 6,
-                6.7, 7.5, 8.5, 10,
-                10.5, 11.5, 13, 14.5,
-                15.5, 16.8, 18.5, 20,
-                21.5, 23, 25, 27.5,
-                30, 32, 35.5, 38,
-                40.5, 44.0, 48.0, 53.0,
-                55.5, 60.5]
+expected = -1
+t = 0
+inpt = -1
+
+check = False
+firstTime = True
 
 #SET START TIME
 def set_start():
@@ -113,6 +121,12 @@ def get_rpm(c):
 
     global expected
     global rpm
+
+    global firstTime
+
+    if firstTime:
+                time.sleep(3)
+                not firstTime
 
     if rpm < 250:
         sample = 3
@@ -211,7 +225,7 @@ display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
 
 for i in sampleRpmList:
 
-    if (expected >= i - 100) and (expected <= i + 100):
+    if expected >= i - 100 and expected <= i + 100:
         
         print("\ngetRPM=" + str(i))
         print("\ngetSpeed=" + str(sampleSpeedList[sampleRpmList.index(i)])+"\n")
