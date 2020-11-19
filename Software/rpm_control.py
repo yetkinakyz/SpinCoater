@@ -74,11 +74,7 @@ inpt = -1
 check = False
 firstTime = True
 
-
-
 class program:
-    GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = self.get_rpm)
-
     #STOP
     def stop(self):
         return True
@@ -325,3 +321,5 @@ class program:
                             t_end = t_end - 1
 
         return True
+
+GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = program.get_rpm)
