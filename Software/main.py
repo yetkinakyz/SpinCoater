@@ -54,13 +54,12 @@ while True:
 
     display.lcd_clear()
 
+    display.lcd_display_string(mainMenu[menuPosition] + " *", 1) #PRINT LINE 1
+    display.lcd_display_string(mainMenu[menuPosition+1], 2) #PRINT LINE 2
+    
     while True:
-        if menuPosition == 0:
-            display.lcd_clear()
-            display.lcd_display_string(mainMenu[menuPosition] + " *", 1) #PRINT LINE 1
-            display.lcd_display_string(mainMenu[menuPosition+1], 2) #PRINT LINE 2
-        
-        else:
+        if not menuPosition == 0:
+            
             display.lcd_clear()
             display.lcd_display_string(mainMenu[menuPosition - 1], 1) #PRINT LINE 1
             display.lcd_display_string(mainMenu[menuPosition] + " *", 2) #PRINT LINE 2
