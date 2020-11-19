@@ -210,12 +210,12 @@ display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
 display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
 
 for i in sampleRpmList:
-    if (expected >= sampleRpmList(i) - 100) and (expected <= sampleRpmList(i) + 100):
+    if (expected >= sampleRpmList[i] - 100) and (expected <= sampleRpmList[i] + 100):
         
-        print("\ngetRPM=" + str(sampleRpmList(i)))
-        print("\ngetSpeed=" + str(sampleSpeedList(i))+"\n")
+        print("\ngetRPM=" + str(sampleRpmList[i]))
+        print("\ngetSpeed=" + str(sampleSpeedList[i])+"\n")
 
-        motor.ChangeDutyCycle(sampleSpeedList(i))
+        motor.ChangeDutyCycle(sampleSpeedList[i])
     else:
         continue
 
