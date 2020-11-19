@@ -54,31 +54,24 @@ while True:
 
     display.lcd_clear()
 
-    display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
-    display.lcd_display_string(mainMenu[menuPosition+1], 2) #PRINT LINE 2
-
     while True:
-    
-                if not GPIO.input(button1) and menuPosition > 0:
-                    menuPosition = menuPosition - 1
-                    print(menuPosition)
-                    time.sleep(0.2)
+        if menuPosition == 0:
+            display.lcd_clear()
+            display.lcd_display_string(mainMenu[menuPosition] + " *", 1) #PRINT LINE 1
+            display.lcd_display_string(mainMenu[menuPosition+1], 2) #PRINT LINE 2
+        
+        else:
+            display.lcd_clear()
+            display.lcd_display_string(mainMenu[menuPosition - 1], 1) #PRINT LINE 1
+            display.lcd_display_string(mainMenu[menuPosition] + " *", 2) #PRINT LINE 2
+        
+        if not GPIO.input(button1) and menuPosition > 0:
+            menuPosition = menuPosition - 1
+            print("Up Button - " + str(menuPosition))
 
-                    display.lcd_clear()
-                    display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
-                    display.lcd_display_string(mainMenu[menuPosition+1], 2) #PRINT LINE 2
+        elif GPIO.input(button2) and menuPosition < len(mainMenu) - 1:
+            menuPosition = menuPosition + 1
+            print("Down Button - " + str(menuPosition))
 
-                elif GPIO.input(button2) and menuPosition < len(mainMenu)-1:
-                    menuPosition = menuPosition + 1
-                    print(menuPosition)
-                    time.sleep(0.2)
-
-                    display.lcd_clear()
-                    display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
-                    display.lcd_display_string(mainMenu[menuPosition+1], 2) #PRINT LINE 2
-
-                else:
-                    print("NOTHING")
-                    continue
-
-                time.sleep(0.01)
+        else:
+            continue
