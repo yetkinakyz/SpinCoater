@@ -67,36 +67,9 @@ sampleSpeedList = [ 2.8, 3.3, 3.8, 4.2, 4.7, 6,
 cycleRpmList= []
 cycleList = []
 
-expectedRPM = 0
-expectedTime = 0
-
 check = False
 firstTime = True
 stop = False
-
-# SET SAMPLE
-def setSample(rpm):
-    global sample
-
-    if rpm < 250:
-        sample = 3
-
-    elif rpm > 250 and rpm < 400:
-        sample = 12
-
-    elif rpm > 400 and rpm < 560:
-        sample = 24
-
-    elif rpm > 560 and rpm < 1000:
-        sample = 30
-
-    elif rpm > 1000 and rpm < 3500:
-        sample = 60
-
-    elif rpm > 3500:
-        sample = 120
-    
-    return sample
 
 class program:
     global expectedRPM
@@ -255,6 +228,30 @@ class program:
                             t_end = t_end - 1
 
         return True
+
+# SET SAMPLE
+def setSample(rpm):
+    global sample
+
+    if rpm < 250:
+        sample = 3
+
+    elif rpm > 250 and rpm < 400:
+        sample = 12
+
+    elif rpm > 400 and rpm < 560:
+        sample = 24
+
+    elif rpm > 560 and rpm < 1000:
+        sample = 30
+
+    elif rpm > 1000 and rpm < 3500:
+        sample = 60
+
+    elif rpm > 3500:
+        sample = 120
+    
+    return sample
 
 #MOTOR SPEED CONTROL
 def speed_control(c, r, p):   
