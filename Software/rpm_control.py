@@ -193,6 +193,9 @@ class program:
         expected = int(k)
         t = int(l)
 
+        print(expected)
+        print(t)
+
         display.lcd_clear()
         display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
         display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
@@ -261,7 +264,7 @@ class program:
                                 time.sleep(1)
                                 t_end = t_end - 1
 
-                return True
+        return True
 
     def next(self, inpt, t):
         global speed

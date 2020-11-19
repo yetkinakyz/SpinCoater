@@ -76,7 +76,7 @@ while True:
                 rpm2 = 5000
 
                 spinner.start(rpm1, t1)
-                spinner.next(rpm2, t2)
+                #spinner.next(rpm2, t2)
 
                 display.lcd_clear()
                 display.lcd_display_string("       DONE      ", 1) #PRINT LINE 1
