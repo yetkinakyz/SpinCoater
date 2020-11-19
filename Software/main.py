@@ -39,45 +39,33 @@ buttons = [ None,
             GPIO.input(button5), 
             GPIO.input(button6)]
 
-## MENU
-menuPosition = 0
+## MAIN MENU
 mainMenu = [" SET PROGRAM ",
             "        TEST ",
             "        INFO "]
 
 menuAscii = [   " " + chr(124) + chr(62),
                 chr(60) + chr(124) + chr(62),
-                chr(60) + chr(124) + " "] 
+                chr(60) + chr(124) + " "]
+
+menuPosition = 0 
 
 while True:
 
-    #display.lcd_display_string("SPIN COATER", 1) #PRINT LINE 1
-    #display.lcd_display_string(" BY YETKIN AKYUZ", 2) #PRINT LINE 2
-    #time.sleep(2)
-
-    #display.lcd_clear()
-
-    #display.lcd_display_string("     WELCOME!    ", 1) #PRINT LINE 1
-    #time.sleep(2)
-
-    display.lcd_clear()
+    display.lcd_display_string("MENU            ", 1) #PRINT LINE 1
+    display.lcd_display_string(mainMenu[menuPosition] + menuAscii[menuPosition], 2) #PRINT LINE 2
     
-    while True:
+    if not GPIO.input(button1) and menuPosition > 0:
+        menuPosition = menuPosition - 1
 
-        display.lcd_display_string("MENU            ", 1) #PRINT LINE 1
-        display.lcd_display_string(mainMenu[menuPosition] + menuAscii[menuPosition], 2) #PRINT LINE 2
-        
-        if not GPIO.input(button1) and menuPosition > 0:
-            menuPosition = menuPosition - 1
+        print("Up Button - " + str(menuPosition))
+        time.sleep(0.005)
 
-            print("Up Button - " + str(menuPosition))
-            time.sleep(0.05)
+    elif GPIO.input(button2) and menuPosition < len(mainMenu) - 1:
+        menuPosition = menuPosition + 1
 
-        elif GPIO.input(button2) and menuPosition < len(mainMenu) - 1:
-            menuPosition = menuPosition + 1
+        print("Down Button - " + str(menuPosition))
+        time.sleep(0.005)
 
-            print("Down Button - " + str(menuPosition))
-            time.sleep(0.05)
-
-        else:
-            continue
+    else:
+        continue
