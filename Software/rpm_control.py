@@ -117,6 +117,8 @@ def FirstStage():
 
     motor.ChangeDutyCycle(speed)
 
+    time.sleep(2)
+    
     while True:
        
         t_end = getExpectedTime()

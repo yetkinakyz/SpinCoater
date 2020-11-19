@@ -37,7 +37,7 @@ buttons = [ not GPIO.input(button1),
             GPIO.input(button6)]
 
 ## MAIN MENU
-mainMenu = [" SET PROGRAM ",
+mainMenu = ["    SET PROG ",
             "        TEST ",
             "        INFO "]
 
@@ -67,6 +67,13 @@ while True:
     elif GPIO.input(button6):
         if menuPosition == 1:
             while True:
+                
+                if GPIO.input(button5):
+
+                    display.lcd_clear()
+                    display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
+                    time.sleep(2)
+                    break
 
                 display.lcd_clear()
                 display.lcd_display_string(" TEST  SOFTWARE ", 1) #PRINT LINE 1
@@ -92,8 +99,8 @@ while True:
                 Spinner.NextStage()
 
                 display.lcd_clear()
-                display.lcd_display_string("       DONE      ", 1) #PRINT LINE 1
-                time.sleep(3)
+                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+                time.sleep(2)
 
                 break
 
