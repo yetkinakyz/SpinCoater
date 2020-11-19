@@ -26,7 +26,7 @@ button6 = 26
 
 ## MENU
 menuPosition = 0
-mainMenu = ["      MENU      ", "SET PROGRAM    ", "INFO           ", "TEST           "]
+mainMenu = ["     SET PROGRAM", "            TEST", "            INFO"]
 
 GPIO.setup(button1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -56,12 +56,13 @@ while True:
     
     while True:
 
-        display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
+        display.lcd_display_string("MENU            ", 1) #PRINT LINE 1
+        display.lcd_display_string(mainMenu[menuPosition], 2) #PRINT LINE 2
         
         if not GPIO.input(button1) and menuPosition > 0:
             menuPosition = menuPosition - 1
             display.lcd_clear()
-            
+
             print("Up Button - " + str(menuPosition))
 
             time.sleep(0.2)
