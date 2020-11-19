@@ -103,7 +103,7 @@ def speed_control(c, r, p):
     global speed
     global check
 
-    n = c - r
+    n = expectedRPM - r
 
     print("\nspeed: " + str(speed))
     print("expected: " + str(c))
