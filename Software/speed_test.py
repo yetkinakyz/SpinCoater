@@ -74,7 +74,7 @@ def get_rpm(c):
 
             rpm = round((sample / delta)/2)
 
-            RPi_I2C_driver.lcd().lcd_display_string(str(rpm)+" RPM",2) #PRINT LINE 2
+            print("\nSPEED: " + str(rpm))
 
             count = 0
 

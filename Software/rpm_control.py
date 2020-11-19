@@ -153,9 +153,6 @@ for i in range (16):
     display.lcd_display_string(x, 2) #PRINT LINE 2
     time.sleep(0.1)
 
-#display.lcd_display_string("            ",1) #CLEAN LINE 1
-#display.lcd_display_string("            ",2) #CLEAN LINE 2
-
 display.lcd_clear()
 
 display.lcd_display_string("SET:    " + str(0) + " SEC",1) #PRINT LINE 1
@@ -194,8 +191,7 @@ display.lcd_clear()
 display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
 display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
 
-speed = (expected * 42.3) / 7200
-print("first speed is " + str(speed))
+#FIRST SPEED
 
 motor.ChangeDutyCycle(speed)
 
