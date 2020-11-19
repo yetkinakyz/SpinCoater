@@ -189,12 +189,14 @@ display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
 
 time.sleep(2)
 
-firstSpeed = (expected * 42.3) / 7200
-motor.ChangeDutyCycle(firstSpeed)
-
 display.lcd_clear()
 display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
 display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
+
+firstSpeed = (expected * 42.3) / 7200
+print("first speed is: " + str(firstSpeed))
+
+motor.ChangeDutyCycle(firstSpeed)
 
 try:
     while True:
