@@ -73,11 +73,13 @@ inpt = -1
 
 check = False
 firstTime = True
+stop = False
 
 class program:
     #STOP
     def stop(self):
-        return True
+        stop = True       
+        return stop
         
     #SET START TIME
     def set_start(self):
@@ -211,7 +213,7 @@ class program:
 
 
         while True:
-            if self.stop():
+            if stop:
                 speed = 0
                 motor.ChangeDutyCycle(speed)
                 print(speed)
@@ -287,7 +289,7 @@ class program:
 
 
         while True:
-            if self.stop():
+            if stop:
                 speed = 0
                 motor.ChangeDutyCycle(speed)
 
