@@ -57,18 +57,19 @@ menuPosition = 0
 
 display.lcd_clear()
 display.lcd_display_string("SPIN COATER     ", 1) #PRINT LINE 1
-display.lcd_display_string("         PROJECT", 2) #PRINT LINE 2
+display.lcd_display_string("        PROJECT ", 2) #PRINT LINE 2
 
 time.sleep(2)
 
-display.lcd_display_string("BY  YETKIN AKYUZ", 1) #PRINT LINE 1
-display.lcd_display_string(" yetkinakyuz.com", 2) #PRINT LINE 2
+display.lcd_display_string("BY YETKIN AKYUZ ", 1) #PRINT LINE 1
+display.lcd_display_string("yetkinakyuz.com ", 2) #PRINT LINE 2
 
 time.sleep(2)
 
 display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
+display.lcd_clear()
 
-for i in range(16):
+for i in range(17):
     loading = '*'*i
     display.lcd_display_string(loading, 2) #PRINT LINE 2
     time.sleep(0.125)
@@ -174,5 +175,3 @@ while True:
             continue
     else:
         continue
-            
-
