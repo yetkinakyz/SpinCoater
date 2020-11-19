@@ -48,6 +48,24 @@ inpt = -1
 
 check = False
 
+sampleRpmList = [ 100, 200, 300, 400, 500, 800,
+            1000, 1200, 1500, 1800,
+            2000, 2200, 2500, 2800,
+            3000, 3200, 3500, 3800,
+            4000, 4200, 4500, 4800,
+            5000, 5200, 5500, 5800,
+            6000, 6200, 6500, 6800,
+            7000, 7200]
+
+sampleSpeedList = [   2.8, 3.3, 3.8, 4.2, 4.7, 6,
+                6.7, 7.5, 8.5, 10,
+                10.5, 11.5, 13, 14.5,
+                15.5, 16.8, 18.5, 20,
+                21.5, 23, 25, 27.5,
+                30, 32, 35.5, 38,
+                40.5, 44.0, 48.0, 53.0,
+                55.5, 60.5]
+
 #SET START TIME
 def set_start():
  	global start
@@ -191,9 +209,15 @@ display.lcd_clear()
 display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
 display.lcd_display_string("  ACCELERATING  ",2) #PRINT LINE 1
 
-#FIRST SPEED
+for i in sampleRpmList:
+    if (expected >= sampleRpmList(i) - 100) and (expected <= sampleRpmList(i) + 100):
+        
+        print("\ngetRPM=" + str(sampleRpmList(i)))
+        print("\ngetSpeed=" + str(sampleSpeedList(i))+"\n")
 
-motor.ChangeDutyCycle(speed)
+        motor.ChangeDutyCycle(sampleSpeedList(i))
+    else:
+        continue
 
 try:
     while True:
