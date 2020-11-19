@@ -74,8 +74,6 @@ check = False
 firstTime = True
 stop = False
 
-GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm)
-
 # SET SAMPLE
 def setSample(rpm):
     global sample
@@ -265,3 +263,5 @@ def start(k, l):
                             t_end = t_end - 1
 
     return True
+
+GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm)
