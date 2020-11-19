@@ -211,7 +211,7 @@ class program:
 
 
         while True:
-            if end():
+            if self.stop():
                 break
 
             else:
@@ -290,7 +290,7 @@ class program:
 
 
         while True:
-            if end():
+            if self.stop():
                 break
 
             else:
