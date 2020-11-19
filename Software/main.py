@@ -31,8 +31,7 @@ GPIO.setup(button4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-buttons = [ None,
-            not GPIO.input(button1), 
+buttons = [ not GPIO.input(button1), 
             GPIO.input(button2), 
             GPIO.input(button3), 
             GPIO.input(button4), 
@@ -67,5 +66,19 @@ while True:
         print("Down Button - " + str(menuPosition))
         time.sleep(0.005)
 
+    elif GPIO.input(button3):
+        if menuPosition == 1:
+                spinner.start(500, 45)
+                spinner.next(3600, 120)
+
+                display.lcd_clear()
+                display.lcd_display_string("       DONE      ", 1) #PRINT LINE 1
+
+                time.sleep(1)
+
+        else:
+            continue
     else:
         continue
+            
+
