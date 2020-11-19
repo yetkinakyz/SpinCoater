@@ -262,7 +262,7 @@ try:
             
             t_end = t
 
-            while t_end > 0:
+            while t_end >= 0:
                 
                 display.lcd_clear()
                 display.lcd_display_string("TIME : " + str(t_end)+" SEC", 1) #PRINT LINE 1
