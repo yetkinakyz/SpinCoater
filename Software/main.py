@@ -63,7 +63,7 @@ while True:
             print(menuPosition)
             time.sleep(0.2)
 
-        elif GPIO.input(button2) and menuPosition >= 0:
+        elif GPIO.input(button2) and menuPosition < len(mainMenu):
             menuPosition = menuPosition + 1
             print(menuPosition)
             time.sleep(0.2)
