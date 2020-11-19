@@ -38,4 +38,4 @@ buttonState6 = GPIO.input(button6)
 
 while True:
     if not buttonState1:
-        rpm_control()
+        rpm_control.start()
