@@ -68,14 +68,28 @@ while True:
         if menuPosition == 1:
             while True:
                 
+                display.lcd_clear()
+                display.lcd_display_string("  FIRST  STAGE  ", 1) #PRINT LINE 1
+                display.lcd_display_string("1000 RPM  30 SEC", 1) #PRINT LINE 1
+                time.sleep(1)
+
                 Spinner.setExpectedRPM(1000)
+                Spinner.setExpectedTime(30)
+                Spinner.FirstStage()
+
+                display.lcd_clear()
+                display.lcd_display_string("   NEXT STAGE   ", 1) #PRINT LINE 1
+                display.lcd_display_string("5000 RPM 120 SEC", 1) #PRINT LINE 1
+                time.sleep(1)
+
+                Spinner.setExpectedRPM(5000)
                 Spinner.setExpectedTime(120)
-                Spinner.first_stage()
+                Spinner.NextStage()
 
                 display.lcd_clear()
                 display.lcd_display_string("       DONE      ", 1) #PRINT LINE 1
-
                 time.sleep(1)
+                
                 break
 
         else:
