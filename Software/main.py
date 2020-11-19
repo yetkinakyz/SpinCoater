@@ -67,14 +67,10 @@ while True:
     elif GPIO.input(button6):
         if menuPosition == 1:
             while True:
-                t1 = 45
-                t2 = 120
-
-                rpm1 = 1000
-                rpm2 = 5000
-
-                Spinner.start(rpm1, t1)
-                #spinner.next(rpm2, t2)
+                
+                Spinner.setExpectedRPM(1000)
+                Spinner.setExpectedTime(120)
+                Spinner.first_stage()
 
                 display.lcd_clear()
                 display.lcd_display_string("       DONE      ", 1) #PRINT LINE 1
