@@ -66,7 +66,7 @@ while True:
         print("Down Button - " + str(menuPosition))
         time.sleep(0.005)
 
-    elif GPIO.input(button3):
+    elif GPIO.input(button6):
         if menuPosition == 1:
                 spinner.start(500, 45)
                 spinner.next(3600, 120)
