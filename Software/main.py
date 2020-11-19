@@ -9,7 +9,7 @@ SPIN COATER PROJECT MAIN SOFTWARE
 ##### LIBRARIES #####
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
 import lcddriver #LCD I2C LIBRARY
-import rpm_control as Spinner
+import RpmControl as Spinner
 
 import time
 
