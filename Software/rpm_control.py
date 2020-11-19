@@ -176,7 +176,7 @@ def get_rpm(c):
         else:
             count = count + 1
 
-GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm())
+GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm(ir_sensor))
 
 class program:
     #STOP
