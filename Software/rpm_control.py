@@ -67,10 +67,6 @@ sampleSpeedList = [ 2.8, 3.3, 3.8, 4.2, 4.7, 6,
 cycleRpmList= []
 cycleList = []
 
-expected = -1
-t = 0
-inpt = -1
-
 check = False
 firstTime = True
 stop = False
