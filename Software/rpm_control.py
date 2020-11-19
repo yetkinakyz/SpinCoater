@@ -134,6 +134,8 @@ def get_rpm(c):
 
             speed_control(expected, rpm, rpm_pre)
 
+GPIO.add_event_detect(ir_sensor, GPIO.RISING, callback=get_rpm)
+
 print("Welcome!\n")
 
 display.lcd_display_string("  SPIN  COATER  ", 1) #PRINT LINE 1
