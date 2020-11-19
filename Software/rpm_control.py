@@ -266,14 +266,14 @@ try:
 
             display.lcd_clear()
 
-            display.lcd_display_string("TIME : " + str(t_end)+" SEC", 1) #PRINT LINE 1
-            display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
-
-            time.sleep(1)
-            t_end = t_end - 1
-
             while t_end > 0:
                 for j in range(2):
+                    display.lcd_display_string("TIME : " + str(t_end)+" SEC", 1) #PRINT LINE 1
+                    display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
+
+                    time.sleep(1)
+                    t_end = t_end - 1
+
                     for i in range(2):
 
                         display.lcd_display_string("TIME : " + str(t_end)+" SEC", 1) #PRINT LINE 1
@@ -281,11 +281,7 @@ try:
                         time.sleep(1)
                         t_end = t_end - 1
 
-                    display.lcd_display_string("TIME : " + str(t_end)+" SEC", 1) #PRINT LINE 1
-                    display.lcd_display_string("SPEED: " + str(rpm)+" RPM", 2) #PRINT LINE 2
-
-                    time.sleep(1)
-                    t_end = t_end - 1
+                    
                 display.lcd_clear()
                 
             display.lcd_clear()
