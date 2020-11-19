@@ -38,9 +38,4 @@ buttonState4 = GPIO.input(button4)
 buttonState5 = GPIO.input(button5)
 buttonState6 = GPIO.input(button6)
 
-while True:
-    if buttonState2:
-        rpm_control.start()
-        time.sleep(0.2)
-    else:
-        continue
+rpm_control.start()
