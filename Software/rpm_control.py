@@ -216,10 +216,12 @@ for i in sampleRpmList:
         print("\ngetRPM=" + str(i))
         print("\ngetSpeed=" + str(sampleSpeedList[sampleRpmList.index(i)])+"\n")
 
-        motor.ChangeDutyCycle(sampleSpeedList[sampleRpmList.index(i)])
+        speed = sampleSpeedList[sampleRpmList.index(i)]
 
     else:
         continue
+
+motor.ChangeDutyCycle(speed)
 
 try:
     while True:
