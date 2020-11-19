@@ -116,8 +116,10 @@ def speed_control(c, r, p):
 
 # SET SAMPLE
 def setSample(r):
+    global sample
+    
     if r < 250:
-            sample = 3
+        sample = 3
 
     elif r > 250 and r < 400:
         sample = 12
