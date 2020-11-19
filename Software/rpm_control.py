@@ -149,7 +149,7 @@ def get_rpm(channel):
     global firstTime
 
     if firstTime:
-        time.sleep(3)
+        time.sleep(5)
         firstTime = False
 
     else:
