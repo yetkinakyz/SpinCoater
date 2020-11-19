@@ -134,6 +134,10 @@ def get_rpm(c):
 
             speed_control(expected, rpm, rpm_pre)
 
+def firstSpeed(n):
+    firstSpeed = (n * 42.3) / 7200
+
+    return firstSpeed
 
 print("Welcome!\n")
 
@@ -190,6 +194,9 @@ display.lcd_display_string("        " + str(expected) +" RPM",2) #PRINT LINE 2
 
 time.sleep(2)
 
+
+
+'''
 if inpt == 180:
     speed = 3
     motor.ChangeDutyCycle(speed)
@@ -357,6 +364,9 @@ elif inpt == 7200:
 
 elif inpt == -1:
     print("NOTHING")
+'''
+
+motor.ChangeDutyCycle(firstSpeed(expected))
 
 display.lcd_clear()
 display.lcd_display_string("    MOTOR IS    ",1) #PRINT LINE 1
