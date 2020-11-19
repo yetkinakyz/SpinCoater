@@ -295,6 +295,7 @@ GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback=get_rpm)
 
 try:
     while True:
+        checkButton()
         displayRecent()
 
 except KeyboardInterrupt: 
