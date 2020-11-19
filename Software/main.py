@@ -67,6 +67,11 @@ while True:
     elif GPIO.input(button6):
         if menuPosition == 1:
             while True:
+
+                display.lcd_clear()
+                display.lcd_display_string(" TEST  SOFTWARE ", 1) #PRINT LINE 1
+                display.lcd_display_string("TOTAL:  2 STAGES", 2) #PRINT LINE 2
+                time.sleep(2)
                 
                 display.lcd_clear()
                 display.lcd_display_string("  FIRST  STAGE  ", 1) #PRINT LINE 1
