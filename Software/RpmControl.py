@@ -161,7 +161,7 @@ def FirstStage():
         check = False
         firstStage = False
 
-        break
+        break #Break the RpmControl
 
 # NEXT STAGE
 def NextStage():
@@ -227,7 +227,7 @@ def NextStage():
         done = True
         check = False
 
-        break
+        break #Break the RpmControl
 
 # SET SAMPLE
 def SetSample(rpm):
