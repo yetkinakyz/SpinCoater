@@ -7,6 +7,7 @@ SPIN COATER PROJECT MAIN SOFTWARE
 '''
 
 ##### LIBRARIES #####
+from sys import version_info
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
 import lcddriver #LCD I2C LIBRARY
 import RpmControl as Spinner
@@ -15,6 +16,8 @@ import os
 import time
 
 ##### SETUP ##### 
+
+version_info = "1.0.2"
 
 ## DISPLAY
 display = lcddriver.lcd()
@@ -169,7 +172,7 @@ while True:
                 display.lcd_display_string("yetkinakyuz.com ", 2) #PRINT LINE 1
                 time.sleep(3)
 
-                display.lcd_display_string("Version: 1.0.1  ", 1) #PRINT LINE 1
+                display.lcd_display_string("Version:   " + version_info, 1) #PRINT LINE 1
                 display.lcd_display_string("Date: 18.11.2020", 2) #PRINT LINE 1
                 time.sleep(3)
 
@@ -182,7 +185,7 @@ while True:
             time.sleep(1)
 
             display.lcd_clear()
-            display.lcd_display_string("    DONE    ", 1) #PRINT LINE 2
+            display.lcd_display_string("      DONE      ", 1) #PRINT LINE 2
 
             time.sleep(1)
 
