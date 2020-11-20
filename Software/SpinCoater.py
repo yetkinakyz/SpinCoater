@@ -194,8 +194,7 @@ while True:
 
             display.lcd_clear()
             display.lcd_display_string("   RESTARTING   ", 1) #PRINT LINE 2
-
-            os.system("find ~ -iname SpinCoaterRestart.sh")
+            
             os.system("sh $(find ~ -iname SpinCoaterRestart.sh)")
 
             exit()
