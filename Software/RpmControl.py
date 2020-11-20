@@ -135,7 +135,7 @@ def FirstStage():
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
 
-        while True:
+        while t_end >= 0:
             for j in range(2):
                 if t_end >= 0:
                     display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
@@ -199,7 +199,7 @@ def NextStage():
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
 
-        while True:
+        while t_end >= 0:
             for j in range(2):
                 if t_end >= 0:
                     display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
