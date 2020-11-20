@@ -159,8 +159,9 @@ while True:
                 display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                 Spinner.done()
-                time.sleep(5)
-                                             
+                Spinner.clear()
+
+                time.sleep(3)
                 break
                 
         elif menuPosition == 2:

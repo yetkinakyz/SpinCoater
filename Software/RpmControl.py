@@ -124,9 +124,7 @@ def clear():
 def done():
     global done
     done = True
-
     GPIO.output(motor_in1,GPIO.LOW)
-    clear()
 
 # FIRST STAGE
 def FirstStage():
