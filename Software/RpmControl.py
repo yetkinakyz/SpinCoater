@@ -281,7 +281,7 @@ def SpeedControl(s, r, p):
     global done
 
     if done == True:       
-        clear()
+        done()
 
     else:
         n = s - r

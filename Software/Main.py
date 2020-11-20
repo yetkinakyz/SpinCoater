@@ -128,8 +128,7 @@ while True:
 
     elif GPIO.input(button6):
         if menuPosition == 1:
-            i = False
-            while not i:
+            while True:
                 
                 display.lcd_clear()
                 display.lcd_display_string(" TEST  SOFTWARE ", 1) #PRINT LINE 1
@@ -160,10 +159,10 @@ while True:
                 display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                 Spinner.done()
-                Spinner.clear()
+                #Spinner.clear()
 
                 time.sleep(3)
-                i = True
+                break
                 
                 
         elif menuPosition == 2:
