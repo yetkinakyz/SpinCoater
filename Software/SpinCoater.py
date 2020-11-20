@@ -18,6 +18,7 @@ import time
 ##### SETUP ##### 
 
 version_info = "1.0.3"
+date_info = "20.11.2020"
 
 ## DISPLAY
 display = lcddriver.lcd()
@@ -177,7 +178,7 @@ while True:
                 time.sleep(3)
 
                 display.lcd_display_string("Version:   " + version_info, 1) #PRINT LINE 1
-                display.lcd_display_string("Date: 18.11.2020", 2) #PRINT LINE 1
+                display.lcd_display_string("Date: " + date_info, 2) #PRINT LINE 1
                 time.sleep(3)
 
         elif menuPosition == 3:
@@ -194,7 +195,7 @@ while True:
 
             display.lcd_clear()
             display.lcd_display_string("   RESTARTING   ", 1) #PRINT LINE 2
-            
+
             os.system("sh $(find ~ -iname SpinCoaterRestart.sh)")
 
             exit()
