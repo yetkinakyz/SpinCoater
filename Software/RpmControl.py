@@ -100,9 +100,11 @@ def getExpectedTime():
 # FIRST STAGE
 def FirstStage():
     global speed
-    global stop
+    global done
     global check
     global firstStage
+
+    done = False
 
     print(getExpectedRPM())
     print(getExpectedTime())
@@ -170,6 +172,8 @@ def NextStage():
     global check
     global done
 
+    done = False
+    
     print(getExpectedRPM())
     print(getExpectedTime())
 
