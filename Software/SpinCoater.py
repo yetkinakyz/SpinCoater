@@ -184,8 +184,8 @@ while True:
             display.lcd_clear()
             display.lcd_display_string("    UPDATING    ", 1) #PRINT LINE 2
 
-            os.system("find ~ -iname SpinCoater)")
-            os.system("cd $(find ~ -iname SpinCoater)/Software")
+            os.system("find ~ -iname SpinCoater")
+            os.system("cd $(find ~ -iname SpinCoater)")
             os.system("git pull")
             time.sleep(1)
 
