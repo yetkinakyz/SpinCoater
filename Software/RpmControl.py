@@ -132,8 +132,6 @@ def FirstStage():
         display.lcd_clear()
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
-        display.lcd_display_string("TIME : " + str(getExpectedTime()), 1) #PRINT LINE 1
-        display.lcd_display_string("SPEED: " + str(getExpectedTime()), 2) #PRINT LINE 2
 
         time.sleep(0.5)
 
@@ -200,8 +198,6 @@ def NextStage():
         display.lcd_clear()
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
-        display.lcd_display_string("TIME : " + str(getExpectedTime()), 1) #PRINT LINE 1
-        display.lcd_display_string("SPEED: " + str(getExpectedTime()), 2) #PRINT LINE 2
 
         time.sleep(0.5)
 
