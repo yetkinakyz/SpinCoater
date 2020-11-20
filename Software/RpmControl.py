@@ -120,6 +120,8 @@ def clear():
     GPIO.output(motor_in1,GPIO.HIGH)
     motor.ChangeDutyCycle(speed)
 
+    exit()
+
 # FIRST STAGE
 def FirstStage():
     global speed
@@ -184,7 +186,7 @@ def FirstStage():
 
         firstStage = False
         done = True
-        sys.exit
+        exit()
         break #Break the RpmControl
 
 # NEXT STAGE
@@ -249,7 +251,7 @@ def NextStage():
                     break
 
         done = True
-        sys.exit
+        exit()
         break #Break the RpmControl
 
 # SET SAMPLE
