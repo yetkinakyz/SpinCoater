@@ -184,6 +184,7 @@ while True:
             display.lcd_clear()
             display.lcd_display_string("    UPDATING    ", 1) #PRINT LINE 2
 
+            os.system("find ~ -iname SpinCoater)")
             os.system("cd $(find ~ -iname SpinCoater)/Software")
             os.system("git pull")
             time.sleep(1)
@@ -196,6 +197,7 @@ while True:
             display.lcd_clear()
             display.lcd_display_string("   RESTARTING   ", 1) #PRINT LINE 2
 
+            os.system("find ~ -iname SpinCoaterRestart.sh")
             os.system("sh $(find ~ -iname SpinCoaterRestart.sh)")
 
             exit()
