@@ -166,7 +166,7 @@ def FirstStage():
         time.sleep(1)
 
         while t_end >= 0:
-            for j in range(2):
+            for j in range(1):
                 if t_end >= 0:
                     display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
                     display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
@@ -176,7 +176,7 @@ def FirstStage():
                     time.sleep(1)
                     t_end = t_end - 1
 
-                    for i in range(2):
+                    for i in range(1):
                         if t_end >= 0:
                             display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
                             display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1
@@ -229,7 +229,7 @@ def NextStage():
         time.sleep(1)
         
         while t_end >= 0:
-            for j in range(2):
+            for j in range(1):
                 if t_end >= 0:
                     display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
                     display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
@@ -239,7 +239,7 @@ def NextStage():
                     time.sleep(1)
                     t_end = t_end - 1
 
-                    for i in range(2):
+                    for i in range(1):
                         if t_end >= 0:
                             display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
                             display.lcd_display_string("TIME : " + str(t_end), 1) #PRINT LINE 1

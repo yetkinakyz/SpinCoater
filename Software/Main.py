@@ -155,11 +155,10 @@ while True:
                 Spinner.setExpectedTime(30)
                 Spinner.NextStage() 
 
-                display.lcd_clear()
-                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
-
                 #Spinner.done()
                 Spinner.clear()
+                
+                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                 time.sleep(3)
                 break
