@@ -121,6 +121,8 @@ def clear():
     motor.start(0)
     GPIO.output(motor_in1,GPIO.HIGH)
 
+    display.lcd_clear()
+
 def done():
     global done
     done = True
