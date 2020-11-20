@@ -95,6 +95,10 @@ def setExpectedTime(n):
 def getExpectedTime():
     return expectedTime
 
+def done():
+    GPIO.output(motor_in1,GPIO.LOW)
+    clear()
+    
 def clear():
     global sample
     global count
@@ -117,8 +121,8 @@ def clear():
     setExpectedRPM(0)
     setExpectedTime(0)
 
+    motor.start(0)
     GPIO.output(motor_in1,GPIO.HIGH)
-    motor.ChangeDutyCycle(speed)
 
 # FIRST STAGE
 def FirstStage():

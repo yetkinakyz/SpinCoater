@@ -148,12 +148,14 @@ while True:
                 Spinner.setExpectedRPM(1000)
                 Spinner.setExpectedTime(15)
                 Spinner.FirstStage()
+
                 Spinner.clear() 
 
                 Spinner.setExpectedRPM(5000)
                 Spinner.setExpectedTime(30)
                 Spinner.NextStage()
-                Spinner.clear() 
+
+                Spinner.done() 
 
                 display.lcd_clear()
                 display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
