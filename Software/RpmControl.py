@@ -161,6 +161,8 @@ def FirstStage():
         check = False
         firstStage = False
 
+        break
+
 # NEXT STAGE
 def NextStage():
     global speed
@@ -224,6 +226,8 @@ def NextStage():
 
         done = True
         check = False
+
+        break
 
 # SET SAMPLE
 def SetSample(rpm):
