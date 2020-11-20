@@ -138,22 +138,22 @@ while True:
                 
                 display.lcd_clear()
                 display.lcd_display_string("  FIRST  STAGE  ", 1) #PRINT LINE 1
-                display.lcd_display_string("1000 RPM  15 SEC", 2) #PRINT LINE 2
+                display.lcd_display_string("500 RPM  30 SEC", 2) #PRINT LINE 2
                 time.sleep(2)
 
                 display.lcd_clear()
                 display.lcd_display_string("   NEXT STAGE   ", 1) #PRINT LINE 1
-                display.lcd_display_string("5000 RPM 30 SEC", 2) #PRINT LINE 2
+                display.lcd_display_string("7200 RPM 15 SEC", 2) #PRINT LINE 2
                 time.sleep(2)
 
-                Spinner.setExpectedRPM(1000)
-                Spinner.setExpectedTime(15)
+                Spinner.setExpectedRPM(500)
+                Spinner.setExpectedTime(30)
                 Spinner.FirstStage()
 
                 Spinner.clear() 
 
-                Spinner.setExpectedRPM(5000)
-                Spinner.setExpectedTime(30)
+                Spinner.setExpectedRPM(7200)
+                Spinner.setExpectedTime(15)
                 Spinner.NextStage() 
 
                 #Spinner.done()
