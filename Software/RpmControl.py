@@ -96,9 +96,12 @@ def getExpectedTime():
     return expectedTime
 
 def done():
+    global done
+    done = True
+
     GPIO.output(motor_in1,GPIO.LOW)
     clear()
-    
+
 def clear():
     global sample
     global count
@@ -107,6 +110,7 @@ def clear():
     global end
     global done
     global firstStage
+    global speed
 
     sample = 3
     count = 0
@@ -288,6 +292,7 @@ def SpeedControl(s, r, p):
 
     if done:
         speed = 0
+        motor.start(0)
         GPIO.output(motor_in1,GPIO.LOW)
     else:
         n = s - r
