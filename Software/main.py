@@ -143,7 +143,7 @@ while True:
 
                 display.lcd_clear()
                 display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
-                time.sleep(2)
+                time.sleep(5)
 
                 break
                 

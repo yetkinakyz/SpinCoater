@@ -104,8 +104,6 @@ def FirstStage():
     global check
     global firstStage
 
-    display.lcd_clear()
-
     print(getExpectedRPM())
     print(getExpectedTime())
 
@@ -129,9 +127,7 @@ def FirstStage():
        
         t_end = getExpectedTime()
 
-        time.sleep(1)
         display.lcd_clear()
-
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
 
@@ -170,8 +166,6 @@ def NextStage():
     global check
     global done
 
-    display.lcd_clear()
-
     print(getExpectedRPM())
     print(getExpectedTime())
 
@@ -195,9 +189,7 @@ def NextStage():
             
         t_end = getExpectedTime()
 
-        time.sleep(1)
         display.lcd_clear()
-
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
 
