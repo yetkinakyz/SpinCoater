@@ -158,8 +158,8 @@ while True:
                 display.lcd_clear()
                 display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
-                Spinner.done()
-                #Spinner.clear()
+                #Spinner.done()
+                Spinner.clear()
 
                 time.sleep(3)
                 break
