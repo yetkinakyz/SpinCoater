@@ -11,6 +11,7 @@ import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net
 import lcddriver #LCD I2C LIBRARY
 import RpmControl as Spinner
 
+import os
 import time
 
 ##### SETUP ##### 
@@ -47,9 +48,11 @@ buttons = [ not GPIO.input(button1),
 ## MAIN MENU
 mainMenu = ["SET PROGRAM     ",
             "TEST            ",
-            "INFO            "]
+            "INFO            ",
+            "VERSION UPDATE  "]
 
 menuAscii = [   "             " + " " + chr(124) + chr(62),
+                "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
@@ -111,6 +114,12 @@ while True:
             display.lcd_display_string("about project   ", 2) #PRINT LINE 2
             time.sleep(2)
 
+        elif menuPosition == 3:
+            display.lcd_clear()
+            display.lcd_display_string("Software Update ", 1) #PRINT LINE 1
+            display.lcd_display_string("From GitHub     ", 2) #PRINT LINE 2
+            time.sleep(2)
+
         else:
             None
 
@@ -163,6 +172,27 @@ while True:
                 display.lcd_display_string("Version: 1.0.1  ", 1) #PRINT LINE 1
                 display.lcd_display_string("Date: 18.11.2020", 2) #PRINT LINE 1
                 time.sleep(3)
+
+        elif menuPosition == 3:
+            display.lcd_clear()
+            display.lcd_display_string("    UPDATING    ", 1) #PRINT LINE 2
+
+            os.system("cd /home/pi/SpinCoater")
+            os.system("git pull")
+            time.sleep(1)
+
+            display.lcd_clear()
+            display.lcd_display_string("    DONE    ", 1) #PRINT LINE 2
+
+            time.sleep(1)
+
+            display.lcd_clear()
+            display.lcd_display_string("   RESTARTING   ", 1) #PRINT LINE 2
+
+            os.system("cd /home/pi/")
+            os.system("./restart")
+
+            break
 
         else:
             continue
