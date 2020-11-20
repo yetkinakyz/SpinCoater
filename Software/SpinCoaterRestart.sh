@@ -2,8 +2,6 @@
 
 sleep 5
 
-RUN = $(find ~ -iname SpinCoaterRun.sh)
-
-sh $RUN
+sh $(find ~ -iname SpinCoaterRun.sh)
 
 exit
