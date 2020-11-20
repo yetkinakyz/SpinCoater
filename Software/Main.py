@@ -153,15 +153,14 @@ while True:
 
                 Spinner.setExpectedRPM(5000)
                 Spinner.setExpectedTime(30)
-                Spinner.NextStage()
-
-                Spinner.done() 
+                Spinner.NextStage() 
 
                 display.lcd_clear()
                 display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
-                time.sleep(5)
 
-                              
+                Spinner.done()
+                time.sleep(5)
+                                             
                 break
                 
         elif menuPosition == 2:

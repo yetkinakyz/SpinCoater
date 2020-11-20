@@ -95,13 +95,6 @@ def setExpectedTime(n):
 def getExpectedTime():
     return expectedTime
 
-def done():
-    global done
-    done = True
-
-    GPIO.output(motor_in1,GPIO.LOW)
-    clear()
-
 def clear():
     global sample
     global count
@@ -127,6 +120,13 @@ def clear():
 
     motor.start(0)
     GPIO.output(motor_in1,GPIO.HIGH)
+
+def done():
+    global done
+    done = True
+
+    GPIO.output(motor_in1,GPIO.LOW)
+    clear()
 
 # FIRST STAGE
 def FirstStage():
@@ -191,8 +191,6 @@ def FirstStage():
                     break
 
         firstStage = False
-        
-        clear()
 
         break #Break the RpmControl
 
@@ -257,8 +255,6 @@ def NextStage():
                 else:
                     break
 
-        clear()
-
         break #Break the RpmControl
 
 # SET SAMPLE
@@ -290,10 +286,9 @@ def SpeedControl(s, r, p):
     global speed
     global done
 
-    if done:
-        speed = 0
-        motor.start(0)
-        GPIO.output(motor_in1,GPIO.LOW)
+    if done == True:       
+        clear()
+
     else:
         n = s - r
 
