@@ -130,13 +130,12 @@ def FirstStage():
         t_end = getExpectedTime()
 
         time.sleep(1)
-
         display.lcd_clear()
 
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
 
-        while True > 0:
+        while True:
             for j in range(2):
                 if t_end >= 0:
                     display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
@@ -158,12 +157,9 @@ def FirstStage():
                             break
                 else:
                     break
-            break
-        
+
         check = False
         firstStage = False
-
-        break
 
 # NEXT STAGE
 def NextStage():
@@ -198,7 +194,6 @@ def NextStage():
         t_end = getExpectedTime()
 
         time.sleep(1)
-
         display.lcd_clear()
 
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
@@ -226,12 +221,9 @@ def NextStage():
                             break
                 else:
                     break
-            break
 
         done = True
         check = False
-
-        break
 
 # SET SAMPLE
 def SetSample(rpm):
