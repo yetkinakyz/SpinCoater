@@ -74,9 +74,6 @@ sampleSpeedList = [ 2.8, 3.3, 3.8, 4.2, 4.7, 6,
 cycleRpmList= []
 cycleList = []
 
-check = False
-firstTime = True
-stop = False
 firstStage = True
 done = False
 
@@ -97,12 +94,32 @@ def setExpectedTime(n):
 def getExpectedTime():
     return expectedTime
 
+def clear():
+    global sample
+    global count
+    global rpm
+    global start
+    global end
+    global done
+    global expectedRPM
+    global expectedTime
+    global firstStage
+
+    sample = 3
+    count = 0
+    rpm = 0
+    start = 0
+    end = 0
+    done = False
+    expectedRPM = 0
+    expectedTime = 0
+    firstStage = True
+
 # FIRST STAGE
 def FirstStage():
     global speed
-    global done
-    global check
     global firstStage
+
 
     done = False
 
@@ -134,6 +151,8 @@ def FirstStage():
         display.lcd_clear()
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+        display.lcd_display_string("TIME : " + str(getExpectedTime()), 1) #PRINT LINE 1
+        display.lcd_display_string("SPEED: " + str(getExpectedRPM()), 2) #PRINT LINE 2
 
         time.sleep(0.5)
 
@@ -160,7 +179,6 @@ def FirstStage():
                 else:
                     break
 
-        check = False
         firstStage = False
 
         break #Break the RpmControl
@@ -169,11 +187,6 @@ def FirstStage():
 def NextStage():
     global speed
 
-    global check
-    global done
-
-    done = False
-    
     print(getExpectedRPM())
     print(getExpectedTime())
 
@@ -202,9 +215,11 @@ def NextStage():
         display.lcd_clear()
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
+        display.lcd_display_string("TIME : " + str(getExpectedTime()), 1) #PRINT LINE 1
+        display.lcd_display_string("SPEED: " + str(getExpectedRPM()), 2) #PRINT LINE 2
 
         time.sleep(0.5)
-
+        
         while t_end >= 0:
             for j in range(2):
                 if t_end >= 0:
@@ -227,9 +242,6 @@ def NextStage():
                             break
                 else:
                     break
-
-        done = True
-        check = False
 
         break #Break the RpmControl
 
@@ -260,7 +272,6 @@ def SetSample(rpm):
 #MOTOR SPEED CONTROL
 def SpeedControl(s, r, p):   
     global speed
-    global check
     global done
 
     if done:
@@ -289,7 +300,6 @@ def SpeedControl(s, r, p):
             print("HIGH")
 
         else:
-            check = True
             print("NEUTRAL")
 
 #SET START TIME
