@@ -216,8 +216,6 @@ def NextStage():
 
     motor.ChangeDutyCycle(speed)
 
-    time.sleep(1)
-
     while True:
             
         t_end = getExpectedTime()
