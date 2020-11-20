@@ -190,7 +190,7 @@ while True:
             display.lcd_display_string("   RESTARTING   ", 1) #PRINT LINE 2
 
             os.system("cd /home/pi/")
-            os.system("./restart")
+            os.system("./restart.sh")
 
             break
 
