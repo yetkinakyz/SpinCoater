@@ -108,6 +108,7 @@ def clear():
     rpm = 0
     start = 0
     end = 0
+    speed = 0
 
     done = False
     firstStage = True
@@ -115,13 +116,14 @@ def clear():
     setExpectedRPM(0)
     setExpectedTime(0)
 
+    GPIO.output(motor_in1,GPIO.HIGH)
+    motor.ChangeDutyCycle(speed)
+
 # FIRST STAGE
 def FirstStage():
     global speed
     global firstStage
-
-
-    done = False
+    global done
 
     print(getExpectedRPM())
     print(getExpectedTime())
@@ -180,12 +182,13 @@ def FirstStage():
                     break
 
         firstStage = False
-
+        done = True
         break #Break the RpmControl
 
 # NEXT STAGE
 def NextStage():
     global speed
+    global done
 
     print(getExpectedRPM())
     print(getExpectedTime())
@@ -243,6 +246,7 @@ def NextStage():
                 else:
                     break
 
+        done = True
         break #Break the RpmControl
 
 # SET SAMPLE
@@ -276,7 +280,7 @@ def SpeedControl(s, r, p):
 
     if done:
         speed = 0
-        motor.ChangeDutyCycle(speed)
+        GPIO.output(motor_in1,GPIO.LOW)
     else:
         n = s - r
 
