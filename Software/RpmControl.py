@@ -10,6 +10,7 @@ SPIN COATER PROJECT RPM CONTROL SOFTWARE
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
 import lcddriver #LCD I2C LIBRARY
 import time
+import sys
 
 ##### SETUP ##### 
 
@@ -183,6 +184,7 @@ def FirstStage():
 
         firstStage = False
         done = True
+        sys.exit
         break #Break the RpmControl
 
 # NEXT STAGE
@@ -247,6 +249,7 @@ def NextStage():
                     break
 
         done = True
+        sys.exit
         break #Break the RpmControl
 
 # SET SAMPLE
