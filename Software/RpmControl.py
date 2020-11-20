@@ -101,8 +101,6 @@ def clear():
     global start
     global end
     global done
-    global expectedRPM
-    global expectedTime
     global firstStage
 
     sample = 3
@@ -110,10 +108,12 @@ def clear():
     rpm = 0
     start = 0
     end = 0
+
     done = False
-    expectedRPM = 0
-    expectedTime = 0
     firstStage = True
+
+    setExpectedRPM(0)
+    setExpectedTime(0)
 
 # FIRST STAGE
 def FirstStage():

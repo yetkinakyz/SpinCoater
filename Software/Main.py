@@ -141,12 +141,11 @@ while True:
                 Spinner.setExpectedTime(30)
                 Spinner.NextStage()
 
-                Spinner.clear()
-
                 display.lcd_clear()
                 display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
                 time.sleep(5)
 
+                Spinner.clear()               
                 break
                 
         elif menuPosition == 2:
@@ -161,7 +160,7 @@ while True:
                 display.lcd_display_string("yetkinakyuz.com ", 2) #PRINT LINE 1
                 time.sleep(3)
 
-                display.lcd_display_string("Version: 1.0    ", 1) #PRINT LINE 1
+                display.lcd_display_string("Version: 1.0.1  ", 1) #PRINT LINE 1
                 display.lcd_display_string("Date: 18.11.2020", 2) #PRINT LINE 1
                 time.sleep(3)
 
