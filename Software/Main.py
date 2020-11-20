@@ -17,7 +17,7 @@ import time
 
 ##### SETUP ##### 
 
-version_info = "1.0.2"
+version_info = "1.0.3"
 
 ## DISPLAY
 display = lcddriver.lcd()
@@ -157,7 +157,7 @@ while True:
 
                 #Spinner.done()
                 Spinner.clear()
-                
+
                 display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                 time.sleep(3)
