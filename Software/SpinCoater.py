@@ -15,7 +15,7 @@ import RpmControl as Spinner
 import os
 import time
 
-##### SETUP ##### 
+##### SETUP #####
 
 version_info = "1.0.3"
 date_info = "20.11.2020"
@@ -42,11 +42,11 @@ GPIO.setup(button4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-buttons = [ not GPIO.input(button1), 
-            GPIO.input(button2), 
-            GPIO.input(button3), 
-            GPIO.input(button4), 
-            GPIO.input(button5), 
+buttons = [ not GPIO.input(button1),
+            GPIO.input(button2),
+            GPIO.input(button3),
+            GPIO.input(button4),
+            GPIO.input(button5),
             GPIO.input(button6)]
 
 ## MAIN MENU
@@ -60,7 +60,7 @@ menuAscii = [   "             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
-menuPosition = 0 
+menuPosition = 0
 
 display.lcd_clear()
 display.lcd_display_string("SPIN COATER     ", 1) #PRINT LINE 1
@@ -84,18 +84,18 @@ while True:
 
     display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
     display.lcd_display_string(menuAscii[menuPosition], 2) #PRINT LINE 2
-    
+
     if not GPIO.input(button1) and menuPosition > 0:
         menuPosition = menuPosition - 1
 
         print("Up Button - " + str(menuPosition))
-        time.sleep(0.05)
+        time.sleep(0.1)
 
     elif GPIO.input(button2) and menuPosition < len(mainMenu) - 1:
         menuPosition = menuPosition + 1
 
         print("Down Button - " + str(menuPosition))
-        time.sleep(0.05)
+        time.sleep(0.1)
 
     elif GPIO.input(button4):
         if menuPosition == 0:
@@ -103,7 +103,7 @@ while True:
             display.lcd_display_string("Set instructions", 1) #PRINT LINE 1
             display.lcd_display_string("and run         ", 2) #PRINT LINE 2
             time.sleep(2)
-        
+
         elif menuPosition == 1:
             display.lcd_clear()
             display.lcd_display_string("Run a 2-stg test", 1) #PRINT LINE 1
@@ -130,12 +130,12 @@ while True:
     elif GPIO.input(button6):
         if menuPosition == 1:
             while True:
-                
+
                 display.lcd_clear()
                 display.lcd_display_string(" TEST  SOFTWARE ", 1) #PRINT LINE 1
                 display.lcd_display_string("TOTAL:  2 STAGES", 2) #PRINT LINE 2
                 time.sleep(2)
-                
+
                 display.lcd_clear()
                 display.lcd_display_string("  FIRST  STAGE  ", 1) #PRINT LINE 1
                 display.lcd_display_string("500 RPM  30 SEC", 2) #PRINT LINE 2
@@ -150,11 +150,11 @@ while True:
                 Spinner.setExpectedTime(30)
                 Spinner.FirstStage()
 
-                Spinner.clear() 
+                Spinner.clear()
 
                 Spinner.setExpectedRPM(7200)
                 Spinner.setExpectedTime(15)
-                Spinner.NextStage() 
+                Spinner.NextStage()
 
                 #Spinner.done()
                 Spinner.clear()
@@ -163,8 +163,8 @@ while True:
 
                 time.sleep(3)
                 break
-                
-                
+
+
         elif menuPosition == 2:
 
                 display.lcd_clear()
