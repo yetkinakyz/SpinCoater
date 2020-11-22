@@ -66,17 +66,17 @@ display.lcd_clear()
 display.lcd_display_string("SPIN COATER     ", 1) #PRINT LINE 1
 display.lcd_display_string("        PROJECT ", 2) #PRINT LINE 2
 
-time.sleep(2)
+time.sleep(1)
 
 display.lcd_display_string("BY YETKIN AKYUZ ", 1) #PRINT LINE 1
 display.lcd_display_string("yetkinakyuz.com ", 2) #PRINT LINE 2
 
-time.sleep(2)
+time.sleep(1)
 
 display.lcd_clear()
 display.lcd_display_string("    WELCOME!    ", 1) #PRINT LINE 1
 
-time.sleep(2)
+time.sleep(1)
 
 display.lcd_clear()
 
@@ -120,9 +120,9 @@ while True:
 
         elif menuPosition == 3:
             display.lcd_clear()
-            display.lcd_display_string("Software Update ", 1) #PRINT LINE 1
-            display.lcd_display_string("From GitHub     ", 2) #PRINT LINE 2
-            time.sleep(2)
+            display.lcd_display_string("Version:   " + version_info, 1) #PRINT LINE 1
+            display.lcd_display_string("Date: " + date_info, 2) #PRINT LINE 1
+            time.sleep(3)
 
         else:
             None
@@ -184,6 +184,7 @@ while True:
         elif menuPosition == 3:
             display.lcd_clear()
             display.lcd_display_string("    UPDATING    ", 1) #PRINT LINE 2
+            display.lcd_display_string("  FROM  GITHUB  ", 2) #PRINT LINE 2
 
             os.system("git -C $(find ~ -iname SpinCoater)/Software pull")
             time.sleep(1)
@@ -191,7 +192,7 @@ while True:
             display.lcd_clear()
             display.lcd_display_string("      DONE      ", 1) #PRINT LINE 2
 
-            time.sleep(1)
+            time.sleep(0.5)
 
             display.lcd_clear()
             display.lcd_display_string("   RESTARTING   ", 1) #PRINT LINE 2
