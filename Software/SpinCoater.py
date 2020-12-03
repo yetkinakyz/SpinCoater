@@ -18,7 +18,7 @@ import time
 ##### SETUP #####
 
 version_info = "1.0.4"
-date_info = "02.12.2020"
+date_info = "03.12.2020"
 
 ## DISPLAY
 display = lcddriver.lcd()
@@ -146,8 +146,8 @@ while True:
                 display.lcd_display_string("7200 RPM 15 SEC", 2) #PRINT LINE 2
                 time.sleep(2)
 
-                Spinner.setExpectedRPM(500)
-                Spinner.setExpectedTime(30)
+                Spinner.setExpectedRPM(2500)
+                Spinner.setExpectedTime(15)
                 Spinner.FirstStage()
 
                 Spinner.clear()
