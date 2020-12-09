@@ -122,8 +122,8 @@ while True:
             setMenu = ["RUN QUICK PROG. ", "SET MANUAL PROG."]
             setMenuAscii = ["             " + " " + chr(124) + chr(62),
                             "             " + chr(60) + chr(124) + " "]
-
-            while True: 
+            while True:
+                 
                 display.lcd_display_string(setMenu[setPosition], 1) #PRINT LINE 1
                 display.lcd_display_string(setMenuAscii[setPosition], 2) #PRINT LINE 2
 
@@ -138,9 +138,6 @@ while True:
 
                     print("Down Button - " + str(setPosition))
                     time.sleep(0.1)
-                
-                    if GPIO.input(button5):
-                        break
 
                 elif GPIO.input(button5):
                     break
