@@ -184,6 +184,42 @@ while True:
                                 break
                             else:
                                 continue
+                        
+                        display.lcd_clear()
+
+                        while True:
+                            for stage in range(1,stages):
+                                while True:
+                                    display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
+                                    display.lcd_display_string("TIME: " + str(seconds), 2) #PRINT LINE 2
+                                    
+                                    if not GPIO.input(button1) and seconds < 3600:
+                                        seconds += 5
+                                        display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
+
+                                        print("Up Button - " + str(seconds))
+                                        time.sleep(0.2)
+
+                                    elif GPIO.input(button2) and seconds > 5:
+                                        seconds -= 5
+                                        display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
+
+                                        print("Down Button - " + str(seconds))
+                                        time.sleep(0.2)
+
+                                    elif GPIO.input(button3):
+                                        stages = 0
+
+                                    elif GPIO.input(button5):
+                                        stages = 0
+                                        break
+                                    elif GPIO.input(button6):
+                                        display.lcd_clear()
+                                        time.sleep(1)
+                                        break
+                                    else:
+                                        continue
+
                     else:
                         continue
                 elif GPIO.input(button5):
