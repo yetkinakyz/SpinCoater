@@ -148,8 +148,9 @@ while True:
                     time.sleep(0.1)
 
                 elif GPIO.input(button6):
-                    display.lcd_clear()
+                    time.sleep(0.5)
 
+                    display.lcd_clear()
                     if setPosition == 1:
                         
                         while True:
@@ -179,11 +180,10 @@ while True:
                             elif GPIO.input(button6):
                                 display.lcd_clear()
                                 display.lcd_display_string("   STAGES SET   ", 1) #PRINT LINE 1
-
+                                time.sleep(1)
                                 break
                             else:
                                 continue
-
                     else:
                         continue
                 elif GPIO.input(button5):
