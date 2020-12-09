@@ -151,8 +151,8 @@ while True:
                     if setPosition == 1:
                         while True:
                             while not GPIO.input(button6):
-                                display.lcd_clear()
                                 display.lcd_display_string("NUMBER OF STAGES", 1) #PRINT LINE 1
+                                display.lcd_clear()
                                 display.lcd_display_string("STAGES: " + str(stages), 2) #PRINT LINE 2
                                 
                                 if not GPIO.input(button1) and stages <= 9999:
