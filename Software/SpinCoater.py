@@ -205,20 +205,18 @@ while True:
                                 else:
                                     while True:
                                         display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
-
-                                        display.lcd_display_string("TIME:       SEC", 2)
                                         display.lcd_display_string("TIME: " + str(seconds[stage]), 2) #PRINT LINE 2
                                         
                                         if not GPIO.input(button1) and seconds[stage] < 3600:
                                             seconds[stage] += 5
-                                            display.lcd_display_string("TIME:       SEC", 2) #CLEAR LINE 2
+                                            display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
 
                                             print("Up Button - " + str(seconds[stage]))
                                             time.sleep(0.2)
 
                                         elif GPIO.input(button2) and seconds[stage] > 5:
                                             seconds[stage] -= 5
-                                            display.lcd_display_string("TIME:       SEC", 2) #CLEAR LINE 2
+                                            display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
 
                                             print("Down Button - " + str(seconds[stage]))
                                             time.sleep(0.2)
@@ -241,20 +239,18 @@ while True:
 
                                     while True:
                                         display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
-
-                                        display.lcd_display_string("SPEED:      RPM", 2) #CLEAR LINE 2
                                         display.lcd_display_string("SPEED:" + str(speeds[stage]), 2) #PRINT LINE 2
                                         
                                         if not GPIO.input(button1) and speeds[stage] < 7200:
-                                            seconds[stage] += 50
-                                            display.lcd_display_string("SPEED:      RPM", 2) #CLEAR LINE 2
+                                            speeds[stage] += 50
+                                            display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
 
                                             print("Up Button - " + str(speeds[stage]))
                                             time.sleep(0.2)
 
                                         elif GPIO.input(button2) and speeds[stage] > 500:
                                             speeds[stage] -= 50
-                                            display.lcd_display_string("SPEED:      RPM", 2) #CLEAR LINE 2
+                                            display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
 
                                             print("Down Button - " + str(speeds[stage]))
                                             time.sleep(0.2)
