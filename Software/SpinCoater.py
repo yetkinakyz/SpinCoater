@@ -113,7 +113,8 @@ while True:
     elif GPIO.input(button4):
         display.lcd_display_string(infoMenuLine1[menuPosition], 1) #PRINT LINE 1
         display.lcd_display_string(infoMenuLine2[menuPosition], 2) #PRINT LINE 2
-
+        time.sleep(2)
+        
     elif GPIO.input(button6):
         if menuPosition == 1:
             while True:
