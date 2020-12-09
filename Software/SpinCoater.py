@@ -57,23 +57,36 @@ mainMenu = ["SET PROGRAM     ",
             "TEST            ",
             "INFO            ",
             "VERSION UPDATE  "]
-
 mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
+## INFO MENU
 infoMenuLine1 = ["Set instructions",
                  "Run a 2-stg test", 
                  "Get information ",
                  versionText        ]
-
 infoMenuLine2 = ["and run         ",
                  "                ",
                  "about project   ",
                  dateText           ]
 
+## SET MENU
+setMenu = ["RUN QUICK PROG. ", "SET MANUAL PROG."]
+setMenuAscii = ["             " + " " + chr(124) + chr(62),
+                "             " + chr(60) + chr(124) + " "]
+
+
+## MANUAL MENU
+stages = 1
+seconds = 0
+speeds = 0
+
+## POSITIONS
 menuPosition = 0
+setPosition = 0
+manualPosition = 0
 
 display.lcd_clear()
 display.lcd_display_string("SPIN COATER     ", 1) #PRINT LINE 1
@@ -117,11 +130,6 @@ while True:
 
     elif GPIO.input(button6):
         if menuPosition == 0:
-            setPosition = 0
-
-            setMenu = ["RUN QUICK PROG. ", "SET MANUAL PROG."]
-            setMenuAscii = ["             " + " " + chr(124) + chr(62),
-                            "             " + chr(60) + chr(124) + " "]
             while True:
                  
                 display.lcd_display_string(setMenu[setPosition], 1) #PRINT LINE 1
@@ -139,6 +147,26 @@ while True:
                     print("Down Button - " + str(setPosition))
                     time.sleep(0.1)
 
+                elif GPIO.input(button4):
+                    while True:
+                        while not GPIO.input(button5):
+                            display.lcd_display_string("  SET  PROGRAM  ", 1) #PRINT LINE 1
+                            display.lcd_display_string("STAGES: " + stages, 1) #PRINT LINE 1
+                            
+                            if not GPIO.input(button1) and stages <= 9999:
+                                stages += 1
+                            elif GPIO.input(button2) and stages >= 0:
+                                stages -= 1
+                            elif GPIO.input(button3):
+                                stages = 0
+                            elif GPIO.input(button6):
+                                stages = 1
+                                break
+                            else:
+                                continue
+
+                        for i in range (stages):
+                            continue
                 elif GPIO.input(button5):
                     break
                 
