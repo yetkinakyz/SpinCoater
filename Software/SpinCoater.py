@@ -149,7 +149,7 @@ while True:
 
                 elif GPIO.input(button6):
                     display.lcd_clear()
-                    
+
                     if setPosition == 1:
                         
                         while True:
@@ -163,7 +163,7 @@ while True:
                                 print("Up Button - " + str(stages))
                                 time.sleep(0.1)
 
-                            elif GPIO.input(button2) and stages >= 1:
+                            elif GPIO.input(button2) and stages >= 2:
                                 stages -= 1
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
 
