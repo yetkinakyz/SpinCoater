@@ -172,7 +172,7 @@ while True:
                                 time.sleep(0.2)
 
                             elif GPIO.input(button3):
-                                stages = 0
+                                stages = 1
 
                             elif GPIO.input(button5):
                                 stages = 1
