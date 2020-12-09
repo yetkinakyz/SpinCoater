@@ -181,13 +181,15 @@ while True:
                                 stages = 1
                                 break
                             elif GPIO.input(button6):
+                                stages += 1
+                                
                                 display.lcd_clear()
                                 display.lcd_display_string("   STAGES SET   ", 1) #PRINT LINE 1
                                 time.sleep(1)
                                 break
                             else:
                                 continue
-                        
+
                         for stage in range(1, stages):
                             seconds.append(second)
                             speeds.append(speed)
