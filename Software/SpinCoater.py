@@ -114,9 +114,36 @@ while True:
         display.lcd_display_string(infoMenuLine1[menuPosition], 1) #PRINT LINE 1
         display.lcd_display_string(infoMenuLine2[menuPosition], 2) #PRINT LINE 2
         time.sleep(2)
-        
+
     elif GPIO.input(button6):
-        if menuPosition == 1:
+        if menuPosition == 0:
+            setPosition = 0
+
+            setMenu = ["RUN QUICK PROG. ", "SET MANUAL PROG."]
+
+            while True: 
+                if not GPIO.input(button1) and setPosition > 0:
+                    setPosition = setPosition - 1
+
+                    print("Up Button - " + str(menuPosition))
+                    time.sleep(0.1)
+
+                elif GPIO.input(button2) and setPosition < len(mainMenu) - 1:
+                    setPosition = setPosition + 1
+
+                    print("Down Button - " + str(menuPosition))
+                    time.sleep(0.1)
+                
+                    if GPIO.input(button6):
+                        break
+
+                elif GPIO.input(button6):
+                    break
+                
+                else:
+                    continue
+
+        elif menuPosition == 1:
             while True:
 
                 display.lcd_clear()
@@ -151,7 +178,6 @@ while True:
 
                 time.sleep(3)
                 break
-
 
         elif menuPosition == 2:
 
