@@ -252,7 +252,7 @@ while True:
                                             print("Up Button - " + str(speeds[stage]))
                                             time.sleep(0.2)
 
-                                        elif GPIO.input(button2) and speeds[stage] > 5:
+                                        elif GPIO.input(button2) and speeds[stage] > 500:
                                             speeds[stage] -= 50
                                             display.lcd_display_string("SPEED:      RPM", 2) #CLEAR LINE 2
 
