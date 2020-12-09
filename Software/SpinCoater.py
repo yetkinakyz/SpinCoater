@@ -147,9 +147,9 @@ while True:
                     print("Down Button - " + str(setPosition))
                     time.sleep(0.1)
 
-                elif GPIO.input(button4):
+                elif GPIO.input(button6):
                     while True:
-                        while not GPIO.input(button5):
+                        while not GPIO.input(button6):
                             display.lcd_display_string("  SET  PROGRAM  ", 1) #PRINT LINE 1
                             display.lcd_display_string("STAGES: " + stages, 1) #PRINT LINE 1
                             
@@ -159,7 +159,7 @@ while True:
                                 stages -= 1
                             elif GPIO.input(button3):
                                 stages = 0
-                            elif GPIO.input(button6):
+                            elif GPIO.input(button5):
                                 stages = 1
                                 break
                             else:
