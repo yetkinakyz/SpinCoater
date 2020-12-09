@@ -151,7 +151,7 @@ while True:
                     while True:
                         while not GPIO.input(button6):
                             display.lcd_display_string("  SET  PROGRAM  ", 1) #PRINT LINE 1
-                            display.lcd_display_string("STAGES: " + stages, 1) #PRINT LINE 1
+                            display.lcd_display_string("STAGES: " + stages, 2) #PRINT LINE 1
                             
                             if not GPIO.input(button1) and stages <= 9999:
                                 stages += 1
