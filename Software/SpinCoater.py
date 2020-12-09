@@ -139,13 +139,13 @@ while True:
                     setPosition = setPosition - 1
 
                     print("Up Button - " + str(setPosition))
-                    time.sleep(0.1)
+                    time.sleep(0.2)
 
                 elif GPIO.input(button2) and setPosition < len(setMenu) - 1:
                     setPosition = setPosition + 1
 
                     print("Down Button - " + str(setPosition))
-                    time.sleep(0.1)
+                    time.sleep(0.2)
 
                 elif GPIO.input(button6):
                     time.sleep(0.5)
@@ -162,14 +162,14 @@ while True:
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
 
                                 print("Up Button - " + str(stages))
-                                time.sleep(0.1)
+                                time.sleep(0.2)
 
                             elif GPIO.input(button2) and stages > 1:
                                 stages -= 1
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
 
                                 print("Down Button - " + str(stages))
-                                time.sleep(0.1)
+                                time.sleep(0.2)
 
                             elif GPIO.input(button3):
                                 stages = 0
