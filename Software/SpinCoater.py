@@ -278,8 +278,8 @@ while True:
                             time.sleep(2)
 
                             for stage in range (1,stages):
-                                Spinner.setExpectedRPM(speeds(stage))
-                                Spinner.setExpectedTime(seconds(stage))
+                                Spinner.setExpectedRPM(speeds[stage])
+                                Spinner.setExpectedTime(seconds[stage])
                                 
                                 if stage == 1:
                                     Spinner.FirstStage()
