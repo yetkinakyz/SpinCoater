@@ -292,6 +292,11 @@ while True:
                             display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                             time.sleep(3)
+
+                            stages = 1
+                            seconds = [5]
+                            speeds = [500]
+                            
                             break
                     else:
                         continue
