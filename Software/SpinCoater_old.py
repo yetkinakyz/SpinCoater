@@ -49,29 +49,16 @@ buttons = [ not GPIO.input(button1),
             GPIO.input(button5),
             GPIO.input(button6)]
 
-versionText = "Version:   " + version_info
-dateText = "Date: " + date_info
-
 ## MAIN MENU
 mainMenu = ["SET PROGRAM     ",
             "TEST            ",
             "INFO            ",
             "VERSION UPDATE  "]
 
-mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
+menuAscii = [   "             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
-
-infoMenuLine1 = ["Set instructions",
-                 "Run a 2-stg test", 
-                 "Get information ",
-                 versionText        ]
-
-infoMenuLine2 = ["and run         ",
-                 "                ",
-                 "about project   ",
-                 dateText           ]
 
 menuPosition = 0
 
@@ -96,7 +83,7 @@ display.lcd_clear()
 while True:
 
     display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
-    display.lcd_display_string(mainMenuAscii[menuPosition], 2) #PRINT LINE 2
+    display.lcd_display_string(menuAscii[menuPosition], 2) #PRINT LINE 2
 
     if not GPIO.input(button1) and menuPosition > 0:
         menuPosition = menuPosition - 1

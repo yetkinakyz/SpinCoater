@@ -49,16 +49,29 @@ buttons = [ not GPIO.input(button1),
             GPIO.input(button5),
             GPIO.input(button6)]
 
+versionText = "Version:   " + version_info
+dateText = "Date: " + date_info
+
 ## MAIN MENU
 mainMenu = ["SET PROGRAM     ",
             "TEST            ",
             "INFO            ",
             "VERSION UPDATE  "]
 
-menuAscii = [   "             " + " " + chr(124) + chr(62),
+mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
+
+infoMenuLine1 = ["Set instructions",
+                 "Run a 2-stg test", 
+                 "Get information ",
+                 versionText        ]
+
+infoMenuLine2 = ["and run         ",
+                 "                ",
+                 "about project   ",
+                 dateText           ]
 
 menuPosition = 0
 
@@ -83,7 +96,7 @@ display.lcd_clear()
 while True:
 
     display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
-    display.lcd_display_string(menuAscii[menuPosition], 2) #PRINT LINE 2
+    display.lcd_display_string(mainMenuAscii[menuPosition], 2) #PRINT LINE 2
 
     if not GPIO.input(button1) and menuPosition > 0:
         menuPosition = menuPosition - 1
@@ -98,34 +111,8 @@ while True:
         time.sleep(0.1)
 
     elif GPIO.input(button4):
-        if menuPosition == 0:
-            display.lcd_clear()
-            display.lcd_display_string("Set instructions", 1) #PRINT LINE 1
-            display.lcd_display_string("and run         ", 2) #PRINT LINE 2
-            time.sleep(2)
-
-        elif menuPosition == 1:
-            display.lcd_clear()
-            display.lcd_display_string("Run a 2-stg test", 1) #PRINT LINE 1
-            display.lcd_display_string("Stg 1: 1000/15  ", 2) #PRINT LINE 2
-            time.sleep(2)
-            display.lcd_display_string("Stg 2: 5000/30  ", 2) #PRINT LINE 2
-            time.sleep(2)
-
-        elif menuPosition == 2:
-            display.lcd_clear()
-            display.lcd_display_string("Get information ", 1) #PRINT LINE 1
-            display.lcd_display_string("about project   ", 2) #PRINT LINE 2
-            time.sleep(2)
-
-        elif menuPosition == 3:
-            display.lcd_clear()
-            display.lcd_display_string("Version:   " + version_info, 1) #PRINT LINE 1
-            display.lcd_display_string("Date: " + date_info, 2) #PRINT LINE 1
-            time.sleep(3)
-
-        else:
-            None
+        display.lcd_display_string(infoMenuLine1[menuPosition], 1) #PRINT LINE 1
+        display.lcd_display_string(infoMenuLine2[menuPosition], 2) #PRINT LINE 2
 
     elif GPIO.input(button6):
         if menuPosition == 1:
