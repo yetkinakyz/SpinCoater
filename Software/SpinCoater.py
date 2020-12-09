@@ -177,6 +177,9 @@ while True:
                                 stages = 1
                                 break
                             elif GPIO.input(button6):
+                                display.lcd_clear()
+                                display.lcd_display_string("   STAGES SET   ", 1) #PRINT LINE 1
+
                                 break
                             else:
                                 continue
