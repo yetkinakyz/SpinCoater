@@ -148,25 +148,33 @@ while True:
                     time.sleep(0.1)
 
                 elif GPIO.input(button6):
-                    while True:
-                        while not GPIO.input(button6):
-                            display.lcd_display_string("  SET  PROGRAM  ", 1) #PRINT LINE 1
-                            display.lcd_display_string("STAGES: " + stages, 2) #PRINT LINE 1
-                            
-                            if not GPIO.input(button1) and stages <= 9999:
-                                stages += 1
-                            elif GPIO.input(button2) and stages >= 0:
-                                stages -= 1
-                            elif GPIO.input(button3):
-                                stages = 0
-                            elif GPIO.input(button5):
-                                stages = 1
-                                break
-                            else:
-                                continue
+                    if setPosition == 1:
+                        while True:
+                            while not GPIO.input(button6):
+                                display.lcd_display_string("NUMBER OF STAGES", 1) #PRINT LINE 1
+                                display.lcd_display_string("STAGES: " + stages, 2) #PRINT LINE 2
+                                
+                                if not GPIO.input(button1) and stages <= 9999:
+                                    stages += 1
 
-                        for i in range (stages):
-                            continue
+                                    print("Up Button - " + str(stages))
+                                    time.sleep(0.1)
+
+                                elif GPIO.input(button2) and stages >= 0:
+                                    stages -= 1
+
+                                    print("Down Button - " + str(stages))
+                                    time.sleep(0.1)
+
+                                elif GPIO.input(button3):
+                                    stages = 0
+
+                                elif GPIO.input(button5):
+                                    stages = 1
+                                    break
+                                else:
+                                    continue
+
                 elif GPIO.input(button5):
                     break
                 
