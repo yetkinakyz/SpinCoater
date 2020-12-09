@@ -120,6 +120,12 @@ while True:
             setPosition = 0
 
             setMenu = ["RUN QUICK PROG. ", "SET MANUAL PROG."]
+            setMenuAscii = ["             " + " " + chr(124) + chr(62),
+                            "             " + chr(60) + chr(124) + " "]
+
+
+            display.lcd_display_string(setMenu[setPosition], 1) #PRINT LINE 1
+            display.lcd_display_string(setMenuAscii[setPosition], 2) #PRINT LINE 2
 
             while True: 
                 if not GPIO.input(button1) and setPosition > 0:
