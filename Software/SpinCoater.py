@@ -406,6 +406,8 @@ while True:
                                             continue
 
                             if manualStop:
+                                manualStop = False
+                                
                                 display.lcd_clear()
                                 display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
                                 time.sleep(3)
