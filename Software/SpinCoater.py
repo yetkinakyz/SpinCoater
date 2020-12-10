@@ -161,7 +161,7 @@ while True:
 
                         while True:
                             display.lcd_display_string("P" + str(program) + " " + str(quickSpeeds1[program]) + "-" + str(quickSpeeds2[program]), 1) #PRINT LINE 1
-                            display.lcd_display_string("     " + str(quickSeconds1[program]) + "-" + str(quickSeconds2[program]), 2) #PRINT LINE 2
+                            display.lcd_display_string("   " + str(quickSeconds1[program]) + "-" + str(quickSeconds2[program]), 2) #PRINT LINE 2
 
                             if not GPIO.input(button1):
                                 display.lcd_display_string("P            RPM", 1) #PRINT LINE 1
