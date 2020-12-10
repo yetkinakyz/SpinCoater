@@ -97,6 +97,7 @@ setPosition = 0
 manualPosition = 0
 
 def SetStage():
+    global display
     global manualStages
     global manualSeconds
     global manualSpeeds
@@ -159,6 +160,7 @@ def SetStage():
     display.lcd_clear()
 
 def SetTime():
+    global display
     global manualStages
     global manualSeconds
     global manualSpeeds
@@ -227,6 +229,7 @@ def SetTime():
                         continue
 
 def SetSpeed() :
+    global display
     global manualStages
     global manualSeconds
     global manualSpeeds
