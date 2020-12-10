@@ -392,7 +392,7 @@ while True:
 
                                         elif GPIO.input(button3):
                                             display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
-                                            
+
                                             manualSpeeds = [500]
 
                                         elif GPIO.input(button5):
@@ -414,13 +414,13 @@ while True:
 
                                 display.lcd_clear()
                                 display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
-                                time.sleep(2)
+                                time.sleep(1)
                                 
                                 break
                             
                             display.lcd_clear()
                             display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
-                            time.sleep(2)
+                            time.sleep(1)
 
                             for stage in range (1,manualStages):
                                 Spinner.setExpectedRPM(manualSpeeds[stage])
@@ -437,7 +437,7 @@ while True:
                             display.lcd_clear()
                             display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
-                            time.sleep(3)
+                            time.sleep(2)
 
                             manualStages = 1
                             manualSeconds = [5]
