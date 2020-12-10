@@ -17,8 +17,8 @@ import time
 
 ##### SETUP #####
 
-version_info = "1.0.5"
-date_info = "09.12.2020"
+version_info = "1.0.6"
+date_info = "10.12.2020"
 
 ## DISPLAY
 display = lcddriver.lcd()
@@ -53,7 +53,7 @@ versionText = "Version:   " + version_info
 dateText = "Date: " + date_info
 
 ## MAIN MENU
-mainMenu = ["SET PROGRAM     ",
+mainMenu = ["RUN A PROGRAM     ",
             "INFO            ",
             "VERSION UPDATE  "]
 mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
@@ -69,7 +69,7 @@ infoMenuLine2 = ["and run         ",
                  dateText           ]
 
 ## SET MENU
-setMenu = ["RUN QUICK PROG. ", "SET MANUAL PROG."]
+setMenu = ["QUICK PROGRAMS  ", "SET MANUAL PROG."]
 setMenuAscii = ["             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
