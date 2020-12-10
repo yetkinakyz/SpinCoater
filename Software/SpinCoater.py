@@ -270,6 +270,8 @@ while True:
                                     continue
 
                             elif GPIO.input(button3):
+                                display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
+
                                 manualStages = 1
 
                             elif GPIO.input(button5):
@@ -342,6 +344,8 @@ while True:
                                                 continue
 
                                         elif GPIO.input(button3):
+                                            display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
+
                                             manualSeconds[stage] = 5
 
                                         elif GPIO.input(button5):
@@ -387,6 +391,8 @@ while True:
                                                 time.sleep(0.2)
 
                                         elif GPIO.input(button3):
+                                            display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
+                                            
                                             manualSpeeds = [500]
 
                                         elif GPIO.input(button5):
@@ -488,4 +494,3 @@ while True:
             continue
     else:
         continue
-
