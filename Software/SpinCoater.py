@@ -209,14 +209,14 @@ while True:
                                 display.lcd_display_string("    STARTING    ", 2) #PRINT LINE 2
                                 time.sleep(2)
 
-                                Spinner.SetExpectedTime(quickSeconds1[program])
-                                Spinner.SetExpectedRPM(quickSpeeds1[program])
+                                Spinner.setExpectedTime(quickSeconds1[program])
+                                Spinner.setExpectedRPM(quickSpeeds1[program])
                                 Spinner.FirstStage()
 
                                 Spinner.clear()
 
-                                Spinner.SetExpectedTime(quickSeconds2[program])
-                                Spinner.SetExpectedRPM(quickSpeeds2[program])
+                                Spinner.setExpectedTime(quickSeconds2[program])
+                                Spinner.setExpectedRPM(quickSpeeds2[program])
                                 Spinner.NextStage()                                
 
                                 Spinner.clear()
