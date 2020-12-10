@@ -164,10 +164,10 @@ while True:
                     display.lcd_clear()
 
                     if setPosition == 0:
-                        while True:
-                            display.lcd_display_string("             RPM", 1) #PRINT LINE 1
-                            display.lcd_display_string("             SEC", 2) #PRINT LINE 2
+                        display.lcd_display_string("             RPM", 1) #PRINT LINE 1
+                        display.lcd_display_string("             SEC", 2) #PRINT LINE 2
 
+                        while True:
                             display.lcd_display_string(str(quickSpeeds1[program]) + "-" + str(quickSpeeds2[program]), 1) #PRINT LINE 1
                             display.lcd_display_string(str(quickSeconds1[program]) + "-" + str(quickSeconds2[program]), 2) #PRINT LINE 2
 
