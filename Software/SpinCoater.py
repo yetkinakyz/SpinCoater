@@ -61,7 +61,7 @@ mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
 ## INFO MENU
-infoMenuLine1 = ["Set instructions"
+infoMenuLine1 = ["Set instructions",
                  "Get information ",
                  versionText        ]
 infoMenuLine2 = ["and run         ",
@@ -121,13 +121,11 @@ while True:
     if not GPIO.input(button1) and menuPosition > 0:
         menuPosition = menuPosition - 1
 
-        print("Up Button - " + str(menuPosition))
         time.sleep(0.2)
 
     elif GPIO.input(button2) and menuPosition < len(mainMenu) - 1:
         menuPosition = menuPosition + 1
 
-        print("Down Button - " + str(menuPosition))
         time.sleep(0.2)
 
     elif GPIO.input(button4):
@@ -145,13 +143,11 @@ while True:
                 if not GPIO.input(button1) and setPosition > 0:
                     setPosition = setPosition - 1
 
-                    print("Up Button - " + str(setPosition))
                     time.sleep(0.2)
 
                 elif GPIO.input(button2) and setPosition < len(setMenu) - 1:
                     setPosition = setPosition + 1
 
-                    print("Down Button - " + str(setPosition))
                     time.sleep(0.2)
 
                 elif GPIO.input(button6):
