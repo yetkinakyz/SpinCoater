@@ -53,7 +53,7 @@ versionText = "Version:   " + version_info
 dateText = "Date: " + date_info
 
 ## MAIN MENU
-mainMenu = ["RUN A PROGRAM     ",
+mainMenu = ["RUN PROGRAM       ",
             "INFO            ",
             "VERSION UPDATE  "]
 mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
