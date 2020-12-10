@@ -466,7 +466,7 @@ while True:
                 display.lcd_display_string("EEM401 Project  ", 2) #PRINT LINE 2
                 time.sleep(3)
 
-                display.lcd_display_string("By  Yetkin AKYUZ", 1) #PRINT LINE 1
+                display.lcd_display_string("  Yetkin AKYUZ  ", 1) #PRINT LINE 1
                 display.lcd_display_string("      2020      ", 2) #PRINT LINE 2
                 time.sleep(3)
 
