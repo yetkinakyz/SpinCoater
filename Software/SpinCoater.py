@@ -137,12 +137,6 @@ while True:
 
     elif GPIO.input(button6):
         if menuPosition == 0:
-            setPosition = 0
-            manualStages = 1
-            
-            manualSeconds = [5]
-            manualSpeeds = [500]
-
             while True:
                  
                 display.lcd_display_string(setMenu[setPosition], 1) #PRINT LINE 1
@@ -418,6 +412,12 @@ while True:
                             if manualStop:
                                 manualStop = False
 
+                                setPosition = 0
+                                manualStages = 1    
+
+                                manualSeconds = [5]
+                                manualSpeeds = [500]
+
                                 display.lcd_clear()
                                 display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
                                 time.sleep(1)
@@ -444,6 +444,13 @@ while True:
                             display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                             time.sleep(2)
+
+                            setPosition = 0
+                            manualStages = 1    
+                                    
+                            manualSeconds = [5]
+                            manualSpeeds = [500]
+
                             break
                     
                     else:
