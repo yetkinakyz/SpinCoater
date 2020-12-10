@@ -286,47 +286,47 @@ while True:
                                         else:
                                             continue
 
-                            while True:
-                                display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
-                                display.lcd_display_string("SPEED:" + str(manualSpeeds[stage]), 2) #PRINT LINE 2
-                                
-                                if not GPIO.input(button1):
-                                    display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
+                                    while True:
+                                        display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
+                                        display.lcd_display_string("SPEED:" + str(manualSpeeds[stage]), 2) #PRINT LINE 2
+                                        
+                                        if not GPIO.input(button1):
+                                            display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
 
-                                    if manualSpeeds[stage] < 7200:
-                                        manualSpeeds[stage] += 50
-                                        time.sleep(0.2)
-                                    
-                                    elif manualSpeeds[stage] == 7200:
-                                        manualSpeeds[stage] = 500
-                                        time.sleep(0.2)
+                                            if manualSpeeds[stage] < 7200:
+                                                manualSpeeds[stage] += 50
+                                                time.sleep(0.2)
+                                            
+                                            elif manualSpeeds[stage] == 7200:
+                                                manualSpeeds[stage] = 500
+                                                time.sleep(0.2)
 
-                                elif GPIO.input(button2):
-                                    display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
+                                        elif GPIO.input(button2):
+                                            display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
 
-                                    if manualSpeeds[stage] > 500:
-                                        manualSpeeds[stage] -= 50
-                                        time.sleep(0.2)
-                                    
-                                    elif manualSpeeds[stage] == 500:
-                                        manualSpeeds[stage] = 7200
-                                        time.sleep(0.2)
+                                            if manualSpeeds[stage] > 500:
+                                                manualSpeeds[stage] -= 50
+                                                time.sleep(0.2)
+                                            
+                                            elif manualSpeeds[stage] == 500:
+                                                manualSpeeds[stage] = 7200
+                                                time.sleep(0.2)
 
-                                elif GPIO.input(button3):
-                                    manualSpeeds = [500]
+                                        elif GPIO.input(button3):
+                                            manualSpeeds = [500]
 
-                                elif GPIO.input(button5):
-                                    manualSpeeds[stage] = 500
-                                    break
+                                        elif GPIO.input(button5):
+                                            manualSpeeds[stage] = 500
+                                            break
 
-                                elif GPIO.input(button6):                                        
-                                    display.lcd_clear()
-                                    display.lcd_display_string("   SPEED  SET   ", 1) #PRINT LINE 1
-                                    time.sleep(1)
-                                    display.lcd_clear()
-                                    break
-                                else:
-                                    continue
+                                        elif GPIO.input(button6):                                        
+                                            display.lcd_clear()
+                                            display.lcd_display_string("   SPEED  SET   ", 1) #PRINT LINE 1
+                                            time.sleep(1)
+                                            display.lcd_clear()
+                                            break
+                                        else:
+                                            continue
                                                     
                             display.lcd_clear()
                             display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
