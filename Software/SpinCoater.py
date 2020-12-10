@@ -164,7 +164,9 @@ while True:
                     display.lcd_clear()
                     if setPosition == 0:
                         while True:
-                            
+                            display.lcd_display_string(" RPM", 1) #PRINT LINE 1
+                            display.lcd_display_string(str(quickSeconds1[program]) + "-" + str(quickSeconds2[program]) +" SEC", 2) #PRINT LINE 2
+
                             if not GPIO.input(button1):
                                 display.lcd_display_string("             RPM", 1) #PRINT LINE 1
                                 display.lcd_display_string("             SEC", 2) #PRINT LINE 2
@@ -197,9 +199,7 @@ while True:
                                     time.sleep(0.2)
 
                                 else:
-                                    display.lcd_display_string(" RPM", 1) #PRINT LINE 1
-                                    display.lcd_display_string(str(quickSeconds1[program]) + "-" + str(quickSeconds2[program]) +" SEC", 2) #PRINT LINE 2
-
+                                    continue
 
                             elif GPIO.input(button6):
                                 display.lcd_clear()
