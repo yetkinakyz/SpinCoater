@@ -61,10 +61,10 @@ mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
 ## INFO MENU
-infoMenuLine1 = ["Set instructions",
+infoMenuLine1 = ["Run or set prog.",
                  "Get information ",
                  versionText        ]
-infoMenuLine2 = ["and run         ",
+infoMenuLine2 = ["Quick or manual ",
                  "about project   ",
                  dateText           ]
 
@@ -463,11 +463,15 @@ while True:
                 display.lcd_clear()
 
                 display.lcd_display_string("Name: SpinCoater", 1) #PRINT LINE 1
-                display.lcd_display_string("Engr. Desg. Prj.", 2) #PRINT LINE 1
+                display.lcd_display_string("EEM401 Project  ", 2) #PRINT LINE 2
                 time.sleep(3)
 
-                display.lcd_display_string("By Yetkin AKYUZ ", 1) #PRINT LINE 1
-                display.lcd_display_string("yetkinakyuz.com ", 2) #PRINT LINE 1
+                display.lcd_display_string("By  Yetkin AKYUZ", 1) #PRINT LINE 1
+                display.lcd_display_string("      2020      ", 2) #PRINT LINE 2
+                time.sleep(3)
+
+                display.lcd_display_string("Duzce University", 1) #PRINT LINE 1
+                display.lcd_display_string("E.E. Engineering", 2) #PRINT LINE 1
                 time.sleep(3)
 
                 display.lcd_display_string("Version:   " + version_info, 1) #PRINT LINE 1
