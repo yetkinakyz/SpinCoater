@@ -61,12 +61,10 @@ mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
 ## INFO MENU
-infoMenuLine1 = ["Set instructions",
-                 "Run a 2-stg test", 
+infoMenuLine1 = ["Set instructions"
                  "Get information ",
                  versionText        ]
 infoMenuLine2 = ["and run         ",
-                 "                ",
                  "about project   ",
                  dateText           ]
 
@@ -257,7 +255,7 @@ while True:
                                 else:
                                     continue
 
-                            elif not GPIO.input(button1):
+                            elif GPIO.input(button2):
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
 
                                 if manualStages > 1:
