@@ -426,7 +426,6 @@ while True:
                             break
                     
                     else:
-                        display.lcd_display_string("adsasd",1)
                         continue
 
                 elif GPIO.input(button5):
