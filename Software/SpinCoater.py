@@ -291,12 +291,6 @@ while True:
                             else:
                                 continue
 
-                        if manualStop:
-                            display.lcd_clear()
-                            display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
-
-                            break
-
                         for stage in range(1, manualStages):
                             manualSeconds.append(manualSecond)
                             manualSpeeds.append(manualSpeed)
@@ -367,12 +361,6 @@ while True:
                                         else:
                                             continue
 
-                                    if manualStop:
-                                        display.lcd_clear()
-                                        display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
-
-                                        break
-
                                     while True:
                                         
                                         display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
@@ -417,11 +405,12 @@ while True:
                                         else:
                                             continue
 
-                                    if manualStop:
-                                        display.lcd_clear()
-                                        display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
-
-                                        break
+                            if manualStop:
+                                display.lcd_clear()
+                                display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
+                                time.sleep(3)
+                                
+                                break
                             
                             display.lcd_clear()
                             display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
