@@ -236,7 +236,9 @@ while True:
                             else:
                                 continue
 
-                    elif setPosition == 1:                       
+                    elif setPosition == 1:   
+                        manualStop = False        
+
                         while True:
                             display.lcd_display_string("NUMBER OF STAGES", 1) #PRINT LINE 1
                             display.lcd_display_string("STAGES: " + str(manualStages), 2) #PRINT LINE 2
@@ -274,6 +276,7 @@ while True:
 
                             elif GPIO.input(button5):
                                 manualStages = 1
+                                manualStop = True
                                 break
 
                             elif GPIO.input(button6):
@@ -287,6 +290,12 @@ while True:
 
                             else:
                                 continue
+
+                        if manualStop:
+                            display.lcd_clear()
+                            display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
+
+                            break
 
                         for stage in range(1, manualStages):
                             manualSeconds.append(manualSecond)
@@ -345,6 +354,7 @@ while True:
 
                                         elif GPIO.input(button5):
                                             manualSeconds = [5]
+                                            manualStop = True
 
                                             break
 
@@ -357,7 +367,14 @@ while True:
                                         else:
                                             continue
 
+                                    if manualStop:
+                                        display.lcd_clear()
+                                        display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
+
+                                        break
+
                                     while True:
+                                        
                                         display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
                                         display.lcd_display_string("SPEED:" + str(manualSpeeds[stage]) + " RPM", 2) #PRINT LINE 2
                                         
@@ -388,6 +405,7 @@ while True:
 
                                         elif GPIO.input(button5):
                                             manualSpeeds[stage] = 500
+                                            manualStop = True
                                             break
 
                                         elif GPIO.input(button6):                                        
@@ -398,7 +416,13 @@ while True:
                                             break
                                         else:
                                             continue
-                                                    
+
+                                    if manualStop:
+                                        display.lcd_clear()
+                                        display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
+
+                                        break
+                            
                             display.lcd_clear()
                             display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
                             time.sleep(2)
