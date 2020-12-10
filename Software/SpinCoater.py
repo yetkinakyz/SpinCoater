@@ -176,7 +176,7 @@ while True:
                                     
                                     time.sleep(0.2)
                                 
-                                elif program == len(quickSeconds1) -1:
+                                elif program == len(quickSeconds1) - 1:
                                     program = 1
 
                                     time.sleep(0.2)
@@ -425,7 +425,8 @@ while True:
                             break
                     
                     else:
-                        continue
+                        display.lcd_display_string("             RPM", 1) #PRINT LINE 1
+
                 elif GPIO.input(button5):
                     break
                 
