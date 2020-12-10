@@ -78,6 +78,8 @@ setMenuAscii = ["             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
 ## QUICK MENU
+program = 1
+
 quickSpeeds1 = ["STAGE 1", 500, 1000, 1500, 2000, 3000]
 quickSpeeds2 = ["STAGE 2", 3500, 4000, 5000, 6000, 7000]
 
@@ -162,8 +164,75 @@ while True:
                     display.lcd_clear()
                     if setPosition == 0:
                         while True:
-                            display.lcd_display_string("0000 - 0000 RPM", 1) #PRINT LINE 1
-                            display.lcd_display_string("0000 - 0000 SEC", 2) #PRINT LINE 1
+                            display.lcd_display_string(quickSpeeds1[program] + "-" + quickSpeeds2[program] + " RPM", 1) #PRINT LINE 1
+                            display.lcd_display_string(quickSeconds1[program] + "-" + quickSeconds2[program] +" SEC", 2) #PRINT LINE 2
+
+                            if not GPIO.input(button1):
+                                display.lcd_display_string("             RPM", 1) #PRINT LINE 1
+                                display.lcd_display_string("             SEC", 2) #PRINT LINE 2
+
+                                if program < len(quickSeconds1) - 1:
+                                    program += 1
+                                    
+                                    time.sleep(0.2)
+                                
+                                elif program == len(quickSeconds1) -1:
+                                    program = 1
+
+                                    time.sleep(0.2)
+                                
+                                else:
+                                    continue
+
+                            elif GPIO.input(button2):
+                                display.lcd_display_string("             RPM", 1) #PRINT LINE 1
+                                display.lcd_display_string("             SEC", 2) #PRINT LINE 2
+
+                                if program > 1:
+                                    program -= 1
+
+                                    time.sleep(0.2)
+
+                                elif program == 1:
+                                    program = len(quickSeconds1) - 1
+
+                                    time.sleep(0.2)
+
+                                else:
+                                    continue
+
+                            elif GPIO.input(button6):
+                                display.lcd_clear()
+                                display.lcd_display_string("   PROGRAM: " + str(program) + "   ", 1) #PRINT LINE 1
+                                display.lcd_display_string("    STARTING    ", 2) #PRINT LINE 2
+                                time.sleep(2)
+
+                                Spinner.SetExpectedTime(quickSeconds1[program])
+                                Spinner.SetExpectedRPM(quickSpeeds1[program])
+                                Spinner.FirstStage()
+
+                                Spinner.clear()
+
+                                Spinner.SetExpectedTime(quickSeconds2[program])
+                                Spinner.SetExpectedRPM(quickSpeeds2[program])
+                                Spinner.NextStage()                                
+
+                                Spinner.clear()
+
+                                display.lcd_clear()
+                                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+
+                                time.sleep(3)
+
+                                break
+
+                            elif GPIO.input(button5):
+                                program = 1
+
+                                break
+
+                            else:
+                                continue
 
                     elif setPosition == 1:                       
                         while True:
@@ -235,7 +304,7 @@ while True:
                                 else:
                                     while True:
                                         display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
-                                        display.lcd_display_string("TIME: " + str(manualSeconds[stage]), 2) #PRINT LINE 2
+                                        display.lcd_display_string("TIME: " + str(manualSeconds[stage]) + " SEC", 2) #PRINT LINE 2
                                         
                                         if not GPIO.input(button1):
                                             display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
@@ -288,7 +357,7 @@ while True:
 
                                     while True:
                                         display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
-                                        display.lcd_display_string("SPEED:" + str(manualSpeeds[stage]), 2) #PRINT LINE 2
+                                        display.lcd_display_string("SPEED:" + str(manualSpeeds[stage]) + " RPM", 2) #PRINT LINE 2
                                         
                                         if not GPIO.input(button1):
                                             display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
