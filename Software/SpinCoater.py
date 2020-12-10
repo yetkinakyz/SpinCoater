@@ -169,15 +169,27 @@ while True:
                             display.lcd_display_string("NUMBER OF STAGES", 1) #PRINT LINE 1
                             display.lcd_display_string("STAGES: " + str(manualStages), 2) #PRINT LINE 2
                             
-                            if not GPIO.input(button1) and manualStages < 9999:
+                            if not GPIO.input(button1) and manualStages < 10:
                                 manualStages += 1
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
 
                                 print("Up Button - " + str(manualStages))
                                 time.sleep(0.2)
+                            
+                            elif not GPIO.input(button1) and manualStages == 10:
+                                manualStages = 1
+                                print("Up Button - " + str(manualStages))
+                                time.sleep(0.2)
 
                             elif GPIO.input(button2) and manualStages > 1:
                                 manualStages -= 1
+                                display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
+
+                                print("Down Button - " + str(manualStages))
+                                time.sleep(0.2)
+
+                            elif GPIO.input(button2) and manualStages == 1:
+                                manualStages = 10
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
 
                                 print("Down Button - " + str(manualStages))
@@ -219,18 +231,22 @@ while True:
                                         display.lcd_display_string("TIME: " + str(manualSeconds[stage]), 2) #PRINT LINE 2
                                         
                                         if not GPIO.input(button1) and manualSeconds[stage] < 3600:
-                                            manualSeconds[stage] += 5
                                             display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
 
-                                            print("Up Button - " + str(manualSeconds[stage]))
-                                            time.sleep(0.2)
+                                            if manualSeconds[stage] < 3600:
+                                                manualSeconds[stage] += 5
 
-                                        elif GPIO.input(button2) and manualSeconds[stage] > 5:
-                                            manualSeconds[stage] -= 5
+                                            elif manualSeconds[stage] == 3600:
+                                                manualSeconds[stage] = 5
+
+                                        elif GPIO.input(button2):
                                             display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
 
-                                            print("Down Button - " + str(manualSeconds[stage]))
-                                            time.sleep(0.2)
+                                            if manualSeconds[stage] > 5:
+                                                manualSeconds[stage] -= 5
+                                            
+                                            elif manualSeconds[stage] == 5:
+                                                manualSeconds[stage] = 3600
 
                                         elif GPIO.input(button3):
                                             manualSeconds[stage] = 5
@@ -307,6 +323,7 @@ while True:
                             manualSpeeds = [500]
 
                             break
+                    
                     else:
                         continue
                 elif GPIO.input(button5):
