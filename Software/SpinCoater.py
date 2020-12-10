@@ -122,13 +122,13 @@ while True:
         menuPosition = menuPosition - 1
 
         print("Up Button - " + str(menuPosition))
-        time.sleep(0.1)
+        time.sleep(0.2)
 
     elif GPIO.input(button2) and menuPosition < len(mainMenu) - 1:
         menuPosition = menuPosition + 1
 
         print("Down Button - " + str(menuPosition))
-        time.sleep(0.1)
+        time.sleep(0.2)
 
     elif GPIO.input(button4):
         display.lcd_display_string(infoMenuLine1[menuPosition], 1) #PRINT LINE 1
