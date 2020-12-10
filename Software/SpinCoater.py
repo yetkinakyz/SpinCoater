@@ -96,7 +96,7 @@ menuPosition = 0
 setPosition = 0
 manualPosition = 0
 
-def SetStage() -> None:
+def SetStage():
     global manualStages
     global manualSeconds
     global manualSpeeds
@@ -158,7 +158,7 @@ def SetStage() -> None:
     
     display.lcd_clear()
 
-def SetTime() -> None:
+def SetTime():
     global manualStages
     global manualSeconds
     global manualSpeeds
@@ -226,7 +226,7 @@ def SetTime() -> None:
                     else:
                         continue
 
-def SetSpeed() -> None:
+def SetSpeed() :
     global manualStages
     global manualSeconds
     global manualSpeeds
@@ -272,7 +272,6 @@ def SetSpeed() -> None:
             break
         else:
             continue
-
 
 ######
 display.lcd_clear()
