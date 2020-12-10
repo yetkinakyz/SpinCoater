@@ -54,11 +54,9 @@ dateText = "Date: " + date_info
 
 ## MAIN MENU
 mainMenu = ["SET PROGRAM     ",
-            "TEST            ",
             "INFO            ",
             "VERSION UPDATE  "]
 mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
-                "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
@@ -438,42 +436,6 @@ while True:
                     continue
 
         elif menuPosition == 1:
-            while True:
-
-                display.lcd_clear()
-                display.lcd_display_string(" TEST  SOFTWARE ", 1) #PRINT LINE 1
-                display.lcd_display_string("TOTAL:  2 STAGES", 2) #PRINT LINE 2
-                time.sleep(2)
-
-                display.lcd_clear()
-                display.lcd_display_string("  FIRST  STAGE  ", 1) #PRINT LINE 1
-                display.lcd_display_string("500 RPM  30 SEC", 2) #PRINT LINE 2
-                time.sleep(2)
-
-                display.lcd_clear()
-                display.lcd_display_string("   NEXT STAGE   ", 1) #PRINT LINE 1
-                display.lcd_display_string("7200 RPM 15 SEC", 2) #PRINT LINE 2
-                time.sleep(2)
-
-                Spinner.setExpectedRPM(2500)
-                Spinner.setExpectedTime(15)
-                Spinner.FirstStage()
-
-                Spinner.clear()
-
-                Spinner.setExpectedRPM(7200)
-                Spinner.setExpectedTime(15)
-                Spinner.NextStage()
-
-                #Spinner.done()
-                Spinner.clear()
-
-                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
-
-                time.sleep(3)
-                break
-
-        elif menuPosition == 2:
 
                 display.lcd_clear()
 
@@ -489,7 +451,7 @@ while True:
                 display.lcd_display_string("Date: " + date_info, 2) #PRINT LINE 1
                 time.sleep(3)
 
-        elif menuPosition == 3:
+        elif menuPosition == 2:
             display.lcd_clear()
             display.lcd_display_string("    UPDATING    ", 1) #PRINT LINE 2
             display.lcd_display_string("  FROM  GITHUB  ", 2) #PRINT LINE 2
