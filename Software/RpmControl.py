@@ -255,19 +255,19 @@ def SetSample(rpm):
         sample = 3
 
     elif rpm > 500 and rpm <= 1500:
-        sample = 9
+        sample = 6
 
     elif rpm > 1500 and rpm <= 2500:
-        sample = 12
+        sample = 9
 
     elif rpm > 2500 and rpm <= 3500:
-        sample = 24
+        sample = 12
 
     elif rpm > 3500 and rpm <= 4500:
-        sample = 48
+        sample = 15
 
     elif rpm > 4500:
-        sample = 60
+        sample = 18
     
     return sample
 
