@@ -498,7 +498,7 @@ while True:
             display.lcd_clear()
             display.lcd_display_string("    RESTARTING    ", 1)  
 
-            os.system("sudo reboot")
+            os.system("sh $(find ~ -iname SpinCoaterReboot.sh)")
 
             exit()
 
