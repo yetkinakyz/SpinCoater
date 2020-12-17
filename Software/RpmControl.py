@@ -47,9 +47,11 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(ir_sensor,GPIO.IN)
 
 # get_rpm(channel) variables
-sample = 3
+sample = 6
 count = 0
 rpm = 0
+
+RpmError = 0
 
 # set_start() and set_end() variables
 start = 0
@@ -255,23 +257,23 @@ def SetSample(rpm):
 
     if rpm >= 500 and rpm <= 2000:
         sample = 6
-        error = 2*rpm/100 # Error is 5%
+        RpmError = 2*rpm/100 # Error is 5%
 
     elif rpm > 2000 and rpm <= 3000:
         sample = 30
-        error = 1.5*rpm/100 # Error is 5%
+        RpmError = 1.5*rpm/100 # Error is 5%
 
     elif rpm > 3000 and rpm <= 4000:
         sample = 60
-        error = 1*rpm/100 # Error is 5%
+        RpmError = 1*rpm/100 # Error is 5%
 
     elif rpm > 4000 and rpm <= 5000:
         sample = 60
-        error = 0.5*rpm/100 # Error is 5%
+        RpmError = 0.5*rpm/100 # Error is 5%
 
     elif rpm > 5000:
         sample = 120
-        error = 0.25*rpm/100 # Error is 5%
+        RpmError = 0.25*rpm/100 # Error is 5%
 
     return sample
 
@@ -279,7 +281,7 @@ def SetSample(rpm):
 def SpeedControl(expected, current, previous):   
     global speed
     global done
-    global error
+    global RpmError
 
     if done == True:       
         done()
@@ -294,13 +296,13 @@ def SpeedControl(expected, current, previous):
         if current == 0 or current == previous:
             print("---")
 
-        elif (n > error):
+        elif (n > RpmError):
             speed = speed + 0.1
             motor.ChangeDutyCycle(speed)
 
             print("LOW")
 
-        elif (n < -error):
+        elif (n < -RpmError):
             speed = speed - 0.1
             motor.ChangeDutyCycle(speed)
 
