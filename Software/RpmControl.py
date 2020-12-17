@@ -291,13 +291,13 @@ def SpeedControl(expected, current, previous):
             print("---")
 
         elif (n > error):
-            speed = speed + 0.05
+            speed = speed + 0.1
             motor.ChangeDutyCycle(speed)
 
             print("LOW")
 
         elif (n < -error):
-            speed = speed - 0.05
+            speed = speed - 0.1
             motor.ChangeDutyCycle(speed)
 
             print("HIGH")
