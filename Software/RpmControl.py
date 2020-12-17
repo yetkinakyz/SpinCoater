@@ -129,8 +129,6 @@ def clear():
 
     display.lcd_clear()
 
-    exit()
-
 def done():
     global done
     done = True
