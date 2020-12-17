@@ -254,23 +254,23 @@ def SetSample(rpm):
     global sample
 
     if rpm >= 500 and rpm <= 2000:
-        sample = 12
+        sample = 6
         error = 2*rpm/100 # Error is 5%
 
     elif rpm > 2000 and rpm <= 3000:
-        sample = 24
+        sample = 12
         error = 1.5*rpm/100 # Error is 5%
 
     elif rpm > 3000 and rpm <= 4000:
-        sample = 48
+        sample = 24
         error = 1*rpm/100 # Error is 5%
 
     elif rpm > 4000 and rpm <= 5000:
-        sample = 96
+        sample = 48
         error = 0.5*rpm/100 # Error is 5%
 
     elif rpm > 5000:
-        sample = 120
+        sample = 96
         error = 0.25*rpm/100 # Error is 5%
 
     return sample
