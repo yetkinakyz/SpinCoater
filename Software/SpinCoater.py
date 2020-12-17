@@ -502,7 +502,7 @@ while True:
         elif menuPosition == 3:
 
             display.lcd_clear()
-            display.lcd_display_string("    RESTARTING    ", 1)  
+            display.lcd_display_string("   RESTARTING   ", 1)  
 
             os.system("sh $(find ~ -iname SpinCoaterReboot.sh)")
 
