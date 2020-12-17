@@ -76,7 +76,7 @@ sampleSpeedList = [ 4.7, 6,
 cycleRpmList= []
 cycleList = []
 
-firstStage = True
+
 done = False
 
 expectedRPM = 0
@@ -108,16 +108,18 @@ def clear():
     global done
     global firstStage
     global speed
+    global RpmError
 
-    sample = 3
+    sample = 6
     count = 0
     rpm = 0
     start = 0
     end = 0
     speed = 0
+    RpmError = 0
 
     done = False
-    firstStage = True
+    
 
     setExpectedRPM(0)
     setExpectedTime(0)
