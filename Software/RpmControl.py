@@ -35,7 +35,7 @@ GPIO.setup(motor_en,GPIO.OUT)
 GPIO.output(motor_in1,GPIO.HIGH)
 GPIO.output(motor_in2,GPIO.LOW)
 
-motor=GPIO.PWM(motor_en,1)
+motor=GPIO.PWM(motor_en,500)
 
 motor.start(0) #MOTOR START SPEED
 speed = 0
@@ -165,7 +165,7 @@ def FirstStage():
         display.lcd_display_string("TIME :       SEC", 1) #PRINT LINE 1
         display.lcd_display_string("SPEED:       RPM", 2) #PRINT LINE 2
 
-        time.sleep(2)
+        time.sleep(1)
 
         while t_end >= 0:
             for j in range(1):
@@ -222,6 +222,8 @@ def NextStage():
             
         t_end = getExpectedTime()
 
+        time.sleep(1)
+        
         while t_end >= 0:
             for j in range(1):
                 if t_end >= 0:
