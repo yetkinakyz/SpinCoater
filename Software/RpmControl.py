@@ -253,20 +253,20 @@ def NextStage():
 def SetSample(rpm):
     global sample
 
-    if rpm >= 500 and rpm <= 1500:
-        sample = 30
+    if rpm >= 500 and rpm <= 2000:
+        sample = 12
 
-    elif rpm > 1500 and rpm <= 2500:
-        sample = 45
+    elif rpm > 2000 and rpm <= 3000:
+        sample = 24
 
-    elif rpm > 2500 and rpm <= 3500:
-        sample = 60
+    elif rpm > 3000 and rpm <= 4000:
+        sample = 48
 
-    elif rpm > 3500 and rpm <= 4500:
-        sample = 75
+    elif rpm > 4000 and rpm <= 5000:
+        sample = 96
 
-    elif rpm > 4500:
-        sample = 90
+    elif rpm > 5000:
+        sample = 120
     
     return sample
 
