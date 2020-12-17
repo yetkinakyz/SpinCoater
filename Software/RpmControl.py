@@ -252,19 +252,19 @@ def SetSample(rpm):
     global sample
 
     if rpm <= 500:
-        sample = 3
+        sample = 15
 
     elif rpm > 500 and rpm <= 1500:
-        sample = 12
-
-    elif rpm > 1500 and rpm <= 2500:
-        sample = 24
-
-    elif rpm > 2500 and rpm <= 3500:
         sample = 30
 
-    elif rpm > 3500 and rpm <= 4500:
+    elif rpm > 1500 and rpm <= 2500:
+        sample = 45
+
+    elif rpm > 2500 and rpm <= 3500:
         sample = 60
+
+    elif rpm > 3500 and rpm <= 4500:
+        sample = 90
 
     elif rpm > 4500:
         sample = 120
@@ -272,7 +272,7 @@ def SetSample(rpm):
     return sample
 
 #MOTOR SPEED CONTROL
-def SpeedControl(s, r, p):   
+def SpeedControl(expected, current, previous):   
     global speed
     global done
 
@@ -280,22 +280,23 @@ def SpeedControl(s, r, p):
         done()
 
     else:
-        n = s - r
+        n = expected - current
+        error = expected/100
 
         print("\nspeed: " + str(speed))
         print("expected: " + str(s))
         print("rpm: " + str(r) + "\n")
 
-        if r == 0 or r == p:
+        if current == 0 or current == previous:
             print("---")
 
-        elif (n > 50):
+        elif (n > error):
             speed = speed + 0.05
             motor.ChangeDutyCycle(speed)
 
             print("LOW")
 
-        elif (n < -50):
+        elif (n < -error):
             speed = speed - 0.05
             motor.ChangeDutyCycle(speed)
 
