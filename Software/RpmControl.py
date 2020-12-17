@@ -252,19 +252,19 @@ def SetSample(rpm):
     global sample
 
     if rpm >= 500 and rpm <= 1500:
-        sample = 5
-
-    elif rpm > 1500 and rpm <= 2500:
-        sample = 15
-
-    elif rpm > 2500 and rpm <= 3500:
         sample = 30
 
-    elif rpm > 3500 and rpm <= 4500:
+    elif rpm > 1500 and rpm <= 2500:
         sample = 45
 
-    elif rpm > 4500:
+    elif rpm > 2500 and rpm <= 3500:
         sample = 60
+
+    elif rpm > 3500 and rpm <= 4500:
+        sample = 75
+
+    elif rpm > 4500:
+        sample = 90
     
     return sample
 
