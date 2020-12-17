@@ -49,7 +49,7 @@ dateText = "Date: " + dateInfo
 mainMenu = ["RUN PROGRAM       ",
             "INFO            ",
             "VERSION UPDATE  ",
-            "RESTART DEVICE  "]        
+            "REBOOT DEVICE   "]        
 
 mainMenuAscii = ["             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
@@ -502,7 +502,7 @@ while True:
         elif menuPosition == 3:
 
             display.lcd_clear()
-            display.lcd_display_string("   RESTARTING   ", 1)  
+            display.lcd_display_string("  REBOOTING...  ", 1)  
 
             os.system("sh $(find ~ -iname SpinCoaterReboot.sh)")
 
