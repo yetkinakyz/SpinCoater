@@ -279,20 +279,20 @@ def SetSample(rpm):
 #SET ERROR
 def setRpmError(expected):
 
-    if expected >= 500 and rpm <= 2000:
-        RpmError = 2*rpm/100 # Error is 5%
+    if expected >= 500 and expected <= 2000:
+        RpmError = 2*expected/100 # Error is 5%
 
-    elif expected > 2000 and rpm <= 3000:
-        RpmError = 1.5*rpm/100 # Error is 5%
+    elif expected > 2000 and expected <= 3000:
+        RpmError = 1.5*expected/100 # Error is 5%
 
-    elif expected > 3000 and rpm <= 4000:
-        RpmError = 1*rpm/100 # Error is 5%
+    elif expected > 3000 and expected <= 4000:
+        RpmError = 1*expected/100 # Error is 5%
 
-    elif expected > 4000 and rpm <= 5000:
-        RpmError = 0.5*rpm/100 # Error is 5%
+    elif expected > 4000 and expected <= 5000:
+        RpmError = 0.5*expected/100 # Error is 5%
 
     elif expected > 5000:
-        RpmError = 0.25*rpm/100 # Error is 5%
+        RpmError = 0.25*expected/100 # Error is 5%
 
 #MOTOR SPEED CONTROL
 def SpeedControl(expected, current, previous):   
