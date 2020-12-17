@@ -35,7 +35,7 @@ GPIO.setup(motor_en,GPIO.OUT)
 GPIO.output(motor_in1,GPIO.HIGH)
 GPIO.output(motor_in2,GPIO.LOW)
 
-motor=GPIO.PWM(motor_en,500)
+motor=GPIO.PWM(motor_en,1000)
 
 motor.start(0) #MOTOR START SPEED
 speed = 0
@@ -223,7 +223,7 @@ def NextStage():
         t_end = getExpectedTime()
 
         time.sleep(1)
-        
+
         while t_end >= 0:
             for j in range(1):
                 if t_end >= 0:
