@@ -59,11 +59,13 @@ mainMenuAscii = ["             " + " " + chr(124) + chr(62),
 ## INFO MENU
 infoMenuLine1 = ["Run or set prog.",
                  "Get information ",
-                 versionText        ]
+                 versionText       ,
+                 "Reboot Operating"]
 
 infoMenuLine2 = ["Quick or manual ",
                  "about project   ",
-                 dateText           ]
+                 dateText          ,
+                 "System          "]
 
 ## SET MENU
 setMenu = ["QUICK PROGRAMS  ",
