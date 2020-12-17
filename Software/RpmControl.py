@@ -255,32 +255,37 @@ def SetSample(rpm):
 
     if rpm >= 500 and rpm <= 2000:
         sample = 12
+        error = 2.5*rpm/100 # Error is 5%
 
     elif rpm > 2000 and rpm <= 3000:
         sample = 24
+        error = 2*rpm/100 # Error is 5%
 
     elif rpm > 3000 and rpm <= 4000:
         sample = 48
+        error = 1.5*rpm/100 # Error is 5%
 
     elif rpm > 4000 and rpm <= 5000:
         sample = 96
+        error = 1*rpm/100 # Error is 5%
 
     elif rpm > 5000:
         sample = 120
-    
+        error = 1*rpm/100 # Error is 5%
+
     return sample
 
 #MOTOR SPEED CONTROL
 def SpeedControl(expected, current, previous):   
     global speed
     global done
+    global error
 
     if done == True:       
         done()
 
     else:
         n = expected - current
-        error = 5*expected/100 # Error is 5%
 
         print("\nspeed: " + str(speed))
         print("expected: " + str(s))
