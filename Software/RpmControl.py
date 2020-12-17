@@ -281,7 +281,7 @@ def SpeedControl(expected, current, previous):
 
     else:
         n = expected - current
-        error = expected/100
+        error = 5*expected/100
 
         print("\nspeed: " + str(speed))
         print("expected: " + str(s))
