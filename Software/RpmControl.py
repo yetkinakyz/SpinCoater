@@ -129,10 +129,14 @@ def clear():
 
     display.lcd_clear()
 
+    exit()
+
 def done():
     global done
     done = True
     GPIO.output(motor_in1,GPIO.LOW)
+
+    exit()
 
 # FIRST STAGE
 def FirstStage():
