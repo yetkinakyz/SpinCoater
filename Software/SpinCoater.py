@@ -49,8 +49,9 @@ dateText = "Date: " + dateInfo
 mainMenu = ["RUN PROGRAM       ",
             "INFO            ",
             "VERSION UPDATE  ",
-            "RESTART DEVICE  "]
-mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
+            "RESTART DEVICE  "]        
+
+mainMenuAscii = ["             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
@@ -59,12 +60,15 @@ mainMenuAscii = [   "             " + " " + chr(124) + chr(62),
 infoMenuLine1 = ["Run or set prog.",
                  "Get information ",
                  versionText        ]
+
 infoMenuLine2 = ["Quick or manual ",
                  "about project   ",
                  dateText           ]
 
 ## SET MENU
-setMenu = ["QUICK PROGRAMS  ", "SET MANUAL PROG."]
+setMenu = ["QUICK PROGRAMS  ",
+            "SET MANUAL PROG."]
+
 setMenuAscii = ["             " + " " + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
