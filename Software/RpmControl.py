@@ -109,7 +109,7 @@ def clear():
     global firstStage
     global speed
     global RpmError
-
+ 
     sample = 6
     count = 0
     rpm = 0
@@ -259,31 +259,46 @@ def SetSample(rpm):
 
     if rpm >= 500 and rpm <= 2000:
         sample = 6
-        RpmError = 2*rpm/100 # Error is 5%
 
     elif rpm > 2000 and rpm <= 3000:
         sample = 30
-        RpmError = 1.5*rpm/100 # Error is 5%
 
     elif rpm > 3000 and rpm <= 4000:
         sample = 60
-        RpmError = 1*rpm/100 # Error is 5%
 
     elif rpm > 4000 and rpm <= 5000:
         sample = 60
-        RpmError = 0.5*rpm/100 # Error is 5%
 
     elif rpm > 5000:
         sample = 120
-        RpmError = 0.25*rpm/100 # Error is 5%
-
+        
     return sample
+
+#SET ERROR
+def setRpmError(expected):
+
+    if expected >= 500 and rpm <= 2000:
+        RpmError = 2*rpm/100 # Error is 5%
+
+    elif expected > 2000 and rpm <= 3000:
+        RpmError = 1.5*rpm/100 # Error is 5%
+
+    elif expected > 3000 and rpm <= 4000:
+        RpmError = 1*rpm/100 # Error is 5%
+
+    elif expected > 4000 and rpm <= 5000:
+        RpmError = 0.5*rpm/100 # Error is 5%
+
+    elif expected > 5000:
+        RpmError = 0.25*rpm/100 # Error is 5%
 
 #MOTOR SPEED CONTROL
 def SpeedControl(expected, current, previous):   
     global speed
     global done
     global RpmError
+
+    setRpmError(expected)
 
     if done == True:       
         done()
