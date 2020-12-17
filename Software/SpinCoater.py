@@ -496,11 +496,11 @@ while True:
         elif menuPosition == 3:
 
             display.lcd_clear()
-            display.lcd_display_string("    RESTARTING    ", 1) #PRINT LINE 1  
+            display.lcd_display_string("    RESTARTING    ", 1)  
 
             os.system("sudo reboot")
 
-            break
+            exit()
 
         else:
             continue
