@@ -1,13 +1,13 @@
 '''
-SPIN COATER PROJECT MAIN SOFTWARE
-                        by Yetkin AKYUZ
+    SPIN COATER PROJECT
+                    by Yetkin AKYUZ
 
     Website: https://yetkinakyuz.com
     Email:   contact@yetkinakyuz.com
 '''
 
 ##### LIBRARIES #####
-from sys import version_info
+
 import RPi.GPIO as GPIO #RASPBERRY PI GPIO LIBRARY WIKI: https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/
 import lcddriver #LCD I2C LIBRARY
 import RpmControl as Spinner
@@ -17,8 +17,8 @@ import time
 
 ##### SETUP #####
 
-version_info = "1.0.6"
-date_info = "10.12.2020"
+versionInfo = "1.0.6"
+dateInfo = "10.12.2020"
 
 ## DISPLAY
 display = lcddriver.lcd()
@@ -42,15 +42,8 @@ GPIO.setup(button4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-buttons = [ not GPIO.input(button1),
-            GPIO.input(button2),
-            GPIO.input(button3),
-            GPIO.input(button4),
-            GPIO.input(button5),
-            GPIO.input(button6)]
-
-versionText = "Version:   " + version_info
-dateText = "Date: " + date_info
+versionText = "Version:   " + versionInfo
+dateText = "Date: " + dateInfo
 
 ## MAIN MENU
 mainMenu = ["RUN PROGRAM       ",
@@ -462,8 +455,8 @@ while True:
 
                 display.lcd_clear()
 
-                display.lcd_display_string("Name: SpinCoater", 1) #PRINT LINE 1
-                display.lcd_display_string("EEM401 Project  ", 2) #PRINT LINE 2
+                display.lcd_display_string(" EEM401 PROJECT ", 1) #PRINT LINE 1
+                display.lcd_display_string("  SPIN  COATER  ", 2) #PRINT LINE 2
                 time.sleep(3)
 
                 display.lcd_display_string("  Yetkin AKYUZ  ", 1) #PRINT LINE 1
@@ -474,8 +467,8 @@ while True:
                 display.lcd_display_string("E.E. Engineering", 2) #PRINT LINE 1
                 time.sleep(3)
 
-                display.lcd_display_string("Version:   " + version_info, 1) #PRINT LINE 1
-                display.lcd_display_string("Date: " + date_info, 2) #PRINT LINE 1
+                display.lcd_display_string("Version:   " + versionInfo, 1) #PRINT LINE 1
+                display.lcd_display_string("Date: " + dateInfo, 2) #PRINT LINE 1
                 time.sleep(3)
 
         elif menuPosition == 2:

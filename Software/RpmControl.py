@@ -80,6 +80,7 @@ done = False
 expectedRPM = 0
 expectedTime = 0
 
+# Getters & Setters
 def setExpectedRPM(n):
     global expectedRPM
     expectedRPM = n
@@ -93,6 +94,8 @@ def setExpectedTime(n):
     
 def getExpectedTime():
     return expectedTime
+
+## Modules
 
 def clear():
     global sample
@@ -248,22 +251,22 @@ def NextStage():
 def SetSample(rpm):
     global sample
 
-    if rpm < 250:
+    if rpm <= 500:
         sample = 3
 
-    elif rpm > 250 and rpm < 400:
+    elif rpm > 500 and rpm <= 1500:
         sample = 12
 
-    elif rpm > 400 and rpm < 560:
+    elif rpm > 1500 and rpm <= 2500:
         sample = 24
 
-    elif rpm > 560 and rpm < 1000:
+    elif rpm > 2500 and rpm <= 3500:
         sample = 30
 
-    elif rpm > 1000 and rpm < 3500:
+    elif rpm > 3500 and rpm <= 4500:
         sample = 60
 
-    elif rpm > 3500:
+    elif rpm > 4500:
         sample = 120
     
     return sample
@@ -287,13 +290,13 @@ def SpeedControl(s, r, p):
             print("---")
 
         elif (n > 50):
-            speed = speed + 0.1
+            speed = speed + 0.05
             motor.ChangeDutyCycle(speed)
 
             print("LOW")
 
         elif (n < -50):
-            speed = speed - 0.1
+            speed = speed - 0.05
             motor.ChangeDutyCycle(speed)
 
             print("HIGH")
