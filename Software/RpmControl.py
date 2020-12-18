@@ -138,11 +138,6 @@ def done():
 
     exit()
 
-def cancel():
-    global cancel
-    cancel = True
-    return cancel
-
 # FIRST STAGE
 def FirstStage():
     global speed
@@ -198,16 +193,9 @@ def FirstStage():
 
                             time.sleep(1)
                             t_end = t_end - 1
-                        
-                        elif cancel:
-                            break
 
                         else:
-                            break
-                
-                elif cancel:
-                            break
-                        
+                            break                
                 else:
                     break
 
@@ -263,15 +251,9 @@ def NextStage():
 
                             time.sleep(1)
                             t_end = t_end - 1
-                        
-                        elif cancel:
-                            break
+
                         else:
                             break
-
-                elif cancel:
-                    break
-
                 else:
                     break
             
@@ -386,11 +368,6 @@ def get_rpm(channel):
 
             SpeedControl(getExpectedRPM(), rpm, rpm_pre)
     
-    elif GPIO.input(19):
-        time.sleep(0.2)
-
-        cancel()
-
     else:
         count = count + 1
 
