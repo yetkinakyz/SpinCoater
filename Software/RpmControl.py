@@ -30,6 +30,7 @@ motor_en = 25 #MOTOR SPEED CONTROL PIN
 GPIO.setup(motor_in1,GPIO.OUT)
 GPIO.setup(motor_in2,GPIO.OUT)
 GPIO.setup(motor_en,GPIO.OUT)
+GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # Motor turns clockwise
 GPIO.output(motor_in1,GPIO.HIGH)
@@ -116,7 +117,7 @@ def clear():
     start = 0
     end = 0
     speed = 0
-    RpmError = 50
+    RpmError = 25
 
     done = False
     firstStage = True
@@ -135,6 +136,10 @@ def done():
     GPIO.output(motor_in1,GPIO.LOW)
 
     exit()
+
+def cancel():
+
+    return True
 
 # FIRST STAGE
 def FirstStage():
@@ -364,6 +369,12 @@ def get_rpm(channel):
 
             SpeedControl(getExpectedRPM(), rpm, rpm_pre)
     
+    elif GPIO.input(19):
+        time.sleep(0.2)
+        
+        cancel()
+        done()
+
     else:
         count = count + 1
 

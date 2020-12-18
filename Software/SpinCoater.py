@@ -137,7 +137,7 @@ while True:
     elif GPIO.input(button6):
         display.lcd_clear()
         time.sleep(0.2)
-        
+
         if menuPosition == 0:
             while True:
                  
@@ -219,8 +219,13 @@ while True:
 
                                 Spinner.clear()
 
-                                display.lcd_clear()
-                                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+                                if Spinner.cancel():
+                                    display.lcd_clear()
+                                    display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
+                                
+                                else:
+                                    display.lcd_clear()
+                                    display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                                 time.sleep(3)
 
@@ -442,8 +447,13 @@ while True:
                                 
                                 Spinner.clear()
                             
-                            display.lcd_clear()
-                            display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+                            if Spinner.cancel():
+                                display.lcd_clear()
+                                display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
+                                
+                            else:
+                                display.lcd_clear()
+                                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                             time.sleep(2)
 
