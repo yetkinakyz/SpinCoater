@@ -135,6 +135,9 @@ while True:
         time.sleep(2)
 
     elif GPIO.input(button6):
+        display.lcd_clear()
+        time.sleep(0.2)
+        
         if menuPosition == 0:
             while True:
                  
@@ -153,8 +156,8 @@ while True:
 
                 elif GPIO.input(button6):
                     time.sleep(0.5)
-
                     display.lcd_clear()
+                    time.sleep(0.2)
 
                     if setPosition == 0:
                         display.lcd_display_string("P            RPM", 1) #PRINT LINE 1
