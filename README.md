@@ -8,7 +8,7 @@ The originality of this project is that its design and source code are completel
 
 This project aims that supporting the free software philosophy through the completely free and open- source design having MIT License, making the product accessible to a wider audience than those sold in the market thanks to low cost, and reinforcing the knowledge gained through engineering education with an engineering design project and completing the deficiencies.
 
-## Subject, Scope and Literature
+## Literature
 
 The spin coating method is a commonly used coating method to obtain uniform thin material films, usually polymers, on the surface of a substrate using the concept of centrifugal force. This method, which is easy to use, safe and inexpensive, is highly preferred for many applications where high quality layers are required such as microcircuit manufacturing, compact discs, magnetic disk coatings, polymer electronic devices [1].
 
