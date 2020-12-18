@@ -79,6 +79,7 @@ cycleList = []
 
 firstStage = True
 done = False
+cancel = False
 
 expectedRPM = 0
 expectedTime = 0
@@ -138,8 +139,9 @@ def done():
     exit()
 
 def cancel():
-
-    return True
+    global cancel
+    cancel = True
+    return cancel
 
 # FIRST STAGE
 def FirstStage():
@@ -196,8 +198,16 @@ def FirstStage():
 
                             time.sleep(1)
                             t_end = t_end - 1
+                        
+                        elif cancel:
+                            break
+
                         else:
                             break
+                
+                elif cancel:
+                            break
+                        
                 else:
                     break
 
@@ -253,11 +263,18 @@ def NextStage():
 
                             time.sleep(1)
                             t_end = t_end - 1
+                        
+                        elif cancel:
+                            break
                         else:
                             break
-                else:
+
+                elif cancel:
                     break
 
+                else:
+                    break
+            
         break #Break the RpmControl
 
 # SET SAMPLE
@@ -371,9 +388,8 @@ def get_rpm(channel):
     
     elif GPIO.input(19):
         time.sleep(0.2)
-        
+
         cancel()
-        done()
 
     else:
         count = count + 1
