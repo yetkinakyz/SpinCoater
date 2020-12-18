@@ -115,6 +115,7 @@ time.sleep(1)
 display.lcd_clear()
 
 while True:
+    time.sleep(0.2)
 
     display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
     display.lcd_display_string(mainMenuAscii[menuPosition], 2) #PRINT LINE 2
@@ -122,12 +123,10 @@ while True:
     if not GPIO.input(button1) and menuPosition > 0:
         menuPosition = menuPosition - 1
 
-        time.sleep(0.2)
 
     elif GPIO.input(button2) and menuPosition < len(mainMenu) - 1:
         menuPosition = menuPosition + 1
 
-        time.sleep(0.2)
 
     elif GPIO.input(button4):
         display.lcd_display_string(infoMenuLine1[menuPosition], 1) #PRINT LINE 1
@@ -137,6 +136,7 @@ while True:
     elif GPIO.input(button6):
         if menuPosition == 0:
             while True:
+                time.sleep(0.2)
                  
                 display.lcd_display_string(setMenu[setPosition], 1) #PRINT LINE 1
                 display.lcd_display_string(setMenuAscii[setPosition], 2) #PRINT LINE 2
@@ -144,12 +144,10 @@ while True:
                 if not GPIO.input(button1) and setPosition > 0:
                     setPosition = setPosition - 1
 
-                    time.sleep(0.2)
 
                 elif GPIO.input(button2) and setPosition < len(setMenu) - 1:
                     setPosition = setPosition + 1
 
-                    time.sleep(0.2)
 
                 elif GPIO.input(button6):
                     time.sleep(0.5)
@@ -161,6 +159,8 @@ while True:
                         display.lcd_display_string("             SEC", 2) #PRINT LINE 2
 
                         while True:
+                            time.sleep(0.2)
+
                             display.lcd_display_string("P" + str(program) + " " + str(quickSpeeds1[program]) + "-" + str(quickSpeeds2[program]), 1) #PRINT LINE 1
                             display.lcd_display_string("   " + str(quickSeconds1[program]) + "-" + str(quickSeconds2[program]), 2) #PRINT LINE 2
 
