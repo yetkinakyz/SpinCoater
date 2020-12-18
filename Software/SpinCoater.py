@@ -390,7 +390,7 @@ while True:
                                         elif GPIO.input(button3):
                                             display.lcd_display_string("SPEED:         ", 2) #CLEAR LINE 2
 
-                                            manualSpeeds = [500]
+                                            manualSpeeds[stage] = 500
 
                                         elif GPIO.input(button5):
                                             manualSpeeds[stage] = 500
