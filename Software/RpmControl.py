@@ -30,7 +30,6 @@ motor_en = 25 #MOTOR SPEED CONTROL PIN
 GPIO.setup(motor_in1,GPIO.OUT)
 GPIO.setup(motor_in2,GPIO.OUT)
 GPIO.setup(motor_en,GPIO.OUT)
-GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # Motor turns clockwise
 GPIO.output(motor_in1,GPIO.HIGH)
@@ -310,10 +309,6 @@ def SpeedControl(expected, current, previous):
 
     else:
         n = expected - current
-
-        print("\nspeed: " + str(speed))
-        print("expected: " + str(s))
-        print("rpm: " + str(r) + "\n")
 
         if current == 0 or current == previous:
             print("---")
