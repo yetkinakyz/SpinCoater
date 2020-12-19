@@ -10,11 +10,11 @@ This project aims that supporting the free software philosophy through the compl
 
 ## Literature
 
-The spin coating method is a commonly used coating method to obtain uniform thin material films, usually polymers, on the surface of a substrate using the concept of centrifugal force. This method, which is easy to use, safe and inexpensive, is highly preferred for many applications where high quality layers are required such as microcircuit manufacturing, compact discs, magnetic disk coatings, polymer electronic devices [1].
+The spin coating method is a commonly used coating method to obtain uniform thin material films, usually polymers, on the surface of a substrate using the concept of centrifugal force. This method, which is easy to use, safe and inexpensive, is highly preferred for many applications where high quality layers are required such as microcircuit manufacturing, compact discs, magnetic disk coatings, polymer electronic devices.
 
-The cost of commercial rotary coating devices can range from about 3000 to 20000 ₺ depending on the number of features. In addition to having a high price, commercial rotary coating devices need a specialist for maintenance and repair. Therefore, a low cost and open source rotary coating device is in demand for academic work and student education, with performance similar to a commercial model in the laboratory [2].
+The cost of commercial rotary coating devices can range from about 600 to 4000 $ In addition to having a high price, commercial rotary coating devices need a specialist for maintenance and repair. Therefore, a low cost and open source rotary coating device is in demand for academic work and student education, with performance similar to a commercial model in the laboratory.
 
-The aim of this study is to design an easily repairable, open source rotary coating device with functions similar to commercial devices, such as being able to rotate up to 7200 RPM for 3600 seconds and be programmable at a cost of less than 500 ₺, as well as commercial devices. At the same time, it is aimed to support the free software philosophy by sharing the entire project design free of charge under the MIT license.
+The aim of this study is to design an easily repairable, open source rotary coating device with functions similar to commercial devices, such as being able to rotate up to 7200 RPM for 3600 seconds and be programmable at a cost of less than 65 $, as well as commercial devices. At the same time, it is aimed to support the free software philosophy by sharing the entire project design free of charge under the MIT license.
 
 ## Method
 
