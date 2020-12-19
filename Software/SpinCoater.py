@@ -219,13 +219,8 @@ while True:
 
                                 Spinner.clear()
 
-                                if Spinner.cancel():
-                                    display.lcd_clear()
-                                    display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
-                                
-                                else:
-                                    display.lcd_clear()
-                                    display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+                                display.lcd_clear()
+                                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                                 time.sleep(3)
 
@@ -447,13 +442,9 @@ while True:
                                 
                                 Spinner.clear()
                             
-                            if Spinner.cancel():
-                                display.lcd_clear()
-                                display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
                                 
-                            else:
-                                display.lcd_clear()
-                                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+                            display.lcd_clear()
+                            display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
                             time.sleep(2)
 

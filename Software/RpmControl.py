@@ -79,7 +79,6 @@ cycleList = []
 
 firstStage = True
 done = False
-cancel = False
 
 expectedRPM = 0
 expectedTime = 0
