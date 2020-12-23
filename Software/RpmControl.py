@@ -261,7 +261,7 @@ def NextStage():
 def SetSample(rpm):
     global sample
 
-    if rpm >= 500 and rpm <= 2000:
+    if rpm <= 2000:
         sample = 6
 
     elif rpm > 2000 and rpm <= 3000:
@@ -281,7 +281,7 @@ def SetSample(rpm):
 #SET ERROR
 def setRpmError(expected):
 
-    if expected >= 500 and expected <= 2000:
+    if expected <= 2000:
         RpmError = 2*expected/100 # Error is 5%
 
     elif expected > 2000 and expected <= 3000:
