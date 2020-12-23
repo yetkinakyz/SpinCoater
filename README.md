@@ -28,7 +28,7 @@ Another factor that needs to be reviewed is the low stabilization that can occur
 
 [1] Bianchi, R., Pansierra, M., Lima, J., Yagura, L., Andrade, A. Faria, R. 2006. “Spin coater based on brushless dc motor of hard disk drivers”, Progress in Organic Coatings, 57, 33-36.
 
-[2]Sadegh-cheri,M.2016. “Design,Fabrication,andOpticalCharacterizationofaLow-Costand Open-Source Spin Coater”, J. Chem. Educ., 96, 1268-1272.
+[2] Sadegh-cheri,M.2016. “Design,Fabrication,andOpticalCharacterizationofaLow-Costand Open-Source Spin Coater”, J. Chem. Educ., 96, 1268-1272.
 
 ## Images
 Images will be added as soon as possible.
