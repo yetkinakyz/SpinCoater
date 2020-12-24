@@ -547,21 +547,7 @@ while True:
                                         else:
                                             continue
 
-                            if manualStop:
-                                manualStop = False
-
-                                setPosition = 0
-                                manualStages = 1    
-
-                                manualSeconds = [5]
-                                manualSpeeds = [500]
-
-                                display.lcd_clear()
-                                display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
-                                time.sleep(1)
-                                
-                                break
-                            else:
+                            if not manualStop:
                                 display.lcd_clear()
                                 display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
                                 time.sleep(1)
@@ -591,10 +577,22 @@ while True:
                                 manualSpeeds = [500]
 
                                 break
-                    
-                    else:
-                        continue
 
+                            elif manualStop:
+                                manualStop = False
+
+                                setPosition = 0
+                                manualStages = 1    
+
+                                manualSeconds = [5]
+                                manualSpeeds = [500]
+
+                                display.lcd_clear()
+                                display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
+                                time.sleep(1)
+                                
+                                break
+                    
                 elif GPIO.input(button5):
                     break
                 
