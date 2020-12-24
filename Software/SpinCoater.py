@@ -354,7 +354,7 @@ while True:
 
                                             if GPIO.input(button4):
 
-                                                if manualSeconds[stage] < 3540:
+                                                if manualSeconds[stage] > 5 and manualSeconds[stage] < 3540:
                                                     manualSeconds[stage] += 60
 
                                                     time.sleep(0.2)
