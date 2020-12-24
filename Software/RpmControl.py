@@ -21,8 +21,8 @@ GPIO.setwarnings(False) #DISABLE WARNINGS
 GPIO.setmode(GPIO.BCM) #GPIO PIN NUMBERS (GPIO.BOARD for physical pin numbers.)
 
 # MOTOR
-motor_in1 = 24 #MOTOR IN 1
-motor_in2 = 23 #MOTOR IN 2
+motor_in1 = 23 #MOTOR IN 1
+motor_in2 = 24 #MOTOR IN 2
 
 motor_en = 25 #MOTOR SPEED CONTROL PIN
 
