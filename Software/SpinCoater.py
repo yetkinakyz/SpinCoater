@@ -456,7 +456,7 @@ while True:
                                         
                                         break
 
-                                    while True:
+                                    while not manualStop:
                                         
                                         display.lcd_display_string("STAGE " + str(stage), 1) #PRINT LINE 1
                                         display.lcd_display_string("SPEED:" + str(manualSpeeds[stage]) + " RPM", 2) #PRINT LINE 2
