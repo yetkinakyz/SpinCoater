@@ -444,7 +444,7 @@ while True:
                                                     manualSpeeds[stage] -= 500
                                                     time.sleep(0.2)
                                                 
-                                                elif manualSpeeds[stage] < 500:
+                                                elif manualSpeeds[stage] <= 500:
                                                     manualSpeeds[stage] = 7200
                                                     time.sleep(0.2)
 
