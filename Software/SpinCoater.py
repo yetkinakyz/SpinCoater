@@ -617,12 +617,12 @@ while True:
                 display.lcd_display_string("      2020      ", 2) #PRINT LINE 2
                 time.sleep(3)
 
-                display.lcd_display_string("Duzce University", 1) #PRINT LINE 1
-                display.lcd_display_string("E.E. Engineering", 2) #PRINT LINE 1
+                display.lcd_display_string("DUZCE UNIVERSITY", 1) #PRINT LINE 1
+                display.lcd_display_string("E.E. ENGINEERING", 2) #PRINT LINE 1
                 time.sleep(3)
 
-                display.lcd_display_string("Version:   " + versionInfo, 1) #PRINT LINE 1
-                display.lcd_display_string("Date: " + dateInfo, 2) #PRINT LINE 1
+                display.lcd_display_string("VERSION:   " + versionInfo, 1) #PRINT LINE 1
+                display.lcd_display_string("DATE: " + dateInfo, 2) #PRINT LINE 1
                 time.sleep(3)
 
         elif menuPosition == 2:
