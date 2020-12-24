@@ -578,7 +578,7 @@ while True:
 
                                 break
 
-                            elif manualStop:
+                            else:
                                 manualStop = False
 
                                 setPosition = 0
