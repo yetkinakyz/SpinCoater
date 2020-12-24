@@ -242,7 +242,7 @@ while True:
                             display.lcd_display_string("NUMBER OF STAGES", 1) #PRINT LINE 1
                             display.lcd_display_string("STAGES: " + str(manualStages), 2) #PRINT LINE 2
                             
-                            if not GPIO.input(button1):
+                            if not GPIO.input(button1) and not GPIO.input(button4):
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
 
                                 if manualStages < 100:
@@ -257,7 +257,7 @@ while True:
                                     continue
                             
                             
-                            elif GPIO.input(button2):
+                            elif GPIO.input(button2) and not GPIO.input(button4):
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
                                     
                                 if manualStages > 1:
