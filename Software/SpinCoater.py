@@ -290,7 +290,7 @@ while True:
 
                             elif GPIO.input(button4) and GPIO.input(button2):
 
-                                if manualStages < 100:
+                                if manualStages > 10:
                                     manualStages -= 10
                                     time.sleep(0.2)
                             
