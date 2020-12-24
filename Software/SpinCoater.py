@@ -362,7 +362,7 @@ while True:
 
                                                     time.sleep(0.2)
 
-                                                elif manualSeconds[stage] == 3540:
+                                                elif manualSeconds[stage] >= 3540:
                                                     manualSeconds[stage] = 5
 
                                                     time.sleep(0.2)
@@ -393,7 +393,7 @@ while True:
 
                                             if GPIO.input(button4):
 
-                                                if manualSeconds[stage] >= 120:
+                                                if manualSeconds[stage] > 60:
                                                     manualSeconds[stage] -= 60
 
                                                     time.sleep(0.2)
