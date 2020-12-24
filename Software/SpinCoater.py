@@ -116,8 +116,6 @@ time.sleep(1)
 display.lcd_clear()
 
 while True:
-    time.sleep(0.1)
-
     display.lcd_display_string(mainMenu[menuPosition], 1) #PRINT LINE 1
     display.lcd_display_string(mainMenuAscii[menuPosition], 2) #PRINT LINE 2
 
