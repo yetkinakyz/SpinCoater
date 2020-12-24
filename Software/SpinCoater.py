@@ -300,9 +300,7 @@ while True:
                             
                                 else:
                                     continue
-                            else:
-                                continue
-
+                            
                             elif GPIO.input(button5):
                                 manualStages = 1
                                 manualStop = True
