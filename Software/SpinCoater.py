@@ -442,16 +442,6 @@ while True:
                                             continue
                                     
                                     if manualStop:
-                                        setPosition = 0
-                                        manualStages = 1    
-
-                                        manualSeconds = [5]
-                                        manualSpeeds = [500]
-
-                                        display.lcd_clear()
-                                        display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
-                                        time.sleep(1)
-                                        
                                         break
 
                                     while not manualStop:
