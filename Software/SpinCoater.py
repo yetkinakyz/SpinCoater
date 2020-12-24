@@ -77,11 +77,11 @@ setMenuAscii = ["             " + " " + chr(124) + chr(62),
 ## QUICK MENU
 program = 1
 
-quickSpeeds1 = ["STAGE 1", 500, 1000, 1500, 2000, 3000]
-quickSpeeds2 = ["STAGE 2", 3500, 4000, 5000, 6000, 7000]
+quickSpeeds1 = ["STAGE 1", 500, 1000, 2000, 3000, 4000]
+quickSpeeds2 = ["STAGE 2", 3500, 4500, 5500, 6500, 7200]
 
-quickSeconds1 = ["STAGE 1", 45, 45, 45, 45, 45]
-quickSeconds2 = ["STAGE 2", 15, 15, 15, 15, 15]
+quickSeconds1 = ["STAGE 1", 30, 30, 30, 30, 30]
+quickSeconds2 = ["STAGE 2", 180, 180, 180, 180, 180]
 
 ## MANUAL MENU
 manualStages = 1
