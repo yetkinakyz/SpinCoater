@@ -250,63 +250,29 @@ while True:
                             
                             if not GPIO.input(button1):
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
-
-                                if GPIO.input(button4):
                                 
-                                    if manualStages < 100:
-                                        manualStages += 10
-                                        time.sleep(0.2)
+                                if manualStages < 10:
+                                    manualStages += 1
+                                    time.sleep(0.2)
                                 
-                                    elif manualStages == 100:
-                                        manualStages = 1
-                                        time.sleep(0.2)
+                                elif manualStages == 10:
+                                    manualStages = 1
+                                    time.sleep(0.2)
                                 
-                                    else:
-                                        continue
-
-                                elif not GPIO.input(button4):
-                                    if manualStages < 100:
-                                        manualStages += 1
-                                        time.sleep(0.2)
-                                    
-                                    elif manualStages == 100:
-                                        manualStages = 1
-                                        time.sleep(0.2)
-                                    
-                                    else:
-                                        continue
-                            
                                 else:
                                     continue
+                            
                             
                             elif GPIO.input(button2):
                                 display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
                                 
-                                if GPIO.input(button4):
-                                    display.lcd_display_string("STAGES:         ", 2) #CLEAR LINE 2
-                                    
-                                    if manualStages > 10:
-                                        manualStages -= 10
-                                        time.sleep(0.2)
+                                if manualStages > 1:
+                                    manualStages -= 1
+                                    time.sleep(0.2)
                                 
-                                    elif manualStages == 1:
-                                        manualStages = 100
-                                        time.sleep(0.2)
-                                
-                                    else:
-                                        continue
-                                
-                                elif not GPIO.input(button4):
-                                    if manualStages > 1:
-                                        manualStages -= 1
-                                        time.sleep(0.2)
-                                    
-                                    elif manualStages == 1:
-                                        manualStages = 100
-                                        time.sleep(0.2)
-                                    
-                                    else:
-                                        continue
+                                elif manualStages == 1:
+                                    manualStages = 10
+                                    time.sleep(0.2)
                                 
                                 else:
                                     continue
