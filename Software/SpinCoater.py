@@ -17,8 +17,8 @@ import time
 
 ##### SETUP #####
 
-versionInfo = "1.0.8"
-dateInfo = "23.12.2020"
+versionInfo = "1.0.9"
+dateInfo = "24.12.2020"
 
 ## DISPLAY
 display = lcddriver.lcd()
