@@ -370,7 +370,7 @@ while True:
                                                 else:
                                                     continue
 
-                                            if GPIO.input(button4):
+                                            elif not GPIO.input(button4):
                                                 
                                                 if manualSeconds[stage] < 3600:
                                                     manualSeconds[stage] += 5
@@ -405,7 +405,7 @@ while True:
                                                 
                                                 else:
                                                     continue
-
+                                            
                                             if not GPIO.input(button4):
                                                 
                                                 if manualSeconds[stage] > 5:
@@ -454,7 +454,7 @@ while True:
                                                     manualSpeeds[stage] += 500
                                                     time.sleep(0.2)
                                                 
-                                                elif manualSpeeds[stage] >= 7000:
+                                                elif manualSpeeds[stage] >= 7000 and manualSpeeds[stage] < 7200:
                                                     manualSpeeds[stage] = 7200
                                                     time.sleep(0.2)
 
