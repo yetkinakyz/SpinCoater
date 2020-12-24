@@ -527,7 +527,7 @@ while True:
                                     Spinner.setExpectedTime(manualSeconds[stage])
                                     
                                     if stage == 1:
-                                        Spinner.NextStage()
+                                        Spinner.FirstStage()
 
                                     else:
                                         Spinner.NextStage()
