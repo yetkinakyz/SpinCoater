@@ -276,34 +276,32 @@ while True:
 
                                 manualStages = 1
 
-                            elif GPIO.input(button4):
-                                if not GPIO.input(button1):
-
-                                    if manualStages < 100:
-                                        manualStages += 10
-                                        time.sleep(0.2)
-                                
-                                    elif manualStages == 100:
-                                        manualStages = 1
-                                        time.sleep(0.2)
-                                
-                                    else:
-                                        continue
-
-                                elif GPIO.input(button2):
-
-                                    if manualStages < 100:
-                                        manualStages -= 10
-                                        time.sleep(0.2)
-                                
-                                    elif manualStages == 1:
-                                        manualStages = 100
-                                        time.sleep(0.2)
-                                
-                                    else:
-                                        continue
+                            elif GPIO.input(button4) and not GPIO.input(button1):
+                                if manualStages < 100:
+                                    manualStages += 10
+                                    time.sleep(0.2)
+                            
+                                elif manualStages == 100:
+                                    manualStages = 1
+                                    time.sleep(0.2)
+                            
                                 else:
                                     continue
+
+                            elif GPIO.input(button4) and GPIO.input(button2):
+
+                                if manualStages < 100:
+                                    manualStages -= 10
+                                    time.sleep(0.2)
+                            
+                                elif manualStages == 1:
+                                    manualStages = 100
+                                    time.sleep(0.2)
+                            
+                                else:
+                                    continue
+                            else:
+                                continue
 
                             elif GPIO.input(button5):
                                 manualStages = 1
