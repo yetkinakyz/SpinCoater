@@ -87,8 +87,9 @@ quickSeconds2 = ["STAGE 2", 180, 180, 180, 180, 180]
 manualStages = 1
 manualSecond = 5
 manualSpeed = 500
-manualSeconds = ["5"]
-manualSpeeds = ["500"]
+
+manualSeconds = ["-"]
+manualSpeeds = ["-"]
 
 ## POSITIONS
 menuPosition = 0
@@ -155,7 +156,8 @@ while True:
                     time.sleep(0.2)
 
                 elif GPIO.input(button6):
-                    time.sleep(0.5)
+                    time.sleep(0.2)
+
                     display.lcd_clear()
                     time.sleep(0.2)
 
