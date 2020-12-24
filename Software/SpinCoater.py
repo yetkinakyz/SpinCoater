@@ -326,7 +326,7 @@ while True:
 
                             else:
                                 continue
-
+                        
                         for stage in range(1, manualStages):
                             manualSeconds.append(manualSecond)
                             manualSpeeds.append(manualSpeed)
@@ -442,8 +442,6 @@ while True:
                                             continue
                                     
                                     if manualStop:
-                                        manualStop = False
-
                                         setPosition = 0
                                         manualStages = 1    
 
@@ -579,7 +577,6 @@ while True:
                                 break
 
                             else:
-                                manualStop = False
 
                                 setPosition = 0
                                 manualStages = 1    
