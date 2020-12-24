@@ -357,7 +357,7 @@ while True:
 
                                                     time.sleep(0.2)
 
-                                                elif manualSeconds[stage] == 5:
+                                                elif manualSeconds[stage] <= 5:
                                                     manualSeconds[stage] = 60
 
                                                     time.sleep(0.2)
