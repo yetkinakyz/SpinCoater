@@ -592,9 +592,9 @@ while True:
                                 break
                             
                 elif GPIO.input(button5):
-                    display.lcd_clean()
+                    display.lcd_clear()
                     time.sleep(0.2)
-                    
+
                     break
                 
                 else:
