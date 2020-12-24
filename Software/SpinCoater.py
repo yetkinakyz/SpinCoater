@@ -350,34 +350,76 @@ while True:
                                         if not GPIO.input(button1):
                                             display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
 
-                                            if manualSeconds[stage] < 3600:
-                                                manualSeconds[stage] += 5
+                                            if GPIO.input(button4):
 
-                                                time.sleep(0.2)
+                                                if manualSeconds[stage] < 3540:
+                                                    manualSeconds[stage] += 60
 
-                                            elif manualSeconds[stage] == 3600:
-                                                manualSeconds[stage] = 5
+                                                    time.sleep(0.2)
 
-                                                time.sleep(0.2)
+                                                elif manualSeconds[stage] == 5:
+                                                    manualSeconds[stage] = 60
 
+                                                    time.sleep(0.2)
+
+                                                elif manualSeconds[stage] == 3540:
+                                                    manualSeconds[stage] = 5
+
+                                                    time.sleep(0.2)
+
+                                                else:
+                                                    continue
+
+                                            if GPIO.input(button4):
+                                                
+                                                if manualSeconds[stage] < 3600:
+                                                    manualSeconds[stage] += 5
+
+                                                    time.sleep(0.2)
+
+                                                elif manualSeconds[stage] == 3600:
+                                                    manualSeconds[stage] = 5
+
+                                                    time.sleep(0.2)
+
+                                                else:
+                                                    continue
+                                            
                                             else:
                                                 continue
 
                                         elif GPIO.input(button2):
                                             display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
 
-                                            if manualSeconds[stage] > 5:
-                                                manualSeconds[stage] -= 5
+                                            if GPIO.input(button4):
 
-                                                time.sleep(0.2)
-                                            
-                                            elif manualSeconds[stage] == 5:
-                                                manualSeconds[stage] = 3600
+                                                if manualSeconds[stage] >= 120:
+                                                    manualSeconds[stage] -= 60
 
-                                                time.sleep(0.2)
-                                            
-                                            else:
-                                                continue
+                                                    time.sleep(0.2)
+                                                
+                                                elif manualSeconds[stage] <= 60:
+                                                    manualSeconds[stage] = 3600
+
+                                                    time.sleep(0.2)
+                                                
+                                                else:
+                                                    continue
+
+                                            if not GPIO.input(button4):
+                                                
+                                                if manualSeconds[stage] > 5:
+                                                    manualSeconds[stage] -= 5
+
+                                                    time.sleep(0.2)
+                                                
+                                                elif manualSeconds[stage] == 5:
+                                                    manualSeconds[stage] = 3600
+
+                                                    time.sleep(0.2)
+                                                
+                                                else:
+                                                    continue
 
                                         elif GPIO.input(button3):
                                             display.lcd_display_string("TIME:          ", 2) #CLEAR LINE 2
