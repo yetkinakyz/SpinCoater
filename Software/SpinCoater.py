@@ -561,36 +561,36 @@ while True:
                                 time.sleep(1)
                                 
                                 break
-                            
-                            display.lcd_clear()
-                            display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
-                            time.sleep(1)
+                            else:
+                                display.lcd_clear()
+                                display.lcd_display_string("    STARTING    ", 1) #PRINT LINE 1
+                                time.sleep(1)
 
-                            for stage in range (1,manualStages):
-                                Spinner.setExpectedRPM(manualSpeeds[stage])
-                                Spinner.setExpectedTime(manualSeconds[stage])
-                                
-                                if stage == 1:
-                                    Spinner.FirstStage()
-
-                                else:
-                                    Spinner.NextStage()
-                                
-                                Spinner.clear()
-                            
-                                
-                            display.lcd_clear()
-                            display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
-
-                            time.sleep(2)
-
-                            setPosition = 0
-                            manualStages = 1    
+                                for stage in range (1,manualStages):
+                                    Spinner.setExpectedRPM(manualSpeeds[stage])
+                                    Spinner.setExpectedTime(manualSeconds[stage])
                                     
-                            manualSeconds = [5]
-                            manualSpeeds = [500]
+                                    if stage == 1:
+                                        Spinner.FirstStage()
 
-                            break
+                                    else:
+                                        Spinner.NextStage()
+                                    
+                                    Spinner.clear()
+                                
+                                    
+                                display.lcd_clear()
+                                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+
+                                time.sleep(2)
+
+                                setPosition = 0
+                                manualStages = 1    
+                                        
+                                manualSeconds = [5]
+                                manualSpeeds = [500]
+
+                                break
                     
                     else:
                         continue
