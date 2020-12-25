@@ -18,7 +18,7 @@ display = lcddriver.lcd()
 
 ## GPIO
 GPIO.setwarnings(False) #DISABLE WARNINGS
-GPIO.setmode(GPIO.BCM) #GPIO PIN NUMBERS (GPIO.BOARD for physical pin numbers.)
+GPIO.setmode(GPIO.BCM) #GPIO PIN NUMBERS (GPIO.BOARD for physical pin numbers.)ü
 
 # MOTOR
 motor_in1 = 23 #MOTOR IN 1
