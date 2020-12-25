@@ -12,7 +12,6 @@ import lcddriver #LCD I2C LIBRARY
 import time
 
 ##### SETUP ##### 
-cancel = False
 
 ## DISPLAY
 display = lcddriver.lcd()
@@ -20,9 +19,6 @@ display = lcddriver.lcd()
 ## GPIO
 GPIO.setwarnings(False) #DISABLE WARNINGS
 GPIO.setmode(GPIO.BCM) #GPIO PIN NUMBERS (GPIO.BOARD for physical pin numbers.)
-
-button5 = 19
-GPIO.setup(button5, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # MOTOR
 motor_in1 = 23 #MOTOR IN 1
@@ -369,16 +365,5 @@ def get_rpm(channel):
     else:
         count = count + 1
 
-def getCancel():
-    return cancel
-
-def cancel(channel):
-    global cancel
-    cancel = True
-
-    clear()
-    done()
-
 GPIO.add_event_detect(ir_sensor, GPIO.FALLING, callback = get_rpm)
-GPIO.add_event_detect(button5, GPIO.RISING, callback= cancel, bouncetime=200)
 
