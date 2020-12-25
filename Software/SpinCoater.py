@@ -209,20 +209,27 @@ while True:
                                 display.lcd_display_string("    STARTING    ", 2) #PRINT LINE 2
                                 time.sleep(2)
 
-                                Spinner.setExpectedTime(quickSeconds1[program])
-                                Spinner.setExpectedRPM(quickSpeeds1[program])
-                                Spinner.FirstStage()
+                                if not Spinner.getCancel():
+                                    Spinner.setExpectedTime(quickSeconds1[program])
+                                    Spinner.setExpectedRPM(quickSpeeds1[program])
+                                    Spinner.FirstStage()
 
                                 Spinner.clear()
 
-                                Spinner.setExpectedTime(quickSeconds2[program])
-                                Spinner.setExpectedRPM(quickSpeeds2[program])
-                                Spinner.NextStage()                                
+                                if not Spinner.getCancel():
+                                    Spinner.setExpectedTime(quickSeconds2[program])
+                                    Spinner.setExpectedRPM(quickSpeeds2[program])
+                                    Spinner.NextStage()                                
 
                                 Spinner.clear()
 
-                                display.lcd_clear()
-                                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+                                if not Spinner.getCancel():
+                                    display.lcd_clear()
+                                    display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+
+                                else:
+                                    display.lcd_clear()
+                                    display.lcd_display_string("    CANCELED    ", 1) #PRINT LINE 1
 
                                 time.sleep(3)
 
@@ -522,29 +529,34 @@ while True:
                                     Spinner.setExpectedRPM(manualSpeeds[stage])
                                     Spinner.setExpectedTime(manualSeconds[stage])
                                     
-                                    if stage == 1:
-                                        Spinner.FirstStage()
+                                    if stage == 1 and not Spinner.getCancel():
+                                            Spinner.FirstStage()
 
+                                    elif stage > 1 and not Spinner.getCancel():
+                                            Spinner.NextStage()
+                                    
                                     else:
-                                        Spinner.NextStage()
+                                        break
                                     
                                     Spinner.clear()
                                 
-                                    
-                                display.lcd_clear()
-                                display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
+                                Spinner.clear()
 
-                                time.sleep(2)
+                                if not Spinner.getCancel():
+                                    display.lcd_clear()
+                                    display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
-                                setPosition = 0
-                                manualStages = 1    
-                                        
-                                manualSeconds = [5]
-                                manualSpeeds = [500]
+                                    time.sleep(2)
 
-                                break
+                                    setPosition = 0
+                                    manualStages = 1    
+                                            
+                                    manualSeconds = [5]
+                                    manualSpeeds = [500]
 
-                            else:
+                                    break
+
+                            elif manualStop or Spinner.getCancel():
 
                                 setPosition = 0
                                 manualStages = 1    
