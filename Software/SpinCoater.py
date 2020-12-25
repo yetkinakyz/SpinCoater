@@ -48,23 +48,19 @@ dateText = "Date: " + dateInfo
 ## MAIN MENU
 mainMenu = ["RUN PROGRAM       ",
             "INFO            ",
-            "VERSION UPDATE  ",
             "REBOOT DEVICE   "]        
 
 mainMenuAscii = ["             " + " " + chr(124) + chr(62),
-                "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + chr(62),
                 "             " + chr(60) + chr(124) + " "]
 
 ## INFO MENU
 infoMenuLine1 = ["RUN OR SET PROG.",
                  "GET INFORMATION ",
-                 versionText       ,
                  "REBOOT OPERATING"]
 
 infoMenuLine2 = ["QUICK OR MANUAL ",
                  "ABOUT PROJECT   ",
-                 dateText          ,
                  "SYSTEM          "]
 
 ## SET MENU
