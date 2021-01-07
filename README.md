@@ -1,5 +1,7 @@
 # Design and Fabrication of a Cost-Effective Spin Coater
 
+<img height="400" src="https://user-images.githubusercontent.com/54535282/103857194-11aa0080-50c7-11eb-9de4-8628f645a4c0.png"> <img height="400" src="https://user-images.githubusercontent.com/54535282/103857848-52eee000-50c8-11eb-85b0-5dcb58865fc9.jpeg">
+
 ## Summary
 
 The main objective of this project is design and fabrication of a cost-effective spin coater for depositing thin films.
@@ -31,8 +33,41 @@ Another factor that needs to be reviewed is the low stabilization that can occur
 [2] Sadegh-cheri,M.2016. “Design,Fabrication,andOpticalCharacterizationofaLow-Costand Open-Source Spin Coater”, J. Chem. Educ., 96, 1268-1272.
 
 ## Images
-Images will be added as soon as possible.
 
-## Manual
-Manual will be added as soon as possible.
+### Appereance
+
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103856508-d0fdb780-50c5-11eb-926c-7b21c8c615c6.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856517-d5c26b80-50c5-11eb-8c55-0aae2315f564.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856529-d9ee8900-50c5-11eb-8ec6-3924be3d7069.jpeg">
+
+### Rotary Part
+
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103856629-03a7b000-50c6-11eb-8c44-b9532e442f41.jpeg">
+
+### Info
+
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103856699-22a64200-50c6-11eb-94cf-0f436f7accb9.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856709-276af600-50c6-11eb-9204-65d3f18f11b8.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856718-2a65e680-50c6-11eb-9ef6-37ddffd903d6.jpeg">
+
+### Main Menu
+
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103856747-3baef300-50c6-11eb-9380-332cf5fd631c.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856758-4073a700-50c6-11eb-8879-610d389a157c.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856764-41a4d400-50c6-11eb-9d21-e5cc4abfc330.jpeg">
+
+### Run Program Menu
+
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103856809-56816780-50c6-11eb-9885-f0f930c373e7.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856821-5aad8500-50c6-11eb-9414-b6fd585b2312.jpeg">
+
+### Quick Programs Menu
+
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103856855-6dc05500-50c6-11eb-9f50-376dd450b368.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856870-72850900-50c6-11eb-8d24-59c40e16a2f1.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856874-744ecc80-50c6-11eb-962d-ab442f010916.jpeg">
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103856883-76b12680-50c6-11eb-9c0a-f22531f55811.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856890-79138080-50c6-11eb-893f-26bb6f6314dc.jpeg">
+
+### Set Manual Program Menu
+
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103856937-8e88aa80-50c6-11eb-89ff-90fda98e52fe.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856946-93e5f500-50c6-11eb-96dd-c450fc7982cd.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856949-95afb880-50c6-11eb-8e4f-940898af463f.jpeg">
+
+### Inside the Device
+
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103856992-aceea600-50c6-11eb-9ea5-1d89dcf65c35.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103857005-b2e48700-50c6-11eb-9418-2479707d94fd.jpeg">
+
+### Circuit Diagram
+
+<img width="300" src="https://user-images.githubusercontent.com/54535282/103857549-c7754f00-50c7-11eb-8797-557379ded70a.png">
 
