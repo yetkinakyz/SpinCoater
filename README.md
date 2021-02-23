@@ -73,9 +73,6 @@ The device has been tested with a transparent PVC coating of 2mm thickness and 2
 
 <img width="300" src="https://user-images.githubusercontent.com/54535282/103856937-8e88aa80-50c6-11eb-89ff-90fda98e52fe.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856946-93e5f500-50c6-11eb-96dd-c450fc7982cd.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103856949-95afb880-50c6-11eb-8e4f-940898af463f.jpeg">
 
-### Inside the Device
-
-<img width="300" src="https://user-images.githubusercontent.com/54535282/103856992-aceea600-50c6-11eb-9ea5-1d89dcf65c35.jpeg"> <img width="300" src="https://user-images.githubusercontent.com/54535282/103857005-b2e48700-50c6-11eb-9418-2479707d94fd.jpeg">
 
 ### Circuit Diagram
 
