@@ -580,11 +580,11 @@ while True:
                 time.sleep(3)
 
                 display.lcd_display_string("DUZCE UNIVERSITY", 1) #PRINT LINE 1
-                display.lcd_display_string("E.E. ENGINEERING", 2) #PRINT LINE 1
+                display.lcd_display_string("E.E. ENGINEERING", 2) #PRINT LINE 2
                 time.sleep(3)
 
                 display.lcd_display_string("VERSION:   " + versionInfo, 1) #PRINT LINE 1
-                display.lcd_display_string("DATE: " + dateInfo, 2) #PRINT LINE 1
+                display.lcd_display_string("DATE: " + dateInfo, 2) #PRINT LINE 2
                 time.sleep(3)
         
         elif menuPosition == 2:
@@ -598,14 +598,14 @@ while True:
         
         elif menuPosition == 3:
             display.lcd_clear()
-            display.lcd_display_string("    UPDATING    ", 1) #PRINT LINE 2
+            display.lcd_display_string("    UPDATING    ", 1) #PRINT LINE 1
             display.lcd_display_string("  FROM  GITHUB  ", 2) #PRINT LINE 2
 
             os.system("git -C $(find ~ -iname SpinCoater)/Software pull")
             time.sleep(1)
 
             display.lcd_clear()
-            display.lcd_display_string("      DONE      ", 1) #PRINT LINE 2
+            display.lcd_display_string("      DONE      ", 1) #PRINT LINE 1
 
             time.sleep(0.5)
 
