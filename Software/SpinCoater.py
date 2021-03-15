@@ -586,8 +586,17 @@ while True:
                 display.lcd_display_string("VERSION:   " + versionInfo, 1) #PRINT LINE 1
                 display.lcd_display_string("DATE: " + dateInfo, 2) #PRINT LINE 1
                 time.sleep(3)
-
+        
         elif menuPosition == 2:
+
+            display.lcd_clear()
+            display.lcd_display_string("  REBOOTING...  ", 1)  
+
+            os.system("sh $(find ~ -iname SpinCoaterReboot.sh)")
+
+            exit()
+        
+        elif menuPosition == 3:
             display.lcd_clear()
             display.lcd_display_string("    UPDATING    ", 1) #PRINT LINE 2
             display.lcd_display_string("  FROM  GITHUB  ", 2) #PRINT LINE 2
@@ -604,15 +613,6 @@ while True:
             display.lcd_display_string("   RESTARTING   ", 1) #PRINT LINE 2
 
             os.system("sh $(find ~ -iname SpinCoaterRestart.sh)")
-
-            exit()
-
-        elif menuPosition == 3:
-
-            display.lcd_clear()
-            display.lcd_display_string("  REBOOTING...  ", 1)  
-
-            os.system("sh $(find ~ -iname SpinCoaterReboot.sh)")
 
             exit()
 
